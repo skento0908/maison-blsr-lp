@@ -94,6 +94,37 @@ body::after{
   50%{background-position: 100% 50%;}
 }
 
+/* ===== Brand Stack: MAISON / BLSR 2列共通スタイル (ロゴ準拠) ===== */
+.brand-stack{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  font-family: var(--serif);
+  font-style: normal;
+}
+.brand-stack__maison{
+  font-weight: 300;
+  font-size: 0.32em;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  margin-bottom: 0.4em;
+  display: block;
+}
+.brand-stack__blsr{
+  font-weight: 400;
+  font-size: 1em;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  display: block;
+}
+/* 1列版 (横並びが必要な場所用、字間のみ統一) */
+.brand-inline{
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+}
+
 /* ヘッダー */
 .page-header{
   position: sticky;
@@ -558,7 +589,10 @@ body::after{
 <body>
 
 <header class="page-header">
-  <a href="index.html" class="page-header__brand">MAISON BLSR</a>
+  <a href="index.html" class="page-header__brand brand-stack gold-text">
+    <span class="brand-stack__maison">MAISON</span>
+    <span class="brand-stack__blsr">BLSR</span>
+  </a>
   <a href="index.html" class="page-header__back">← Back to Home</a>
 </header>
 
@@ -566,7 +600,7 @@ body::after{
   <div class="diamond-table__container">
     <div class="section-label">Reference &nbsp;·&nbsp; The Standard</div>
     <h1 class="diamond-table__title gold-text">Diamond Grading Reference</h1>
-    <p class="diamond-table__subtitle">— MAISON BLSR ラボグロウンダイヤモンド 4C 詳細仕様 —</p>
+    <p class="diamond-table__subtitle">— <span class="brand-inline">MAISON&nbsp;BLSR</span> ラボグロウンダイヤモンド 4C 詳細仕様 —</p>
 
     <!-- CARAT -->
     <div class="grade-block">
@@ -659,18 +693,21 @@ body::after{
     </div>
 
     <div class="diamond-table__standard">
-      <div class="diamond-table__standard-label">— MAISON BLSR Standard —</div>
+      <div class="diamond-table__standard-label">— <span class="brand-inline">MAISON&nbsp;BLSR</span> Standard —</div>
       <div class="diamond-table__standard-value">
         <span>D &mdash; F</span> <span class="sep">/</span> <span>VS 以上</span> <span class="sep">/</span> <span>Excellent 中心</span> <span class="sep">/</span> <span>Certified</span>
       </div>
-      <div class="diamond-table__standard-sub">Certified lab-grown diamonds, curated by MAISON BLSR.</div>
+      <div class="diamond-table__standard-sub">Certified lab-grown diamonds, curated by <span class="brand-inline">MAISON&nbsp;BLSR</span>.</div>
     </div>
   </div>
 </section>
 
 <footer class="page-footer">
-  <div class="page-footer__brand gold-text">MAISON BLSR</div>
-  <div class="page-footer__copy">&copy; 2026 MAISON BLSR &nbsp;·&nbsp; Hidden In Brilliance.</div>
+  <div class="page-footer__brand brand-stack gold-text">
+    <span class="brand-stack__maison">MAISON</span>
+    <span class="brand-stack__blsr">BLSR</span>
+  </div>
+  <div class="page-footer__copy">&copy; 2026 <span class="brand-inline">MAISON&nbsp;BLSR</span> &nbsp;·&nbsp; Hidden In Brilliance.</div>
 </footer>
 
 </body>
