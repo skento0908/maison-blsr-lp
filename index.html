@@ -1492,6 +1492,24 @@ section + section::before{
   opacity: 0.75;
   text-transform: uppercase;
 }
+.diamond-table__detail-link{
+  display: inline-block;
+  margin-top: 32px;
+  padding-bottom: 6px;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184,146,63,0.4);
+  transition: color 0.5s ease, border-color 0.5s ease, letter-spacing 0.5s ease;
+}
+.diamond-table__detail-link:hover{
+  color: var(--gold-champagne);
+  border-bottom-color: var(--gold-champagne);
+  letter-spacing: 0.55em;
+}
 
 /* レスポンシブ */
 @media (max-width: 768px){
@@ -2148,6 +2166,32 @@ section + section::before{
   cursor: none;
 }
 .cta-secondary:hover{ opacity: 1; }
+.cta--invitation{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 64px;
+  letter-spacing: 0;
+}
+.cta--invitation .cta__line{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.65em;
+  text-transform: uppercase;
+  transition: letter-spacing 0.7s var(--ease-slow);
+}
+.cta--invitation .cta__sub-jp{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: none;
+  opacity: 0.7;
+  color: inherit;
+}
+.cta--invitation:hover{ letter-spacing: 0; }
+.cta--invitation:hover .cta__line{ letter-spacing: 0.75em; }
 
 /* ===== FOOTER ===== */
 .footer{
@@ -2475,102 +2519,13 @@ section + section::before{
     <h2 class="diamond-table__title gold-text">Lab-Grown Diamond</h2>
     <p class="diamond-table__subtitle">— MAISON BLSR ラボグロウンダイヤモンドの標準仕様 —</p>
 
-    <!-- CARAT -->
-    <div class="grade-block">
-      <div class="grade-block__head">
-        <div class="grade-block__c">Carat</div>
-        <div class="grade-block__label">カラット &nbsp;·&nbsp; サイズ目安</div>
-      </div>
-      <div class="grade-block__scale grade-block__scale--carat">
-        <div class="carat-cell"><div class="carat-icon" style="font-size:10px;">◇</div><div class="carat-ct">0.1</div><div class="carat-mm">3.0 mm</div></div>
-        <div class="carat-cell"><div class="carat-icon" style="font-size:13px;">◇</div><div class="carat-ct">0.2</div><div class="carat-mm">3.7 mm</div></div>
-        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:15px;">◇</div><div class="carat-ct">0.3</div><div class="carat-mm">4.3 mm</div></div>
-        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:18px;">◇</div><div class="carat-ct">0.5</div><div class="carat-mm">5.2 mm</div></div>
-        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:21px;">◇</div><div class="carat-ct">0.7</div><div class="carat-mm">5.8 mm</div></div>
-        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:25px;">◇</div><div class="carat-ct">1.0</div><div class="carat-mm">6.6 mm</div></div>
-        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:30px;">◇</div><div class="carat-ct">2.0</div><div class="carat-mm">8.2 mm</div></div>
-        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:34px;">◇</div><div class="carat-ct">3.0</div><div class="carat-mm">9.3 mm</div></div>
-        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:40px;">◇</div><div class="carat-ct">5.0</div><div class="carat-mm">11.0 mm</div></div>
-      </div>
-      <div class="grade-block__note">※ 一般的なカットのダイヤモンドの大きさ目安です。カットの種類により、同じカラット数でも大きさが異なる場合がございます。</div>
-    </div>
-
-    <!-- COLOR -->
-    <div class="grade-block">
-      <div class="grade-block__head">
-        <div class="grade-block__c">Color</div>
-        <div class="grade-block__label">カラー &nbsp;·&nbsp; 無色度</div>
-      </div>
-      <div class="grade-block__scale grade-block__scale--color">
-        <div class="color-group">
-          <div class="color-group__cells">
-            <div class="color-cell is-marked">D</div>
-            <div class="color-cell is-marked">E</div>
-            <div class="color-cell is-marked">F</div>
-          </div>
-          <div class="color-group__label">Colorless<br><span>無色</span></div>
-        </div>
-        <div class="color-group">
-          <div class="color-group__cells">
-            <div class="color-cell">G</div>
-            <div class="color-cell">H</div>
-            <div class="color-cell">I</div>
-            <div class="color-cell">J</div>
-          </div>
-          <div class="color-group__label">Near Colorless<br><span>ほぼ無色</span></div>
-        </div>
-        <div class="color-group">
-          <div class="color-group__cells">
-            <div class="color-cell">K</div>
-            <div class="color-cell">L</div>
-            <div class="color-cell">M</div>
-          </div>
-          <div class="color-group__label">Faint Yellow<br><span>わずかな黄色味</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLARITY -->
-    <div class="grade-block">
-      <div class="grade-block__head">
-        <div class="grade-block__c">Clarity</div>
-        <div class="grade-block__label">クラリティ &nbsp;·&nbsp; 透明度</div>
-      </div>
-      <div class="grade-block__scale grade-block__scale--clarity">
-        <div class="clarity-cell is-marked"><div class="clarity-grade">F / IF</div><div class="clarity-desc">無傷・極微小内包物</div></div>
-        <div class="clarity-cell is-marked"><div class="clarity-grade">VVS1</div><div class="clarity-desc">ごくごく僅かな内包物</div></div>
-        <div class="clarity-cell is-marked"><div class="clarity-grade">VVS2</div><div class="clarity-desc">ごくごく僅かな内包物</div></div>
-        <div class="clarity-cell is-marked"><div class="clarity-grade">VS1</div><div class="clarity-desc">ごく僅かな内包物</div></div>
-        <div class="clarity-cell is-marked"><div class="clarity-grade">VS2</div><div class="clarity-desc">ごく僅かな内包物</div></div>
-        <div class="clarity-cell"><div class="clarity-grade">SI1</div><div class="clarity-desc">僅かな内包物</div></div>
-        <div class="clarity-cell"><div class="clarity-grade">SI2</div><div class="clarity-desc">僅かな内包物</div></div>
-        <div class="clarity-cell"><div class="clarity-grade">I1</div><div class="clarity-desc">内包物</div></div>
-        <div class="clarity-cell"><div class="clarity-grade">I2</div><div class="clarity-desc">内包物</div></div>
-        <div class="clarity-cell"><div class="clarity-grade">I3</div><div class="clarity-desc">内包物</div></div>
-      </div>
-    </div>
-
-    <!-- CUT -->
-    <div class="grade-block">
-      <div class="grade-block__head">
-        <div class="grade-block__c">Cut</div>
-        <div class="grade-block__label">カット &nbsp;·&nbsp; 研磨の精度</div>
-      </div>
-      <div class="grade-block__scale grade-block__scale--cut">
-        <div class="cut-cell is-marked">Excellent</div>
-        <div class="cut-cell is-marked">Very Good</div>
-        <div class="cut-cell">Good</div>
-        <div class="cut-cell">Fair</div>
-        <div class="cut-cell">Poor</div>
-      </div>
-    </div>
-
     <div class="diamond-table__standard">
       <div class="diamond-table__standard-label">— MAISON BLSR Standard —</div>
       <div class="diamond-table__standard-value">
-        <span>D &mdash; F</span> <span class="sep">/</span> <span>F-IF &mdash; VS2</span> <span class="sep">/</span> <span>EX &mdash; VG</span> <span class="sep">/</span> <span>0.3ct &mdash;</span>
+        <span>D &mdash; F</span> <span class="sep">/</span> <span>VS 以上</span> <span class="sep">/</span> <span>Excellent 中心</span> <span class="sep">/</span> <span>Certified</span>
       </div>
-      <div class="diamond-table__standard-sub">All diamonds certified &nbsp;·&nbsp; Lab-grown by MAISON BLSR</div>
+      <div class="diamond-table__standard-sub">Certified lab-grown diamonds, curated by MAISON BLSR.</div>
+      <a href="diamond-grade.html" class="diamond-table__detail-link">View Full Grading Reference &nbsp;→</a>
     </div>
   </div>
 </section>
@@ -2590,6 +2545,10 @@ section + section::before{
     </div>
     <div class="final__cta-wrap">
       <a href="#" class="cta" data-magnetic>Enter The Maison</a>
+      <a href="#invitation" class="cta cta--invitation" data-magnetic>
+        <span class="cta__line">Request Invitation</span>
+        <span class="cta__sub-jp">先行案内を受け取る</span>
+      </a>
       <a href="#" class="cta-secondary" data-magnetic>— By Invitation Only —</a>
     </div>
   </div>

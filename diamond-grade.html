@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Grading Reference — MAISON BLSR</title>
+<meta name="description" content="MAISON BLSR Lab-Grown Diamond grading reference: Carat, Color, Clarity, Cut.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black: #080a0d;
+  --black-soft: #11141a;
+  --black-mid: #1a1d24;
+  --black-deep: #04050a;
+
+  --gold-deep: #9c7c38;
+  --gold: #b8923f;
+  --gold-bright: #d4b56a;
+  --gold-champagne: #e8d4a0;
+  --gold-vintage: #8a6d2e;
+  --gold-pale: #f4e7c3;
+  --gold-shadow: rgba(184,146,63,0.15);
+
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --gold-gradient: linear-gradient(135deg,
+    var(--gold-vintage) 0%,
+    var(--gold) 22%,
+    var(--gold-bright) 48%,
+    var(--gold-champagne) 72%,
+    var(--gold-deep) 100%
+  );
+
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{
+  scroll-behavior: smooth;
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "kern", "liga", "calt";
+}
+
+body{
+  background: var(--black);
+  color: var(--gold-champagne);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* グレインノイズ */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index: 200;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index: 199;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.55) 100%);
+}
+
+/* gold-text */
+.gold-text{
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 9s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%,100%{background-position: 0% 50%;}
+  50%{background-position: 100% 50%;}
+}
+
+/* ヘッダー */
+.page-header{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 24px 48px;
+  background: rgba(8,10,13,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,146,63,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header__brand{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  color: var(--gold-champagne);
+  text-decoration: none;
+}
+.page-header__back{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(184,146,63,0.4);
+  transition: color 0.5s ease, border-color 0.5s ease, letter-spacing 0.5s ease;
+}
+.page-header__back:hover{
+  color: var(--gold-champagne);
+  border-bottom-color: var(--gold-champagne);
+  letter-spacing: 0.5em;
+}
+
+/* セクションラベル */
+.section-label{
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: center;
+}
+.section-label::before,
+.section-label::after{
+  content: "";
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* メインレイアウト */
+.diamond-table{
+  background: var(--black);
+  padding: 100px 48px 140px;
+  position: relative;
+  z-index: 2;
+}
+.diamond-table__container{
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.diamond-table__title{
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(32px, 5vw, 68px);
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.diamond-table__subtitle{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.3vw, 18px);
+  letter-spacing: 0.15em;
+  color: var(--gold-champagne);
+  opacity: 0.7;
+  margin-bottom: 88px;
+}
+
+/* 各Cブロック */
+.grade-block{
+  width: 100%;
+  margin-bottom: 80px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(184,146,63,0.15);
+}
+.grade-block:last-of-type{
+  border-bottom: none;
+  margin-bottom: 56px;
+}
+.grade-block__head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+  gap: 12px;
+}
+.grade-block__c{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+.grade-block__label{
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}
+.grade-block__note{
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  opacity: 0.7;
+  text-align: center;
+  line-height: 1.8;
+}
+.grade-block__scale{
+  width: 100%;
+}
+
+/* CARAT */
+.grade-block__scale--carat{
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 8px;
+}
+.carat-cell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 4px;
+  border: 1px solid rgba(184,146,63,0.15);
+  position: relative;
+  min-height: 130px;
+  transition: all 0.6s var(--ease-slow);
+}
+.carat-cell:hover{
+  background: rgba(184,146,63,0.05);
+  border-color: rgba(184,146,63,0.4);
+}
+.carat-cell.is-marked{
+  background: linear-gradient(180deg, rgba(184,146,63,0.08) 0%, rgba(212,181,106,0.18) 100%);
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 30px rgba(184,146,63,0.2), inset 0 0 20px rgba(184,146,63,0.1);
+}
+.carat-cell.is-marked::before{
+  content: "STANDARD";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-size: 7px;
+  letter-spacing: 0.3em;
+  color: var(--gold-bright);
+  background: var(--black);
+  padding: 4px 8px;
+  border: 1px solid var(--gold);
+}
+.carat-icon{
+  color: var(--gold-bright);
+  line-height: 1;
+  opacity: 0.85;
+}
+.carat-ct{
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gold-champagne);
+  letter-spacing: 0.04em;
+}
+.carat-mm{
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  opacity: 0.75;
+}
+
+/* COLOR */
+.grade-block__scale--color{
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr;
+  gap: 16px;
+}
+.color-group{
+  border: 1px solid rgba(184,146,63,0.2);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.color-group__cells{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.color-cell{
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--gold-champagne);
+  border: 1px solid rgba(184,146,63,0.25);
+  transition: all 0.6s var(--ease-slow);
+  letter-spacing: 0.02em;
+}
+.color-cell:hover{
+  background: rgba(184,146,63,0.08);
+  border-color: rgba(184,146,63,0.5);
+}
+.color-cell.is-marked{
+  background: var(--gold-gradient);
+  color: var(--black);
+  border: 1px solid var(--gold-bright);
+  box-shadow: 0 0 20px rgba(184,146,63,0.4);
+  font-weight: 500;
+}
+.color-group__label{
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--gold-bright);
+  text-align: center;
+  line-height: 1.6;
+  font-style: italic;
+}
+.color-group__label span{
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+/* CLARITY */
+.grade-block__scale--clarity{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+}
+.clarity-cell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 8px;
+  border: 1px solid rgba(184,146,63,0.18);
+  transition: all 0.6s var(--ease-slow);
+  position: relative;
+}
+.clarity-cell:hover{
+  background: rgba(184,146,63,0.05);
+  border-color: rgba(184,146,63,0.4);
+}
+.clarity-cell.is-marked{
+  background: linear-gradient(180deg, rgba(184,146,63,0.08) 0%, rgba(212,181,106,0.18) 100%);
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 30px rgba(184,146,63,0.2);
+}
+.clarity-cell.is-marked::before{
+  content: "STANDARD";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-size: 7px;
+  letter-spacing: 0.3em;
+  color: var(--gold-bright);
+  background: var(--black);
+  padding: 4px 8px;
+  border: 1px solid var(--gold);
+}
+.clarity-grade{
+  font-family: var(--serif);
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: var(--gold-champagne);
+  font-style: italic;
+}
+.clarity-desc{
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  opacity: 0.75;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* CUT */
+.grade-block__scale--cut{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.cut-cell{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+  border: 1px solid rgba(184,146,63,0.2);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: var(--gold-champagne);
+  transition: all 0.6s var(--ease-slow);
+  position: relative;
+}
+.cut-cell:hover{
+  background: rgba(184,146,63,0.05);
+  border-color: rgba(184,146,63,0.4);
+}
+.cut-cell.is-marked{
+  background: linear-gradient(180deg, rgba(184,146,63,0.1) 0%, rgba(212,181,106,0.22) 100%);
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 30px rgba(184,146,63,0.25);
+  color: var(--gold-bright);
+}
+.cut-cell.is-marked::before{
+  content: "STANDARD";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-size: 7px;
+  letter-spacing: 0.3em;
+  color: var(--gold-bright);
+  background: var(--black);
+  padding: 4px 8px;
+  border: 1px solid var(--gold);
+}
+
+/* 標準仕様まとめ */
+.diamond-table__standard{
+  margin-top: 64px;
+  padding: 56px 32px;
+  border-top: 1px solid rgba(184,146,63,0.25);
+  border-bottom: 1px solid rgba(184,146,63,0.25);
+  text-align: center;
+}
+.diamond-table__standard-label{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 28px;
+}
+.diamond-table__standard-value{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(22px, 3.2vw, 40px);
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 9s ease-in-out infinite;
+}
+.diamond-table__standard-value .sep{
+  opacity: 0.4;
+  margin: 0 0.4em;
+}
+.diamond-table__standard-sub{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+/* フッター */
+.page-footer{
+  padding: 72px 48px 44px;
+  text-align: center;
+  border-top: 1px solid rgba(184,146,63,0.15);
+  background: var(--black);
+  position: relative;
+  z-index: 2;
+}
+.page-footer__brand{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.4em;
+  margin-bottom: 12px;
+}
+.page-footer__copy{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px){
+  .page-header{ padding: 18px 24px; }
+  .page-header__brand{ font-size: 13px; letter-spacing: 0.25em; }
+  .page-header__back{ font-size: 9px; letter-spacing: 0.3em; }
+  .diamond-table{ padding: 60px 24px 100px; }
+  .grade-block__scale--carat{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .grade-block__scale--color{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .grade-block__scale--clarity{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .grade-block__scale--cut{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .cut-cell{ font-size: 14px; padding: 16px 8px; }
+  .carat-cell{ min-height: 100px; padding: 12px 4px; }
+  .carat-ct{ font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <a href="index.html" class="page-header__brand">MAISON BLSR</a>
+  <a href="index.html" class="page-header__back">← Back to Home</a>
+</header>
+
+<section class="diamond-table">
+  <div class="diamond-table__container">
+    <div class="section-label">Reference &nbsp;·&nbsp; The Standard</div>
+    <h1 class="diamond-table__title gold-text">Diamond Grading Reference</h1>
+    <p class="diamond-table__subtitle">— MAISON BLSR ラボグロウンダイヤモンド 4C 詳細仕様 —</p>
+
+    <!-- CARAT -->
+    <div class="grade-block">
+      <div class="grade-block__head">
+        <div class="grade-block__c">Carat</div>
+        <div class="grade-block__label">カラット &nbsp;·&nbsp; サイズ目安</div>
+      </div>
+      <div class="grade-block__scale grade-block__scale--carat">
+        <div class="carat-cell"><div class="carat-icon" style="font-size:10px;">◇</div><div class="carat-ct">0.1</div><div class="carat-mm">3.0 mm</div></div>
+        <div class="carat-cell"><div class="carat-icon" style="font-size:13px;">◇</div><div class="carat-ct">0.2</div><div class="carat-mm">3.7 mm</div></div>
+        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:15px;">◇</div><div class="carat-ct">0.3</div><div class="carat-mm">4.3 mm</div></div>
+        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:18px;">◇</div><div class="carat-ct">0.5</div><div class="carat-mm">5.2 mm</div></div>
+        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:21px;">◇</div><div class="carat-ct">0.7</div><div class="carat-mm">5.8 mm</div></div>
+        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:25px;">◇</div><div class="carat-ct">1.0</div><div class="carat-mm">6.6 mm</div></div>
+        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:30px;">◇</div><div class="carat-ct">2.0</div><div class="carat-mm">8.2 mm</div></div>
+        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:34px;">◇</div><div class="carat-ct">3.0</div><div class="carat-mm">9.3 mm</div></div>
+        <div class="carat-cell is-marked"><div class="carat-icon" style="font-size:40px;">◇</div><div class="carat-ct">5.0</div><div class="carat-mm">11.0 mm</div></div>
+      </div>
+      <div class="grade-block__note">※ 一般的なカットのダイヤモンドの大きさ目安です。カットの種類により、同じカラット数でも大きさが異なる場合がございます。</div>
+    </div>
+
+    <!-- COLOR -->
+    <div class="grade-block">
+      <div class="grade-block__head">
+        <div class="grade-block__c">Color</div>
+        <div class="grade-block__label">カラー &nbsp;·&nbsp; 無色度</div>
+      </div>
+      <div class="grade-block__scale grade-block__scale--color">
+        <div class="color-group">
+          <div class="color-group__cells">
+            <div class="color-cell is-marked">D</div>
+            <div class="color-cell is-marked">E</div>
+            <div class="color-cell is-marked">F</div>
+          </div>
+          <div class="color-group__label">Colorless<br><span>無色</span></div>
+        </div>
+        <div class="color-group">
+          <div class="color-group__cells">
+            <div class="color-cell">G</div>
+            <div class="color-cell">H</div>
+            <div class="color-cell">I</div>
+            <div class="color-cell">J</div>
+          </div>
+          <div class="color-group__label">Near Colorless<br><span>ほぼ無色</span></div>
+        </div>
+        <div class="color-group">
+          <div class="color-group__cells">
+            <div class="color-cell">K</div>
+            <div class="color-cell">L</div>
+            <div class="color-cell">M</div>
+          </div>
+          <div class="color-group__label">Faint Yellow<br><span>わずかな黄色味</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLARITY -->
+    <div class="grade-block">
+      <div class="grade-block__head">
+        <div class="grade-block__c">Clarity</div>
+        <div class="grade-block__label">クラリティ &nbsp;·&nbsp; 透明度</div>
+      </div>
+      <div class="grade-block__scale grade-block__scale--clarity">
+        <div class="clarity-cell is-marked"><div class="clarity-grade">F / IF</div><div class="clarity-desc">無傷・極微小内包物</div></div>
+        <div class="clarity-cell is-marked"><div class="clarity-grade">VVS1</div><div class="clarity-desc">ごくごく僅かな内包物</div></div>
+        <div class="clarity-cell is-marked"><div class="clarity-grade">VVS2</div><div class="clarity-desc">ごくごく僅かな内包物</div></div>
+        <div class="clarity-cell is-marked"><div class="clarity-grade">VS1</div><div class="clarity-desc">ごく僅かな内包物</div></div>
+        <div class="clarity-cell is-marked"><div class="clarity-grade">VS2</div><div class="clarity-desc">ごく僅かな内包物</div></div>
+        <div class="clarity-cell"><div class="clarity-grade">SI1</div><div class="clarity-desc">僅かな内包物</div></div>
+        <div class="clarity-cell"><div class="clarity-grade">SI2</div><div class="clarity-desc">僅かな内包物</div></div>
+        <div class="clarity-cell"><div class="clarity-grade">I1</div><div class="clarity-desc">内包物</div></div>
+        <div class="clarity-cell"><div class="clarity-grade">I2</div><div class="clarity-desc">内包物</div></div>
+        <div class="clarity-cell"><div class="clarity-grade">I3</div><div class="clarity-desc">内包物</div></div>
+      </div>
+    </div>
+
+    <!-- CUT -->
+    <div class="grade-block">
+      <div class="grade-block__head">
+        <div class="grade-block__c">Cut</div>
+        <div class="grade-block__label">カット &nbsp;·&nbsp; 研磨の精度</div>
+      </div>
+      <div class="grade-block__scale grade-block__scale--cut">
+        <div class="cut-cell is-marked">Excellent</div>
+        <div class="cut-cell is-marked">Very Good</div>
+        <div class="cut-cell">Good</div>
+        <div class="cut-cell">Fair</div>
+        <div class="cut-cell">Poor</div>
+      </div>
+    </div>
+
+    <div class="diamond-table__standard">
+      <div class="diamond-table__standard-label">— MAISON BLSR Standard —</div>
+      <div class="diamond-table__standard-value">
+        <span>D &mdash; F</span> <span class="sep">/</span> <span>VS 以上</span> <span class="sep">/</span> <span>Excellent 中心</span> <span class="sep">/</span> <span>Certified</span>
+      </div>
+      <div class="diamond-table__standard-sub">Certified lab-grown diamonds, curated by MAISON BLSR.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <div class="page-footer__brand gold-text">MAISON BLSR</div>
+  <div class="page-footer__copy">&copy; 2026 MAISON BLSR &nbsp;·&nbsp; Hidden In Brilliance.</div>
+</footer>
+
+</body>
+</html>
