@@ -65,6 +65,37 @@ body::before{
   color: transparent;
 }
 
+/* ===== Brand Stack: MAISON / BLSR 規範 (LP共通) ===== */
+.brand-stack{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  font-family: var(--serif);
+  font-style: normal;
+}
+.brand-stack__maison{
+  font-weight: 400;
+  font-size: 0.34em;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em;
+  margin-bottom: 0.55em;
+  display: block;
+}
+.brand-stack__blsr{
+  font-weight: 300;
+  font-size: 1em;
+  letter-spacing: 0.7em;
+  text-indent: 0.7em;
+  display: block;
+}
+/* 1列版 (文中で使用、字間のみ統一) */
+.brand-inline{
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+}
+
 /* ===== コントロール ===== */
 .controls{
   position: fixed;
@@ -529,36 +560,19 @@ body::before{
   font-weight: 500;
   font-size: 56px;
   letter-spacing: -0.08em;
-  margin: 0 auto 16px;
+  margin: 0 auto 18px;
 }
+/* MAISON / BLSR brand-stack 規範をそのまま使用 (LP共通) */
+/* 親で font-size を決定 → BLSR=1em, MAISON=0.34em の比率で連動 */
 .rebirth__brand-stack{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
-  font-family: var(--serif);
-}
-.rebirth__brand-stack .maison{
-  font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 0.55em;
-  text-indent: 0.55em;
-  margin-bottom: 8px;
-  color: var(--gold-bright);
-}
-.rebirth__brand-stack .blsr{
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 0.4em;
-  text-indent: 0.4em;
-  color: var(--gold-champagne);
+  font-size: 32px;
 }
 .rebirth__tagline{
   font-family: var(--serif);
   font-style: italic;
   font-size: 13px;
   letter-spacing: 0.2em;
-  margin-top: 12px;
+  margin-top: 14px;
   color: var(--gold-bright);
 }
 .rebirth__body{
@@ -607,10 +621,9 @@ body::before{
   line-height: 1.7;
 }
 .celebrity__title-em{
+  /* color/weightのみ。font-family・letter-spacingは brand-inline 規範に従う */
   color: var(--gold);
   font-weight: 500;
-  font-family: var(--serif);
-  letter-spacing: 0.25em;
 }
 .celebrity__grid{
   display: grid;
@@ -910,18 +923,18 @@ body::before{
   <section class="rebirth">
     <div class="rebirth__brand">
       <div class="rebirth__monogram gold-text">BR</div>
-      <div class="rebirth__brand-stack gold-text">
-        <span class="maison">MAISON</span>
-        <span class="blsr">BLSR</span>
+      <div class="rebirth__brand-stack brand-stack gold-text">
+        <span class="brand-stack__maison">MAISON</span>
+        <span class="brand-stack__blsr">BLSR</span>
       </div>
       <div class="rebirth__tagline">Hidden In Brilliance.</div>
     </div>
 
     <div class="rebirth__body">
-      2010年代、多くの人々に愛されてきたBLSRが、<br>
+      2010年代、多くの人々に愛されてきた<span class="brand-inline">BLSR</span>が、<br>
       その想いと品質を受け継ぎ、
       <span class="rebirth__highlight">7年の時を経て</span>
-      <span class="rebirth__highlight rebirth__highlight-2">新生 MAISON BLSR として</span>
+      <span class="rebirth__highlight rebirth__highlight-2">新生 <span class="brand-inline">MAISON&nbsp;BLSR</span> として</span>
       生まれ変わります。<br>
       変わらない想いと、進化した品質で、<br>
       新たなラグジュアリーの時代へ。
@@ -936,7 +949,7 @@ body::before{
   <section class="celebrity">
     <h2 class="celebrity__title">
       世界中のセレブリティに愛されてきた、<br>
-      <span class="celebrity__title-em">BLSR</span> のジュエリー。
+      <span class="celebrity__title-em brand-inline">BLSR</span> のジュエリー。
     </h2>
     <div class="celebrity__grid">
       <div class="celeb-card">
