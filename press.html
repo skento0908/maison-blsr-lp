@@ -362,6 +362,30 @@ body::after{
   text-align: center;
 }
 
+/* Magazineスプレッド */
+.magazine-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.magazine-card{
+  background: var(--black-mid);
+  border: 1px solid rgba(184,146,63,0.2);
+  padding: 12px;
+  overflow: hidden;
+  transition: border-color 0.6s var(--ease-slow), transform 0.6s var(--ease-slow);
+}
+.magazine-card:hover{
+  border-color: rgba(184,146,63,0.55);
+  transform: translateY(-3px);
+}
+.magazine-card img{
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+}
+
 /* Filmセクション (プレースホルダー) */
 .film-placeholder{
   text-align: center;
@@ -433,6 +457,7 @@ body::after{
   .talent-gallery{ column-count: 2; column-gap: 8px; }
   .talent-gallery__item{ margin-bottom: 8px; }
   .tv-grid{ grid-template-columns: 1fr; gap: 20px; }
+  .magazine-grid{ grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 480px){
   .talent-gallery{ column-count: 2; }
@@ -598,6 +623,38 @@ body::after{
         <div class="tv-card__role">— Talk —</div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<div class="press-divider"></div>
+
+<!-- ===== MAGAZINE ===== -->
+<section class="press-section">
+  <div class="press-section__container">
+    <div class="press-section__head">
+      <div class="press-section__label">Magazine</div>
+      <h2 class="press-section__title gold-text">雑誌掲載</h2>
+      <p class="press-section__caption">
+        Oggi &nbsp;·&nbsp; JJ &nbsp;·&nbsp; GINGER &nbsp;·&nbsp; CanCam &nbsp;·&nbsp; and GIRL &nbsp;·&nbsp;<br>
+        GOSSIPS &nbsp;·&nbsp; Mart &nbsp;·&nbsp; LARME &nbsp;·&nbsp; poppeen &nbsp;·&nbsp; GLAMOROUS &nbsp;·&nbsp; 美人百花<br>
+        国内主要ファッション誌に <span class="brand-inline">MAISON&nbsp;BLSR</span> のジュエリーが繰り返し掲載されてきました。
+      </p>
+    </div>
+
+    <div class="magazine-grid">
+      <div class="magazine-card"><img src="press-images/magazines/spread_01.jpg" alt="BLSR 雑誌掲載情報" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_02.jpg" alt="Oggi 5月号 (2014年3月26日発売)" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_03.jpg" alt="poppeen 4月号 / LARME 2月号" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_04.jpg" alt="Concam / GLAMOROUS / 美人百花" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_05.jpg" alt="and GIRL 8月号 / GOSSIPS 7月号" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_06.jpg" alt="CanCam 6月号" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_07.jpg" alt="雑誌掲載一覧" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_08.jpg" alt="Oggi 10月号 / Mart 8月号" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_09.jpg" alt="GINGER 12月号 (2014年10月23日発売)" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_10.jpg" alt="and GIRL 11月号 (2014年10月11日発売)" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_11.jpg" alt="Mart 4月号 (2015年2月27日発売)" loading="lazy"></div>
+      <div class="magazine-card"><img src="press-images/magazines/spread_12.jpg" alt="Oggi 5月号 (2015年3月28日発売)" loading="lazy"></div>
     </div>
   </div>
 </section>
