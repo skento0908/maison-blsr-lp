@@ -9,3 +9,7 @@ BLSR　TV番組.pdf
 # 一時ファイル
 .DS_Store
 *.tmp
+
+# PDF生成用の縮小画像 (再生成可能、コミット不要)
+press-images-print/
+_press_print.html

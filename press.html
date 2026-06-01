@@ -4,13 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Press &amp; Featured In — MAISON BLSR</title>
-<meta name="description" content="MAISON BLSR の著名人着用・テレビ番組・映画における採用実績。">
+<meta name="description" content="MAISON BLSR の著名人着用・テレビ番組・雑誌掲載の総覧。1枚で見せるプレス資料。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
 <style>
+@page{
+  size: A4 portrait;
+  margin: 0;
+}
+
 :root{
   --black: #080a0d;
   --black-soft: #11141a;
@@ -23,7 +28,6 @@
   --gold-champagne: #e8d4a0;
   --gold-vintage: #8a6d2e;
   --gold-pale: #f4e7c3;
-  --gold-shadow: rgba(184,146,63,0.15);
 
   --serif: 'Cormorant Garamond', 'Times New Roman', serif;
   --sans: 'Jost', 'Helvetica Neue', sans-serif;
@@ -35,47 +39,62 @@
     var(--gold-champagne) 72%,
     var(--gold-deep) 100%
   );
-
-  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
-html{
-  scroll-behavior: smooth;
-  font-variant-ligatures: common-ligatures;
-  font-feature-settings: "kern", "liga", "calt";
-}
-
-body{
+html, body{
   background: var(--black);
   color: var(--gold-champagne);
   font-family: var(--sans);
-  font-weight: 300;
-  line-height: 1.6;
-  overflow-x: hidden;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
-/* グレイン + ヴィネット */
-body::before{
+/* スクリーン用ビューポート (ポスターを中央に) */
+.viewport{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  background: radial-gradient(ellipse at center, #15110a 0%, var(--black) 70%);
+}
+
+/* ポスター本体: A4縦サイズ */
+.poster{
+  width: 210mm;
+  height: 297mm;
+  background: var(--black);
+  padding: 12mm 11mm 10mm;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.75), 0 0 0 1px rgba(184,146,63,0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+/* グレインノイズ */
+.poster::before{
   content:"";
-  position:fixed; inset:0;
+  position:absolute;
+  inset:0;
   pointer-events:none;
-  z-index: 200;
-  opacity: 0.06;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
+  z-index: 1;
 }
-body::after{
+.poster::after{
   content:"";
-  position:fixed; inset:0;
+  position:absolute;
+  inset:0;
   pointer-events:none;
-  z-index: 199;
-  background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.55) 100%);
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
 }
+.poster > *{ position: relative; z-index: 2; }
 
 /* gold-text */
 .gold-text{
@@ -84,19 +103,13 @@ body::after{
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  background-size: 200% 200%;
-  animation: shimmer 9s ease-in-out infinite;
-}
-@keyframes shimmer{
-  0%,100%{background-position: 0% 50%;}
-  50%{background-position: 100% 50%;}
 }
 
-/* Brand Stack (ロゴ準拠) */
+/* Brand Stack */
 .brand-stack{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   line-height: 1;
   font-family: var(--serif);
   font-style: normal;
@@ -116,588 +129,409 @@ body::after{
   text-indent: 0.7em;
   display: block;
 }
-.brand-inline{
-  font-family: var(--serif);
-  font-weight: 400;
-  letter-spacing: 0.3em;
-}
 
-/* ヘッダー */
-.page-header{
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 20px 48px;
-  background: rgba(8,10,13,0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(184,146,63,0.15);
+/* ===== HEADER ===== */
+.poster__header{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-.page-header__brand{
-  color: var(--gold-champagne);
-  text-decoration: none;
-  font-size: 16px;
-}
-.page-header__back{
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-decoration: none;
-  padding-bottom: 4px;
-  border-bottom: 1px solid rgba(184,146,63,0.4);
-  transition: color 0.5s ease, border-color 0.5s ease, letter-spacing 0.5s ease;
-}
-.page-header__back:hover{
-  color: var(--gold-champagne);
-  border-bottom-color: var(--gold-champagne);
-  letter-spacing: 0.5em;
+  align-items: flex-start;
+  margin-bottom: 4mm;
+  gap: 8mm;
 }
 
-/* ヒーロー */
-.press-hero{
-  padding: 110px 48px 80px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
+.poster__brand-block{
+  flex: 1;
+  min-width: 0;
 }
-.press-hero__eyebrow{
+.poster__brand{
+  font-size: 22pt;
+  margin-bottom: 4mm;
+}
+.poster__tag{
   font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 0.65em;
+  font-weight: 300;
+  font-size: 7pt;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.85;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  justify-content: center;
+  opacity: 0.88;
+  line-height: 1.7;
 }
-.press-hero__eyebrow::before,
-.press-hero__eyebrow::after{
-  content: "";
+.poster__tag-sub{
   display: block;
-  width: 44px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-}
-.press-hero__title{
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(40px, 6vw, 80px);
-  letter-spacing: 0.15em;
-  margin-bottom: 22px;
-}
-.press-hero__subtitle{
+  margin-top: 2mm;
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(15px, 1.5vw, 20px);
-  letter-spacing: 0.2em;
-  color: var(--gold-champagne);
-  opacity: 0.75;
-  max-width: 720px;
-  margin: 0 auto;
-  line-height: 1.9;
-}
-
-/* セクション共通 */
-.press-section{
-  padding: 80px 48px 100px;
-  position: relative;
-  z-index: 2;
-}
-.press-section__head{
-  text-align: center;
-  margin-bottom: 64px;
-}
-.press-section__label{
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 0.6em;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.85;
-  margin-bottom: 24px;
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-}
-.press-section__label::before,
-.press-section__label::after{
-  content: "";
-  display: block;
-  width: 44px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-}
-.press-section__title{
-  font-family: var(--serif);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(28px, 3.5vw, 44px);
-  letter-spacing: 0.18em;
-  margin-bottom: 16px;
-}
-.press-section__caption{
-  font-family: var(--serif);
-  font-size: clamp(13px, 1.2vw, 16px);
-  letter-spacing: 0.15em;
+  font-size: 8.5pt;
+  letter-spacing: 0.22em;
   color: var(--gold-champagne);
   opacity: 0.7;
-  max-width: 680px;
-  margin: 0 auto;
-  line-height: 1.9;
-}
-.press-section__container{
-  max-width: 1320px;
-  margin: 0 auto;
+  text-transform: none;
 }
 
-/* セクション間の細い金線 */
-.press-divider{
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(184,146,63,0.35) 50%, transparent 100%);
-  margin: 0 auto;
-  max-width: 1100px;
-}
-
-/* 著名人ギャラリー (masonry) */
-.talent-gallery{
-  column-count: 4;
-  column-gap: 12px;
-}
-.talent-gallery__item{
-  break-inside: avoid;
-  margin-bottom: 12px;
-  display: block;
-  overflow: hidden;
+/* AS SEEN IN マガジンスタック */
+.poster__as-seen{
   position: relative;
-  background: var(--black-mid);
-  border: 1px solid rgba(184,146,63,0.18);
-  transition: border-color 0.6s var(--ease-slow), transform 0.7s var(--ease-slow);
+  width: 65mm;
+  height: 48mm;
+  flex-shrink: 0;
 }
-.talent-gallery__item img{
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: saturate(0.92) contrast(1.02);
-  transition: filter 0.8s var(--ease-slow), transform 0.8s var(--ease-slow);
+.poster__as-seen-label{
+  position: absolute;
+  top: 2mm;
+  right: -2mm;
+  writing-mode: vertical-rl;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 7pt;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  z-index: 4;
 }
-.talent-gallery__item:hover{
-  border-color: rgba(184,146,63,0.55);
-}
-.talent-gallery__item:hover img{
-  filter: saturate(1.05) contrast(1.05);
-  transform: scale(1.03);
-}
-.talent-gallery__item::after{
-  content: "";
+.poster__as-seen-stack{
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(8,10,13,0.45) 100%);
-  pointer-events: none;
+}
+.poster__as-seen-stack img{
+  position: absolute;
+  width: 36mm;
+  height: 21mm;
+  object-fit: cover;
+  background: #fff;
+  border: 0.4mm solid rgba(184,146,63,0.4);
+  box-shadow: 0 1mm 3mm rgba(0,0,0,0.6);
+}
+.poster__as-seen-stack img:nth-child(1){ top:  0mm; left:  0mm; transform: rotate(-7deg); z-index: 1; }
+.poster__as-seen-stack img:nth-child(2){ top:  5mm; left:  7mm; transform: rotate(-3deg); z-index: 2; }
+.poster__as-seen-stack img:nth-child(3){ top: 12mm; left: 12mm; transform: rotate(2deg);  z-index: 3; }
+.poster__as-seen-stack img:nth-child(4){ top: 19mm; left:  5mm; transform: rotate(6deg);  z-index: 4; }
+.poster__as-seen-stack img:nth-child(5){ top: 26mm; left: 14mm; transform: rotate(-4deg); z-index: 5; }
+
+/* ヘッダー下のディバイダー */
+.poster__divider{
+  height: 0.3mm;
+  background: linear-gradient(90deg, transparent 0%, rgba(184,146,63,0.5) 50%, transparent 100%);
+  margin: 2mm 0 4mm;
 }
 
-/* TVグリッド */
-.tv-grid{
+/* ===== MOSAIC ===== */
+.poster__mosaic{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.7mm;
 }
-.tv-card{
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  background: var(--black-mid);
-  border: 1px solid rgba(184,146,63,0.2);
-  padding: 14px;
-  transition: border-color 0.6s var(--ease-slow), transform 0.6s var(--ease-slow);
-}
-.tv-card:hover{
-  border-color: rgba(184,146,63,0.55);
-  transform: translateY(-3px);
-}
-.tv-card__thumb{
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: var(--black-deep);
+.mosaic-cell{
+  aspect-ratio: 1;
   overflow: hidden;
+  background: var(--black-mid);
+  border: 0.25mm solid rgba(184,146,63,0.18);
+  position: relative;
 }
-.tv-card__thumb img{
+.mosaic-cell img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(0.95);
-  transition: transform 0.8s var(--ease-slow), filter 0.8s var(--ease-slow);
+  filter: saturate(0.88) contrast(1.04);
 }
-.tv-card:hover .tv-card__thumb img{
-  transform: scale(1.04);
-  filter: saturate(1.05);
+
+/* ===== TV STRIP ===== */
+.poster__tv{
+  margin-top: 5mm;
+  padding-top: 4mm;
+  border-top: 0.3mm solid rgba(184,146,63,0.3);
 }
-.tv-card__name{
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 17px;
-  letter-spacing: 0.06em;
-  color: var(--gold-champagne);
+.poster__tv-label{
   text-align: center;
-  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.9;
+  margin-bottom: 2.5mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5mm;
 }
-.tv-card__role{
+.poster__tv-label::before,
+.poster__tv-label::after{
+  content: "";
+  display: block;
+  width: 10mm;
+  height: 0.2mm;
+  background: var(--gold);
+  opacity: 0.5;
+}
+.poster__tv-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.6mm;
+}
+.tv-cell{
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--black-mid);
+  border: 0.2mm solid rgba(184,146,63,0.2);
+}
+.tv-cell img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== FOOTER ===== */
+.poster__footer{
+  margin-top: auto;
+  padding-top: 4mm;
+}
+.poster__footer-divider{
+  height: 0.3mm;
+  background: linear-gradient(90deg, transparent 0%, rgba(184,146,63,0.5) 50%, transparent 100%);
+  margin-bottom: 4mm;
+}
+.poster__footer-copy{
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 9.5pt;
+  letter-spacing: 0.15em;
+  color: var(--gold-champagne);
+  line-height: 1.55;
+  margin-bottom: 3.5mm;
+}
+.poster__footer-meta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6mm;
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+.poster__footer-meta::before,
+.poster__footer-meta::after{
+  content: "—";
+  color: var(--gold);
+  opacity: 0.5;
+}
+.poster__footer-tagline{
+  margin-top: 2.5mm;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 8pt;
+  letter-spacing: 0.3em;
+  color: var(--gold-bright);
+  opacity: 0.85;
+}
+
+/* ===== コントロールバー (スクリーン専用) ===== */
+.controls{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+}
+.controls__btn{
+  background: rgba(8,10,13,0.85);
+  color: var(--gold-champagne);
+  border: 1px solid rgba(184,146,63,0.5);
+  padding: 12px 18px;
   font-family: var(--sans);
   font-size: 9px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.7;
-  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+}
+.controls__btn:hover{
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
 }
 
-/* Magazineスプレッド */
-.magazine-grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.magazine-card{
-  background: var(--black-mid);
-  border: 1px solid rgba(184,146,63,0.2);
-  padding: 12px;
-  overflow: hidden;
-  transition: border-color 0.6s var(--ease-slow), transform 0.6s var(--ease-slow);
-}
-.magazine-card:hover{
-  border-color: rgba(184,146,63,0.55);
-  transform: translateY(-3px);
-}
-.magazine-card img{
-  width: 100%;
-  height: auto;
-  display: block;
-  background: #fff;
+/* ===== レスポンシブ (モバイル: ポスターを縮小) ===== */
+@media (max-width: 820px){
+  .viewport{ padding: 60px 8px 24px; }
+  .controls{ top: 10px; right: 10px; }
+  .controls__btn{ padding: 10px 12px; font-size: 8px; letter-spacing: 0.25em; }
 }
 
-/* Filmセクション (プレースホルダー) */
-.film-placeholder{
-  text-align: center;
-  padding: 56px 32px;
-  border: 1px solid rgba(184,146,63,0.18);
-  background: rgba(184,146,63,0.02);
-  max-width: 720px;
-  margin: 0 auto;
-}
-.film-placeholder__text{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 15px;
-  letter-spacing: 0.15em;
-  color: var(--gold-champagne);
-  opacity: 0.7;
-  line-height: 1.9;
-}
-
-/* note */
-.press-note{
-  text-align: center;
-  padding: 40px 32px 0;
-  max-width: 820px;
-  margin: 0 auto;
-}
-.press-note__text{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(14px, 1.2vw, 18px);
-  letter-spacing: 0.2em;
-  color: var(--gold-champagne);
-  opacity: 0.75;
-  line-height: 2.0;
-}
-
-/* フッター */
-.page-footer{
-  padding: 72px 48px 44px;
-  text-align: center;
-  border-top: 1px solid rgba(184,146,63,0.15);
-  background: var(--black);
-  position: relative;
-  z-index: 2;
-}
-.page-footer__brand{
-  font-size: 18px;
-  margin-bottom: 18px;
-}
-.page-footer__copy{
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: #ffffff;
-  opacity: 0.5;
-  text-transform: uppercase;
-}
-
-/* レスポンシブ */
-@media (max-width: 1100px){
-  .talent-gallery{ column-count: 3; }
-}
-@media (max-width: 768px){
-  .page-header{ padding: 16px 24px; }
-  .page-header__brand{ font-size: 13px; }
-  .page-header__back{ font-size: 9px; letter-spacing: 0.3em; }
-  .press-hero{ padding: 70px 24px 50px; }
-  .press-section{ padding: 50px 24px 70px; }
-  .talent-gallery{ column-count: 2; column-gap: 8px; }
-  .talent-gallery__item{ margin-bottom: 8px; }
-  .tv-grid{ grid-template-columns: 1fr; gap: 20px; }
-  .magazine-grid{ grid-template-columns: 1fr; gap: 16px; }
-}
-@media (max-width: 480px){
-  .talent-gallery{ column-count: 2; }
+/* ===== 印刷時のスタイル ===== */
+@media print{
+  html, body{
+    background: white !important;
+  }
+  .viewport{
+    padding: 0 !important;
+    background: none !important;
+    min-height: auto !important;
+  }
+  .poster{
+    box-shadow: none !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    page-break-after: avoid;
+  }
+  .controls{ display: none !important; }
 }
 </style>
 </head>
 <body>
 
-<header class="page-header">
-  <a href="index.html" class="page-header__brand brand-stack gold-text">
-    <span class="brand-stack__maison">MAISON</span>
-    <span class="brand-stack__blsr">BLSR</span>
-  </a>
-  <a href="index.html" class="page-header__back">← Back to Home</a>
-</header>
+<div class="controls">
+  <a class="controls__btn" href="index.html">← Home</a>
+  <a class="controls__btn" href="press.pdf" download="MAISON-BLSR-Press.pdf">⤓ Download PDF</a>
+  <button class="controls__btn" onclick="window.print()">Print</button>
+</div>
 
-<!-- ===== HERO ===== -->
-<section class="press-hero">
-  <div class="press-hero__eyebrow">Press &amp; Featured In</div>
-  <h1 class="press-hero__title gold-text">Featured In</h1>
-  <p class="press-hero__subtitle">
-    — <span class="brand-inline">MAISON&nbsp;BLSR</span> 着用・採用実績 —<br>
-    世界中のセレブリティとメディアに、ひそやかに選ばれてきた輝き。
-  </p>
-</section>
+<div class="viewport">
+  <article class="poster">
 
-<div class="press-divider"></div>
+    <!-- ===== HEADER ===== -->
+    <header class="poster__header">
+      <div class="poster__brand-block">
+        <div class="poster__brand brand-stack gold-text">
+          <span class="brand-stack__maison">MAISON</span>
+          <span class="brand-stack__blsr">BLSR</span>
+        </div>
+        <div class="poster__tag">
+          Lab-Grown Diamond &nbsp;·&nbsp; K18 Gold &nbsp;·&nbsp; Vermeil &nbsp;·&nbsp; Sterling Silver
+          <span class="poster__tag-sub">Press &amp; Featured In</span>
+        </div>
+      </div>
 
-<!-- ===== TALENT WORN ===== -->
-<section class="press-section">
-  <div class="press-section__container">
-    <div class="press-section__head">
-      <div class="press-section__label">Worn By</div>
-      <h2 class="press-section__title gold-text">著名人着用</h2>
-      <p class="press-section__caption">
-        <span class="brand-inline">MAISON&nbsp;BLSR</span> のジュエリーは、<br>
-        国内外の俳優・タレント・アーティストに長く愛用されてきました。
+      <div class="poster__as-seen">
+        <div class="poster__as-seen-label">As Seen In</div>
+        <div class="poster__as-seen-stack">
+          <img src="press-images/magazines/spread_02.jpg" alt="">
+          <img src="press-images/magazines/spread_09.jpg" alt="">
+          <img src="press-images/magazines/spread_11.jpg" alt="">
+          <img src="press-images/magazines/spread_05.jpg" alt="">
+          <img src="press-images/magazines/spread_12.jpg" alt="">
+        </div>
+      </div>
+    </header>
+
+    <div class="poster__divider"></div>
+
+    <!-- ===== MOSAIC (6x5 = 30 talents) ===== -->
+    <main class="poster__mosaic">
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_01.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_02.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_03.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_04.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_05.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_06.jpg" alt=""></div>
+
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_07.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_08.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_09.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_10.jpg?v=2" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_11.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_12.jpg" alt=""></div>
+
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_13.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_14.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_15.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_16.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_17.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_18.jpg" alt=""></div>
+
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_19.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_20.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_21.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_22.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_23.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_24.jpg?v=2" alt=""></div>
+
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_25.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_26.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_27.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_28.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_29.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_30.jpg" alt=""></div>
+    </main>
+
+    <!-- ===== TV STRIP ===== -->
+    <section class="poster__tv">
+      <div class="poster__tv-label">Featured On National Television</div>
+      <div class="poster__tv-grid">
+        <div class="tv-cell"><img src="press-images/tv/01_miss-devil.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/02_saki-ni-umareta.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/11_nigehaji.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/03_downtown-dx.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/04_sono-genin-x.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/05_nep-league.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/06_vivit.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/07_isshu-mawatte.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/08_warattekoraete.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/09_kiiteta-hanashi.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/10_odoru-sanma.jpg" alt=""></div>
+        <div class="tv-cell"><img src="press-images/tv/12_bokura-no-jidai.jpg" alt=""></div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="poster__footer">
+      <div class="poster__footer-divider"></div>
+      <p class="poster__footer-copy">
+        Quietly chosen by leading talent.<br>
+        Trusted across Japanese fashion publications and national television.
       </p>
-    </div>
+      <div class="poster__footer-meta">
+        <span>Est. MMVII &nbsp;·&nbsp; Reborn MMXXVI</span>
+        <span>Tokyo / New York</span>
+      </div>
+      <p class="poster__footer-tagline gold-text">— Hidden In Brilliance —</p>
+    </footer>
 
-    <div class="talent-gallery">
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_01.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_02.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_03.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_04.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_05.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_06.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_07.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_08.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_09.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_10.jpg?v=2" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_11.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_12.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_13.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_14.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_15.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_16.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_17.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_18.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_19.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_20.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_21.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_22.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_23.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_24.jpg?v=2" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_25.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_26.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_27.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_28.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_29.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_30.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_31.jpg" alt="" loading="lazy"></div>
-      <div class="talent-gallery__item"><img src="press-images/celebrity/talent_32.jpg" alt="" loading="lazy"></div>
-    </div>
-  </div>
-</section>
+  </article>
+</div>
 
-<div class="press-divider"></div>
-
-<!-- ===== TELEVISION ===== -->
-<section class="press-section">
-  <div class="press-section__container">
-    <div class="press-section__head">
-      <div class="press-section__label">Television</div>
-      <h2 class="press-section__title gold-text">テレビ番組 採用実績</h2>
-      <p class="press-section__caption">
-        ドラマ・バラエティ・情報番組まで、<br>
-        さまざまな番組で <span class="brand-inline">MAISON&nbsp;BLSR</span> のジュエリーが使用されています。
-      </p>
-    </div>
-
-    <div class="tv-grid">
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/01_miss-devil.jpg" alt="Miss デビル 人事の悪魔・椿眞子" loading="lazy"></div>
-        <div class="tv-card__name">Miss デビル</div>
-        <div class="tv-card__role">— Drama —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/02_saki-ni-umareta.jpg" alt="先に生まれただけの僕" loading="lazy"></div>
-        <div class="tv-card__name">先に生まれただけの僕</div>
-        <div class="tv-card__role">— Drama —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/11_nigehaji.jpg" alt="逃げるは恥だが役に立つ" loading="lazy"></div>
-        <div class="tv-card__name">逃げるは恥だが役に立つ</div>
-        <div class="tv-card__role">— Drama / TBS —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/03_downtown-dx.jpg" alt="ダウンタウンDX" loading="lazy"></div>
-        <div class="tv-card__name">ダウンタウン DX</div>
-        <div class="tv-card__role">— Variety —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/04_sono-genin-x.jpg" alt="その原因、Xにあり！" loading="lazy"></div>
-        <div class="tv-card__name">その原因、X にあり！</div>
-        <div class="tv-card__role">— Variety —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/05_nep-league.jpg" alt="ネプリーグ" loading="lazy"></div>
-        <div class="tv-card__name">ネプリーグ</div>
-        <div class="tv-card__role">— Variety —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/06_vivit.jpg" alt="ビビット" loading="lazy"></div>
-        <div class="tv-card__name">ビビット</div>
-        <div class="tv-card__role">— Information —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/07_isshu-mawatte.jpg" alt="1周回って知らない話" loading="lazy"></div>
-        <div class="tv-card__name">1 周回って知らない話</div>
-        <div class="tv-card__role">— Variety —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/08_warattekoraete.jpg" alt="1億人の大質問！？笑ってコラえて！" loading="lazy"></div>
-        <div class="tv-card__name">1 億人の大質問！？<br>笑ってコラえて！</div>
-        <div class="tv-card__role">— Variety —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/09_kiiteta-hanashi.jpg" alt="聞いてた話と違います！" loading="lazy"></div>
-        <div class="tv-card__name">聞いてた話と違います！</div>
-        <div class="tv-card__role">— Variety —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/10_odoru-sanma.jpg" alt="踊る！さんま御殿!!" loading="lazy"></div>
-        <div class="tv-card__name">踊る！さんま御殿!!</div>
-        <div class="tv-card__role">— Variety —</div>
-      </article>
-
-      <article class="tv-card">
-        <div class="tv-card__thumb"><img src="press-images/tv/12_bokura-no-jidai.jpg" alt="ボクらの時代" loading="lazy"></div>
-        <div class="tv-card__name">ボクらの時代</div>
-        <div class="tv-card__role">— Talk —</div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<div class="press-divider"></div>
-
-<!-- ===== MAGAZINE ===== -->
-<section class="press-section">
-  <div class="press-section__container">
-    <div class="press-section__head">
-      <div class="press-section__label">Magazine</div>
-      <h2 class="press-section__title gold-text">雑誌掲載</h2>
-      <p class="press-section__caption">
-        Oggi &nbsp;·&nbsp; JJ &nbsp;·&nbsp; GINGER &nbsp;·&nbsp; CanCam &nbsp;·&nbsp; and GIRL &nbsp;·&nbsp;<br>
-        GOSSIPS &nbsp;·&nbsp; Mart &nbsp;·&nbsp; LARME &nbsp;·&nbsp; poppeen &nbsp;·&nbsp; GLAMOROUS &nbsp;·&nbsp; 美人百花<br>
-        国内主要ファッション誌に <span class="brand-inline">MAISON&nbsp;BLSR</span> のジュエリーが繰り返し掲載されてきました。
-      </p>
-    </div>
-
-    <div class="magazine-grid">
-      <div class="magazine-card"><img src="press-images/magazines/spread_01.jpg" alt="BLSR 雑誌掲載情報" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_02.jpg" alt="Oggi 5月号 (2014年3月26日発売)" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_03.jpg" alt="poppeen 4月号 / LARME 2月号" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_04.jpg" alt="Concam / GLAMOROUS / 美人百花" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_05.jpg" alt="and GIRL 8月号 / GOSSIPS 7月号" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_06.jpg" alt="CanCam 6月号" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_07.jpg" alt="雑誌掲載一覧" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_08.jpg" alt="Oggi 10月号 / Mart 8月号" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_09.jpg" alt="GINGER 12月号 (2014年10月23日発売)" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_10.jpg" alt="and GIRL 11月号 (2014年10月11日発売)" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_11.jpg" alt="Mart 4月号 (2015年2月27日発売)" loading="lazy"></div>
-      <div class="magazine-card"><img src="press-images/magazines/spread_12.jpg" alt="Oggi 5月号 (2015年3月28日発売)" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<div class="press-divider"></div>
-
-<!-- ===== FILM ===== -->
-<section class="press-section">
-  <div class="press-section__container">
-    <div class="press-section__head">
-      <div class="press-section__label">Film</div>
-      <h2 class="press-section__title gold-text">映画 採用実績</h2>
-    </div>
-
-    <div class="film-placeholder">
-      <p class="film-placeholder__text">
-        Coming Soon —<br>
-        映画作品での採用実績は、現在準備中です。
-      </p>
-    </div>
-  </div>
-</section>
-
-<div class="press-divider"></div>
-
-<!-- ===== NOTE ===== -->
-<section class="press-section" style="padding-top: 40px;">
-  <div class="press-note">
-    <p class="press-note__text">
-      その輝きは、時を超えて受け継がれます。<br>
-      <span class="brand-inline">MAISON&nbsp;BLSR</span> はジュエリープロバイダーとして、<br>
-      多くのメディアに信頼されてきました。
-    </p>
-  </div>
-</section>
-
-<footer class="page-footer">
-  <div class="page-footer__brand brand-stack gold-text">
-    <span class="brand-stack__maison">MAISON</span>
-    <span class="brand-stack__blsr">BLSR</span>
-  </div>
-  <div class="page-footer__copy">&copy; MMXXVI <span class="brand-inline">MAISON&nbsp;BLSR</span> &nbsp;·&nbsp; Hidden In Brilliance.</div>
-</footer>
+<script>
+// モバイルでポスターを画面幅にフィットさせる
+(function(){
+  const poster = document.querySelector('.poster');
+  const viewport = document.querySelector('.viewport');
+  function fit(){
+    // 印刷モード時はスキップ
+    if (window.matchMedia('print').matches) return;
+    poster.style.transform = '';
+    poster.style.marginBottom = '';
+    const availWidth = viewport.clientWidth - 24;
+    // 210mm ≒ 793px @ 96dpi
+    const posterWidth = poster.offsetWidth;
+    if (availWidth < posterWidth) {
+      const scale = availWidth / posterWidth;
+      poster.style.transformOrigin = 'top center';
+      poster.style.transform = 'scale(' + scale + ')';
+      // 縮小後の隙間を埋める
+      const posterHeight = poster.offsetHeight;
+      poster.style.marginBottom = -(posterHeight * (1 - scale)) + 'px';
+    }
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  // 印刷前後でリセット
+  window.addEventListener('beforeprint', function(){ poster.style.transform = ''; poster.style.marginBottom = ''; });
+  window.addEventListener('afterprint', fit);
+  fit();
+})();
+</script>
 
 </body>
 </html>
