@@ -298,6 +298,14 @@ body::before{
   align-items: center;
   justify-content: center;
 }
+.feature__icon-bar{
+  display: inline-block;
+  width: 30px;
+  height: 14px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #8a6d2e 0%, #b8923f 25%, #e8d4a0 50%, #d4b56a 75%, #8a6d2e 100%);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
+}
 .feature__title-jp{
   font-family: var(--serif-jp);
   font-weight: 500;
@@ -477,7 +485,8 @@ body::before{
 /* Clarity row */
 .grade__cells--clarity{
   flex-wrap: wrap;
-  padding-bottom: 18px;
+  padding-bottom: 36px;
+  padding-top: 24px; /* VS UP のタグ用の余白 */
 }
 .grade__cells--clarity .grade__cell{
   font-family: var(--serif);
@@ -526,15 +535,32 @@ body::before{
 }
 .grade__clarity-group-note{
   position: absolute;
-  bottom: -42px;
+  bottom: -22px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--serif-jp);
-  font-size: 10px;
+  font-size: 10.5px;
   color: var(--gold-bright);
   text-align: center;
   white-space: nowrap;
   line-height: 1.5;
+}
+
+/* SI/I群: 共通キャプションを共有するプレーン版 (枠線・背景なし) */
+.grade__clarity-group--plain{
+  border: none;
+  background: transparent;
+  padding: 0;
+  flex: 2;
+}
+.grade__clarity-group--plain .grade__cell{
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(184,146,63,0.18);
+}
+.grade__clarity-group--plain .grade__clarity-group-note{
+  color: #ffffff;
+  opacity: 0.75;
+  font-weight: 300;
 }
 
 /* ===== REBIRTH ===== */
@@ -745,7 +771,7 @@ body::before{
       <div class="feature__title-en">Cut</div>
     </div>
     <div class="feature">
-      <div class="feature__icon">⬛</div>
+      <div class="feature__icon"><span class="feature__icon-bar"></span></div>
       <div class="feature__title-jp">K18</div>
       <div class="feature__title-en">Gold</div>
     </div>
@@ -887,25 +913,16 @@ body::before{
             <div class="grade__cell">VS2</div>
             <span class="grade__clarity-group-note">VVS1・VVS2 と VS UP のランクはほぼ変わらない高品質です</span>
           </div>
-          <div class="grade__cell">
-            SI1
-            <span class="grade__cell-note">10倍ルーペで</span>
+          <div class="grade__clarity-group grade__clarity-group--plain">
+            <div class="grade__cell">SI1</div>
+            <div class="grade__cell">SI2</div>
+            <span class="grade__clarity-group-note">10倍ルーペで見て、傷が見える</span>
           </div>
-          <div class="grade__cell">
-            SI2
-            <span class="grade__cell-note">傷が見える</span>
-          </div>
-          <div class="grade__cell">
-            I1
-            <span class="grade__cell-note">肉眼で</span>
-          </div>
-          <div class="grade__cell">
-            I2
-            <span class="grade__cell-note">傷が</span>
-          </div>
-          <div class="grade__cell">
-            I3
-            <span class="grade__cell-note">見える</span>
+          <div class="grade__clarity-group grade__clarity-group--plain">
+            <div class="grade__cell">I1</div>
+            <div class="grade__cell">I2</div>
+            <div class="grade__cell">I3</div>
+            <span class="grade__clarity-group-note">肉眼で見て、傷が見える</span>
           </div>
         </div>
       </div>
