@@ -232,11 +232,14 @@ html, body{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* 上寄せで顔/頭が切れないように */
-  object-position: center 18%;
+  /* 顔/頭が絶対に切れないように完全に上寄せ */
+  object-position: center top;
   display: block;
   filter: saturate(0.88) contrast(1.04);
 }
+/* 横位置が左寄りで人物が左に切れるセル用override */
+.mosaic-cell--shift-left img{ object-position: 20% top; }
+.mosaic-cell--shift-right img{ object-position: 80% top; }
 
 /* ===== TV STRIP ===== */
 .poster__tv{
@@ -446,12 +449,12 @@ html, body{
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_11.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_12.jpg" alt=""></div>
 
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_13.jpg" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_14.jpg" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_13.jpg?v=4" alt=""></div>
+      <div class="mosaic-cell"><img src="press-images/celebrity/talent_14.jpg?v=4" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_15.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_16.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_17.jpg" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_18.jpg" alt=""></div>
+      <div class="mosaic-cell mosaic-cell--shift-left"><img src="press-images/celebrity/talent_18.jpg" alt=""></div>
 
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_19.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_20.jpg" alt=""></div>
