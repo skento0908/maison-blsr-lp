@@ -2119,6 +2119,72 @@ section + section::before{
   flex-direction: column;
   gap: 10px;
 }
+/* Press & Featured Link (final section) */
+.final__press-link{
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 56px auto 56px;
+  padding: 22px 64px 22px 56px;
+  text-decoration: none;
+  color: var(--gold-champagne);
+  border-top: 1px solid rgba(184,146,63,0.22);
+  border-bottom: 1px solid rgba(184,146,63,0.22);
+  transition: color 0.6s var(--ease-slow), border-color 0.6s var(--ease-slow), letter-spacing 0.6s var(--ease-slow);
+  cursor: none;
+}
+.final__press-link::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(184,146,63,0.05) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-slow);
+  pointer-events: none;
+}
+.final__press-link:hover{
+  color: var(--gold-bright);
+  border-top-color: rgba(184,146,63,0.55);
+  border-bottom-color: rgba(184,146,63,0.55);
+}
+.final__press-link:hover::before{ opacity: 1; }
+.final__press-eyebrow{
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+.final__press-title{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(15px, 1.5vw, 19px);
+  letter-spacing: 0.18em;
+}
+.final__press-arrow{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--gold);
+  opacity: 0.7;
+  transition: transform 0.5s var(--ease-slow), opacity 0.5s ease;
+}
+.final__press-link:hover .final__press-arrow{
+  transform: translateY(-50%) translateX(6px);
+  opacity: 1;
+}
+@media (max-width: 768px){
+  .final__press-link{ padding: 18px 48px 18px 32px; margin: 40px auto; }
+  .final__press-arrow{ right: 14px; font-size: 16px; }
+}
+
 .final__cta-wrap{
   display: flex;
   flex-direction: column;
@@ -2548,6 +2614,14 @@ section + section::before{
       </h2>
       <p class="final__intro-sub">2026年6月、再生のときが来る。</p>
     </div>
+
+    <!-- Press & Featured Link -->
+    <a href="press.html" class="final__press-link" data-magnetic>
+      <span class="final__press-eyebrow">— Press &amp; Featured In —</span>
+      <span class="final__press-title">テレビ・映画　掲載実績</span>
+      <span class="final__press-arrow" aria-hidden="true">→</span>
+    </a>
+
     <div class="final__cta-wrap">
       <a href="#" class="cta" data-magnetic>Enter The Maison</a>
       <a href="#invitation" class="cta cta--invitation" data-magnetic>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press &amp; Featured In — MAISON BLSR</title>
+<meta name="description" content="MAISON BLSR の過去テレビ番組・映画における採用実績。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black: #080a0d;
+  --black-soft: #11141a;
+  --black-mid: #1a1d24;
+  --black-deep: #04050a;
+
+  --gold-deep: #9c7c38;
+  --gold: #b8923f;
+  --gold-bright: #d4b56a;
+  --gold-champagne: #e8d4a0;
+  --gold-vintage: #8a6d2e;
+  --gold-pale: #f4e7c3;
+  --gold-shadow: rgba(184,146,63,0.15);
+
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --gold-gradient: linear-gradient(135deg,
+    var(--gold-vintage) 0%,
+    var(--gold) 22%,
+    var(--gold-bright) 48%,
+    var(--gold-champagne) 72%,
+    var(--gold-deep) 100%
+  );
+
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{
+  scroll-behavior: smooth;
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "kern", "liga", "calt";
+}
+
+body{
+  background: var(--black);
+  color: var(--gold-champagne);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* グレイン + ヴィネット */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index: 200;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index: 199;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.55) 100%);
+}
+
+/* gold-text */
+.gold-text{
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 9s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%,100%{background-position: 0% 50%;}
+  50%{background-position: 100% 50%;}
+}
+
+/* Brand Stack (ロゴ準拠) */
+.brand-stack{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  font-family: var(--serif);
+  font-style: normal;
+}
+.brand-stack__maison{
+  font-weight: 400;
+  font-size: 0.34em;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em;
+  margin-bottom: 0.55em;
+  display: block;
+}
+.brand-stack__blsr{
+  font-weight: 300;
+  font-size: 1em;
+  letter-spacing: 0.7em;
+  text-indent: 0.7em;
+  display: block;
+}
+.brand-inline{
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+}
+
+/* ヘッダー */
+.page-header{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 24px 48px;
+  background: rgba(8,10,13,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,146,63,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header__brand{
+  color: var(--gold-champagne);
+  text-decoration: none;
+  font-size: 16px;
+}
+.page-header__back{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(184,146,63,0.4);
+  transition: color 0.5s ease, border-color 0.5s ease, letter-spacing 0.5s ease;
+}
+.page-header__back:hover{
+  color: var(--gold-champagne);
+  border-bottom-color: var(--gold-champagne);
+  letter-spacing: 0.5em;
+}
+
+/* セクションラベル共通 */
+.section-label{
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: center;
+}
+.section-label::before,
+.section-label::after{
+  content: "";
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* メイン */
+.press{
+  padding: 100px 48px 140px;
+  position: relative;
+  z-index: 2;
+}
+.press__container{
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.press__title{
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(36px, 5.5vw, 72px);
+  letter-spacing: 0.14em;
+  margin-bottom: 18px;
+}
+.press__subtitle{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.3vw, 18px);
+  letter-spacing: 0.18em;
+  color: var(--gold-champagne);
+  opacity: 0.7;
+  margin-bottom: 96px;
+}
+
+/* カテゴリ */
+.press__category{
+  margin-bottom: 88px;
+}
+.press__category-label{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2.4vw, 30px);
+  letter-spacing: 0.2em;
+  color: var(--gold-bright);
+  margin-bottom: 40px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 9s ease-in-out infinite;
+}
+
+/* エントリーリスト */
+.press__list{
+  list-style: none;
+  border-top: 1px solid rgba(184,146,63,0.18);
+}
+.press__entry{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 24px;
+  border-bottom: 1px solid rgba(184,146,63,0.18);
+  text-align: left;
+  transition: background 0.6s var(--ease-slow);
+}
+.press__entry:hover{
+  background: rgba(184,146,63,0.04);
+}
+.press__entry-year{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: 0.06em;
+  color: var(--gold-bright);
+  text-align: center;
+}
+.press__entry-body{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.press__entry-title{
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 2vw, 24px);
+  letter-spacing: 0.06em;
+  color: var(--gold-champagne);
+}
+.press__entry-meta{
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.75;
+}
+.press__entry-placeholder{
+  font-style: italic;
+  opacity: 0.45;
+}
+
+.press__note{
+  margin-top: 40px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--gold-champagne);
+  opacity: 0.7;
+  line-height: 1.9;
+}
+
+/* フッター */
+.page-footer{
+  padding: 72px 48px 44px;
+  text-align: center;
+  border-top: 1px solid rgba(184,146,63,0.15);
+  background: var(--black);
+  position: relative;
+  z-index: 2;
+}
+.page-footer__brand{
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+.page-footer__copy{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px){
+  .page-header{ padding: 18px 24px; }
+  .page-header__brand{ font-size: 13px; }
+  .page-header__back{ font-size: 9px; letter-spacing: 0.3em; }
+  .press{ padding: 60px 24px 100px; }
+  .press__subtitle{ margin-bottom: 64px; }
+  .press__entry{
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .press__entry-year{ text-align: center; }
+  .press__entry-body{ align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <a href="index.html" class="page-header__brand brand-stack gold-text">
+    <span class="brand-stack__maison">MAISON</span>
+    <span class="brand-stack__blsr">BLSR</span>
+  </a>
+  <a href="index.html" class="page-header__back">← Back to Home</a>
+</header>
+
+<section class="press">
+  <div class="press__container">
+    <div class="section-label">Press &amp; Featured In</div>
+    <h1 class="press__title gold-text">Featured In</h1>
+    <p class="press__subtitle">— <span class="brand-inline">MAISON&nbsp;BLSR</span> 掲載・採用実績 —</p>
+
+    <!-- ===== TELEVISION ===== -->
+    <!--
+      新しい掲載を追加するには、<li class="press__entry">...</li>ブロックを複製して
+      年・タイトル・関わり方を書き換えてください。
+    -->
+    <div class="press__category">
+      <div class="press__category-label">— Television —</div>
+      <ul class="press__list">
+
+        <li class="press__entry">
+          <span class="press__entry-year">202X</span>
+          <div class="press__entry-body">
+            <h3 class="press__entry-title press__entry-placeholder">[ テレビ番組タイトル ]</h3>
+            <p class="press__entry-meta">放送局 &nbsp;·&nbsp; 関わり方（例：衣装提供 / ジュエリー協力 / 出演ジュエリー）</p>
+          </div>
+        </li>
+
+        <li class="press__entry">
+          <span class="press__entry-year">202X</span>
+          <div class="press__entry-body">
+            <h3 class="press__entry-title press__entry-placeholder">[ テレビ番組タイトル ]</h3>
+            <p class="press__entry-meta">放送局 &nbsp;·&nbsp; 関わり方</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- ===== FILM ===== -->
+    <div class="press__category">
+      <div class="press__category-label">— Film —</div>
+      <ul class="press__list">
+
+        <li class="press__entry">
+          <span class="press__entry-year">202X</span>
+          <div class="press__entry-body">
+            <h3 class="press__entry-title press__entry-placeholder">[ 映画タイトル ]</h3>
+            <p class="press__entry-meta">監督 &nbsp;·&nbsp; 関わり方</p>
+          </div>
+        </li>
+
+        <li class="press__entry">
+          <span class="press__entry-year">202X</span>
+          <div class="press__entry-body">
+            <h3 class="press__entry-title press__entry-placeholder">[ 映画タイトル ]</h3>
+            <p class="press__entry-meta">監督 &nbsp;·&nbsp; 関わり方</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <p class="press__note">
+      <span class="brand-inline">MAISON&nbsp;BLSR</span> はジュエリープロバイダーとして<br>多くのメディアに信頼されてきました。
+    </p>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <div class="page-footer__brand brand-stack gold-text">
+    <span class="brand-stack__maison">MAISON</span>
+    <span class="brand-stack__blsr">BLSR</span>
+  </div>
+  <div class="page-footer__copy">&copy; MMXXVI <span class="brand-inline">MAISON&nbsp;BLSR</span> &nbsp;·&nbsp; Hidden In Brilliance.</div>
+</footer>
+
+</body>
+</html>
