@@ -550,17 +550,11 @@ body::before{
 }
 .rebirth__brand{ text-align: center; }
 .rebirth__monogram{
-  width: 90px;
-  height: 90px;
-  border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 56px;
-  letter-spacing: -0.08em;
+  width: 100px;
+  height: 100px;
+  display: block;
   margin: 0 auto 18px;
+  object-fit: contain;
 }
 /* MAISON / BLSR brand-stack 規範をそのまま使用 (LP共通) */
 /* 親で font-size を決定 → BLSR=1em, MAISON=0.34em の比率で連動 */
@@ -922,7 +916,7 @@ body::before{
   <!-- ===== REBIRTH ===== -->
   <section class="rebirth">
     <div class="rebirth__brand">
-      <div class="rebirth__monogram gold-text">BR</div>
+      <img class="rebirth__monogram" src="pierce-assets/br-logo.png" alt="MAISON BLSR モノグラム">
       <div class="rebirth__brand-stack brand-stack gold-text">
         <span class="brand-stack__maison">MAISON</span>
         <span class="brand-stack__blsr">BLSR</span>
