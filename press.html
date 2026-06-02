@@ -169,44 +169,42 @@ html, body{
   text-transform: none;
 }
 
-/* AS SEEN IN マガジンスタック */
+/* 雑誌掲載スタック (上部右側、本体の半分くらい使う) */
 .poster__as-seen{
   position: relative;
-  width: 65mm;
-  height: 48mm;
+  width: 100mm;
+  height: 78mm;
   flex-shrink: 0;
-}
-.poster__as-seen-label{
-  position: absolute;
-  top: 2mm;
-  right: -2mm;
-  writing-mode: vertical-rl;
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 7pt;
-  letter-spacing: 0.55em;
-  text-transform: uppercase;
-  color: var(--gold-bright);
-  z-index: 4;
 }
 .poster__as-seen-stack{
   position: absolute;
   inset: 0;
 }
-.poster__as-seen-stack img{
+.poster__as-seen-cover{
   position: absolute;
-  width: 36mm;
-  height: 21mm;
+  width: 35mm;
+  height: 48mm;
   object-fit: cover;
   background: #fff;
-  border: 0.4mm solid rgba(184,146,63,0.4);
-  box-shadow: 0 1mm 3mm rgba(0,0,0,0.6);
+  border: 0.5mm solid rgba(184,146,63,0.45);
+  box-shadow: 0 2mm 6mm rgba(0,0,0,0.65);
 }
-.poster__as-seen-stack img:nth-child(1){ top:  0mm; left:  0mm; transform: rotate(-7deg); z-index: 1; }
-.poster__as-seen-stack img:nth-child(2){ top:  5mm; left:  7mm; transform: rotate(-3deg); z-index: 2; }
-.poster__as-seen-stack img:nth-child(3){ top: 12mm; left: 12mm; transform: rotate(2deg);  z-index: 3; }
-.poster__as-seen-stack img:nth-child(4){ top: 19mm; left:  5mm; transform: rotate(6deg);  z-index: 4; }
-.poster__as-seen-stack img:nth-child(5){ top: 26mm; left: 14mm; transform: rotate(-4deg); z-index: 5; }
+.poster__as-seen-front{
+  position: absolute;
+  width: 65mm;
+  height: 38mm;
+  object-fit: cover;
+  background: #fff;
+  border: 0.5mm solid var(--gold-bright);
+  box-shadow: 0 3mm 9mm rgba(0,0,0,0.75);
+}
+/* 4枚の表紙を扇状に配置 */
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  0mm; left:  0mm; transform: rotate(-10deg); z-index: 1; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  5mm; left: 18mm; transform: rotate(-4deg);  z-index: 2; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  4mm; left: 40mm; transform: rotate(3deg);   z-index: 3; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  0mm; left: 60mm; transform: rotate(8deg);   z-index: 4; }
+/* 1番前は商品の見える広告ページ */
+.poster__as-seen-stack > .poster__as-seen-front{ top: 38mm; left: 18mm; transform: rotate(-3deg); z-index: 5; }
 
 /* ヘッダー下のディバイダー */
 .poster__divider{
@@ -240,6 +238,34 @@ html, body{
 /* 横位置が左寄りで人物が左に切れるセル用override */
 .mosaic-cell--shift-left img{ object-position: 20% top; }
 .mosaic-cell--shift-right img{ object-position: 80% top; }
+/* プレースホルダー: 名前のみ表示 (差し替え待ち) */
+.mosaic-cell--placeholder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(184,146,63,0.06), rgba(184,146,63,0.02));
+  border: 0.5mm dashed rgba(184,146,63,0.4);
+  padding: 2mm;
+  gap: 1mm;
+}
+.mosaic-cell--placeholder .ph-name{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  color: var(--gold-bright);
+  line-height: 1.3;
+}
+.mosaic-cell--placeholder .ph-note{
+  font-family: var(--sans);
+  font-size: 5.5pt;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  opacity: 0.65;
+  text-transform: uppercase;
+}
 
 /* ===== TV STRIP ===== */
 .poster__tv{
@@ -414,19 +440,18 @@ html, body{
           <span class="brand-stack__blsr">BLSR</span>
         </div>
         <div class="poster__tag">
-          Lab-Grown Diamond &nbsp;·&nbsp; K18 Gold &nbsp;·&nbsp; Vermeil &nbsp;·&nbsp; Sterling Silver
+          Fine Jewelry &nbsp;·&nbsp; Watch &nbsp;·&nbsp; Lab Grown Diamond
           <span class="poster__tag-sub">Press &amp; Featured In</span>
         </div>
       </div>
 
       <div class="poster__as-seen">
-        <div class="poster__as-seen-label">As Seen In</div>
         <div class="poster__as-seen-stack">
-          <img src="press-images/magazines/spread_02.jpg?v=2" alt="" decoding="sync" loading="eager">
-          <img src="press-images/magazines/spread_09.jpg?v=2" alt="" decoding="sync" loading="eager">
-          <img src="press-images/magazines/spread_11.jpg?v=2" alt="" decoding="sync" loading="eager">
-          <img src="press-images/magazines/spread_05.jpg?v=2" alt="" decoding="sync" loading="eager">
-          <img src="press-images/magazines/spread_10.jpg?v=2" alt="" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-02.jpg" alt="Oggi 5月号" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-09.jpg" alt="GINGER 12月号" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-11.jpg" alt="Mart 4月号" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-05.jpg" alt="and GIRL / GOSSIPS" decoding="sync" loading="eager">
+          <img class="poster__as-seen-front" src="press-images/magazines/spread_10.jpg?v=2" alt="and GIRL 11月号 - ダイヤピアス掲載" decoding="sync" loading="eager">
         </div>
       </div>
     </header>
@@ -437,16 +462,31 @@ html, body{
     <main class="poster__mosaic">
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_01.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_02.jpg" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_03.jpg" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_04.jpg" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_05.jpg" alt=""></div>
+      <div class="mosaic-cell mosaic-cell--placeholder">
+        <span class="ph-name">久慈 暁子</span>
+        <span class="ph-note">Image TBD</span>
+      </div>
+      <div class="mosaic-cell mosaic-cell--placeholder">
+        <span class="ph-name">斉藤 由貴</span>
+        <span class="ph-note">Image TBD</span>
+      </div>
+      <div class="mosaic-cell mosaic-cell--placeholder">
+        <span class="ph-name">愛之助</span>
+        <span class="ph-note">Image TBD</span>
+      </div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_06.jpg?v=3" alt=""></div>
 
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_07.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_08.jpg" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_09.jpg" alt=""></div>
+      <div class="mosaic-cell mosaic-cell--placeholder">
+        <span class="ph-name">マリーン</span>
+        <span class="ph-note">Image TBD</span>
+      </div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_10.jpg?v=2" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_11.jpg" alt=""></div>
+      <div class="mosaic-cell mosaic-cell--placeholder">
+        <span class="ph-name">長谷 直美 ②</span>
+        <span class="ph-note">Image TBD</span>
+      </div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_12.jpg" alt=""></div>
 
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_13.jpg?v=4" alt=""></div>
@@ -454,11 +494,17 @@ html, body{
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_15.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_16.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_17.jpg" alt=""></div>
-      <div class="mosaic-cell mosaic-cell--shift-left"><img src="press-images/celebrity/talent_18.jpg" alt=""></div>
+      <div class="mosaic-cell mosaic-cell--placeholder">
+        <span class="ph-name">石橋 凌</span>
+        <span class="ph-note">Image TBD</span>
+      </div>
 
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_19.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_20.jpg" alt=""></div>
-      <div class="mosaic-cell"><img src="press-images/celebrity/talent_21.jpg" alt=""></div>
+      <div class="mosaic-cell mosaic-cell--placeholder">
+        <span class="ph-name">翔</span>
+        <span class="ph-note">Image TBD</span>
+      </div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_22.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_23.jpg" alt=""></div>
       <div class="mosaic-cell"><img src="press-images/celebrity/talent_24.jpg?v=2" alt=""></div>
@@ -473,7 +519,7 @@ html, body{
 
     <!-- ===== TV STRIP ===== -->
     <section class="poster__tv">
-      <div class="poster__tv-label">Featured On National Television</div>
+      <div class="poster__tv-label">Provided costumes for a nationally broadcast TV show</div>
       <div class="poster__tv-grid">
         <div class="tv-cell"><img src="press-images/tv/01_miss-devil.jpg" alt=""></div>
         <div class="tv-cell"><img src="press-images/tv/02_saki-ni-umareta.jpg" alt=""></div>
