@@ -105,11 +105,11 @@ html, body{
   color: transparent;
 }
 
-/* Brand Stack */
+/* Brand Stack (LP規範: 各文字が視覚的中央で揃う) */
 .brand-stack{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   line-height: 1;
   font-family: var(--serif);
   font-style: normal;
@@ -144,15 +144,16 @@ html, body{
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 3mm;
+  /* 各要素 (ロゴ/スタック/タグ) を縦軸で中央に */
+  align-items: center;
+  text-align: center;
+  gap: 4mm;
 }
 .poster__brand-logo{
   display: block;
   width: 38mm;
   height: 38mm;
   object-fit: contain;
-  margin-bottom: 1mm;
 }
 .poster__brand{
   font-size: 34pt;
@@ -167,7 +168,7 @@ html, body{
   color: var(--gold);
   opacity: 0.9;
   line-height: 1.7;
-  margin-top: 1mm;
+  text-align: center;
 }
 .poster__tag-sub{
   display: block;
