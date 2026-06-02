@@ -142,30 +142,42 @@ html, body{
 .poster__brand-block{
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3mm;
+}
+.poster__brand-logo{
+  display: block;
+  width: 38mm;
+  height: 38mm;
+  object-fit: contain;
+  margin-bottom: 1mm;
 }
 .poster__brand{
-  font-size: 22pt;
-  margin-bottom: 4mm;
+  font-size: 34pt;
+  margin: 0;
 }
 .poster__tag{
   font-family: var(--sans);
   font-weight: 300;
-  font-size: 7pt;
-  letter-spacing: 0.42em;
+  font-size: 8.5pt;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.88;
+  opacity: 0.9;
   line-height: 1.7;
+  margin-top: 1mm;
 }
 .poster__tag-sub{
   display: block;
-  margin-top: 2mm;
+  margin-top: 3mm;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 8.5pt;
+  font-size: 10pt;
   letter-spacing: 0.22em;
   color: var(--gold-champagne);
-  opacity: 0.7;
+  opacity: 0.75;
   text-transform: none;
 }
 
@@ -437,6 +449,7 @@ html, body{
     <!-- ===== HEADER ===== -->
     <header class="poster__header">
       <div class="poster__brand-block">
+        <img class="poster__brand-logo" src="pierce-assets/br-logo.png" alt="MAISON BLSR モノグラム">
         <div class="poster__brand brand-stack gold-text">
           <span class="brand-stack__maison">MAISON</span>
           <span class="brand-stack__blsr">BLSR</span>
