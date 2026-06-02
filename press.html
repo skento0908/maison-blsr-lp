@@ -182,29 +182,31 @@ html, body{
 }
 .poster__as-seen-cover{
   position: absolute;
-  width: 35mm;
-  height: 48mm;
+  width: 30mm;
+  height: 41mm;
   object-fit: cover;
+  object-position: center top;
   background: #fff;
   border: 0.5mm solid rgba(184,146,63,0.45);
-  box-shadow: 0 2mm 6mm rgba(0,0,0,0.65);
+  box-shadow: 0 2mm 5mm rgba(0,0,0,0.65);
 }
 .poster__as-seen-front{
   position: absolute;
-  width: 65mm;
-  height: 38mm;
+  width: 62mm;
+  height: 36mm;
   object-fit: cover;
   background: #fff;
   border: 0.5mm solid var(--gold-bright);
   box-shadow: 0 3mm 9mm rgba(0,0,0,0.75);
 }
-/* 4枚の表紙を扇状に配置 */
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  0mm; left:  0mm; transform: rotate(-10deg); z-index: 1; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  5mm; left: 18mm; transform: rotate(-4deg);  z-index: 2; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  4mm; left: 40mm; transform: rotate(3deg);   z-index: 3; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  0mm; left: 60mm; transform: rotate(8deg);   z-index: 4; }
+/* 5枚の表紙を扇状に配置 */
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  0mm; left:  0mm; transform: rotate(-12deg); z-index: 1; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  4mm; left: 14mm; transform: rotate(-6deg);  z-index: 2; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  5mm; left: 31mm; transform: rotate(-1deg);  z-index: 3; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  4mm; left: 48mm; transform: rotate(4deg);   z-index: 4; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  0mm; left: 64mm; transform: rotate(10deg);  z-index: 5; }
 /* 1番前は商品の見える広告ページ */
-.poster__as-seen-stack > .poster__as-seen-front{ top: 38mm; left: 18mm; transform: rotate(-3deg); z-index: 5; }
+.poster__as-seen-stack > .poster__as-seen-front{ top: 41mm; left: 19mm; transform: rotate(-3deg); z-index: 6; }
 
 /* ヘッダー下のディバイダー */
 .poster__divider{
@@ -447,10 +449,11 @@ html, body{
 
       <div class="poster__as-seen">
         <div class="poster__as-seen-stack">
-          <img class="poster__as-seen-cover" src="press-images/magazines/cover-02.jpg?v=2" alt="Oggi 5月号" decoding="sync" loading="eager">
-          <img class="poster__as-seen-cover" src="press-images/magazines/cover-09.jpg?v=2" alt="GINGER 12月号" decoding="sync" loading="eager">
-          <img class="poster__as-seen-cover" src="press-images/magazines/cover-11.jpg?v=2" alt="Mart 4月号" decoding="sync" loading="eager">
-          <img class="poster__as-seen-cover" src="press-images/magazines/cover-05.jpg?v=2" alt="and GIRL / GOSSIPS" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-02.jpg?v=3" alt="Oggi 5月号" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-05a.jpg?v=3" alt="and GIRL 10月号" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-09.jpg?v=3" alt="GINGER 12月号" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-05b.jpg?v=3" alt="GOSSIPS 11月号" decoding="sync" loading="eager">
+          <img class="poster__as-seen-cover" src="press-images/magazines/cover-11.jpg?v=3" alt="Mart 4月号" decoding="sync" loading="eager">
           <img class="poster__as-seen-front" src="press-images/magazines/spread_10.jpg?v=2" alt="and GIRL 11月号 - ダイヤピアス掲載" decoding="sync" loading="eager">
         </div>
       </div>
