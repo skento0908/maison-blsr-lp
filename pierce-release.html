@@ -175,10 +175,10 @@ body::before{
 .hero__title{
   font-family: var(--serif-jp);
   font-weight: 500;
-  font-size: clamp(40px, 7.5vw, 96px);
-  line-height: 1.25;
-  letter-spacing: 0.08em;
-  margin-bottom: 28px;
+  font-size: clamp(48px, 9.5vw, 132px);
+  line-height: 1.18;
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
 }
 .hero__title-accent{
   background: var(--gold-gradient);
@@ -189,20 +189,22 @@ body::before{
 }
 .hero__product-line{
   font-family: var(--serif-jp);
-  font-weight: 400;
-  font-size: clamp(20px, 2.5vw, 32px);
-  letter-spacing: 0.15em;
+  font-weight: 500;
+  font-size: clamp(28px, 4.8vw, 64px);
+  letter-spacing: 0.12em;
   color: var(--gold-champagne);
-  margin-bottom: 56px;
+  margin-bottom: 64px;
+  line-height: 1.4;
 }
 .hero__product-line-em{
   color: var(--gold-bright);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.15em;
 }
 .hero__visual{
-  max-width: 760px;
+  max-width: 1100px;
   margin: 0 auto 56px;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid rgba(184,146,63,0.3);
   box-shadow: 0 30px 80px rgba(0,0,0,0.7);
@@ -232,8 +234,8 @@ body::before{
 .subtitle__item{
   font-family: var(--serif-jp);
   font-weight: 500;
-  font-size: clamp(20px, 2.4vw, 30px);
-  letter-spacing: 0.1em;
+  font-size: clamp(26px, 3.4vw, 44px);
+  letter-spacing: 0.08em;
   color: var(--gold-bright);
   display: inline-flex;
   align-items: center;
@@ -246,11 +248,11 @@ body::before{
 }
 .subtitle__note{
   font-family: var(--serif-jp);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.15em;
   color: var(--gold-champagne);
-  opacity: 0.6;
-  margin-top: 14px;
+  opacity: 0.7;
+  margin-top: 20px;
 }
 
 /* ===== セクション共通 ===== */
@@ -362,9 +364,19 @@ body::before{
   max-width: 1100px;
   margin: 0 auto;
 }
+.pp-grid--three{ grid-template-columns: repeat(3, 1fr); }
 .pp-grid .pp-frame{ margin: 0; }
 
 /* 天然 vs ラボグロウン比較 */
+.compare-hero{
+  max-width: 460px;
+  margin: 0 auto 40px;
+  border: 1px solid rgba(184,146,63,0.3);
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.55);
+}
+.compare-hero img{ width: 100%; height: auto; display: block; }
 .compare-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -611,6 +623,7 @@ body::before{
   box-shadow: 0 16px 40px rgba(0,0,0,0.6);
   max-width: 800px;
 }
+.package__img--secondary{ max-width: 560px; }
 .package__img img{ width: 100%; height: auto; display: block; }
 .package__text{
   font-family: var(--serif-jp);
@@ -702,6 +715,102 @@ body::before{
 }
 .celeb__card img{ width: 100%; height: auto; display: block; }
 
+/* ===== 元PP資料アーカイブ ===== */
+.pp-archive{ margin-top: 30px; }
+.pp-archive__lead{
+  text-align: center;
+  font-family: var(--serif-jp);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--gold-champagne);
+  opacity: 0.75;
+  margin: 24px 0 36px;
+}
+.slides-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.slide{
+  margin: 0;
+  border: 1px solid rgba(184,146,63,0.35);
+  background: #fff;
+  padding: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.slide img{ width: 100%; height: auto; display: block; }
+.slide figcaption{
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.62);
+  padding: 6px 14px 12px;
+  text-align: left;
+}
+
+.archive-divider{
+  text-align: center;
+  margin: 80px auto 22px;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.archive-divider::before,
+.archive-divider::after{
+  content:"";
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+.archive-divider__label{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.archive-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.archive-tile{
+  margin: 0;
+  border: 1px solid rgba(184,146,63,0.25);
+  background: var(--black-mid);
+  padding: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.archive-tile img{ width: 100%; height: auto; display: block; }
+.archive-tile figcaption{
+  font-family: var(--sans);
+  font-size: 9.5px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  padding: 4px 8px 8px;
+  text-align: center;
+}
+.archive-tile--wide{ grid-column: span 2; }
+.archive-tile--strip{ grid-column: span 4; }
+.archive-tile--strip img{ object-fit: cover; height: 60px; }
+
 /* ===== タグライン ===== */
 .tagline{
   text-align: center;
@@ -720,11 +829,13 @@ body::before{
 @media (max-width: 900px){
   .sheet{ padding: 72px 20px 60px; }
   .hero{ margin-bottom: 70px; }
+  .hero__visual{ aspect-ratio: 4 / 3; }
   .subtitle{ margin-bottom: 70px; padding: 32px 20px; }
   .subtitle__row{ gap: 18px 36px; }
   .section{ margin-bottom: 70px; }
   .grades{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .pp-grid{ grid-template-columns: 1fr; gap: 20px; }
+  .pp-grid--three{ grid-template-columns: 1fr; }
   .compare-grid{ grid-template-columns: 1fr; gap: 20px; }
   .chart-list{ gap: 36px; }
   .chart__img{ padding: 12px; }
@@ -733,6 +844,10 @@ body::before{
   .celeb__grid{ grid-template-columns: 1fr; gap: 22px; }
   .hero__brand-logo{ width: 60px; height: 60px; }
   .hero__brand-stack{ font-size: 20px; }
+  .slides-grid{ grid-template-columns: 1fr; gap: 20px; }
+  .archive-grid{ grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .archive-tile--wide{ grid-column: span 2; }
+  .archive-tile--strip{ grid-column: span 2; }
 }
 </style>
 </head>
@@ -767,7 +882,7 @@ body::before{
     </p>
 
     <div class="hero__visual">
-      <img src="pierce-assets/hero-product.jpg" alt="MAISON BLSR ラボグロウンダイヤモンドピアス">
+      <img src="pierce-assets/hi-res/lab-grown-pair-hero.jpg" alt="MAISON BLSR 合計0.5ct ラボグロウンダイヤモンドピアス">
     </div>
   </section>
 
@@ -874,9 +989,10 @@ body::before{
       </div>
     </div>
 
-    <div class="pp-grid" style="margin-top: 56px;">
+    <div class="pp-grid pp-grid--three" style="margin-top: 56px;">
       <div class="pp-frame"><img src="pierce-assets/hi-res/diamond-igi-report.jpg" alt="天然ダイヤモンドと同じ成分 — IGI Laboratory Grown Diamond Report"></div>
       <div class="pp-frame"><img src="pierce-assets/hi-res/diamond-top-side.jpg" alt="澄み渡るような美しい透明感"></div>
+      <div class="pp-frame"><img src="pierce-assets/hi-res/diamond-on-leaves.jpg" alt="地球と共に生きる — サステナブルな輝き"></div>
     </div>
   </section>
 
@@ -892,6 +1008,9 @@ body::before{
         同じ予算で、より高いグレードを。<br>
         ラボグロウンダイヤモンドが選ばれる理由が、ここにあります。
       </p>
+    </div>
+    <div class="compare-hero">
+      <img src="pierce-assets/hi-res/lab-vs-natural-square.jpg" alt="Lab-grown Diamond × Natural Diamond">
     </div>
     <div class="compare-grid">
       <figure class="compare">
@@ -1004,6 +1123,9 @@ body::before{
       <div class="package__img">
         <img src="pierce-assets/rebirth-product.jpg" alt="MAISON BLSR 専用ピンクボックス・ショッパーバッグ・ジュエリーボックス">
       </div>
+      <div class="package__img package__img--secondary">
+        <img src="pierce-assets/hero-product.jpg" alt="ピンクサテンボックスに収められたピアス">
+      </div>
       <p class="package__text">
         八角形のサテンピンクボックス、マットブラックのジュエリーボックス、<br>
         そしてゴールドのブランドマークが入った専用ショッパーバッグ。<br>
@@ -1048,6 +1170,46 @@ body::before{
       <div class="celeb__card">
         <img src="pierce-assets/celebrity-eva-longoria.jpg" alt="Eva Longoria Parker delicate hoop necklace">
       </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 11: 元PP資料アーカイブ ===== -->
+  <section class="section pp-archive">
+    <div class="section__head">
+      <div class="section__eyebrow">Reference · Source Material</div>
+      <h2 class="section__title">
+        プレス資料<br>
+        <span class="section__title-accent">「LAB GROWN DIAMOND の魅力」</span>
+      </h2>
+      <p class="section__lead">
+        本リリースの根拠となる、<span class="brand-inline">MAISON&nbsp;BLSR</span> オリジナル PP 資料を全 10 スライド掲載いたします。
+      </p>
+    </div>
+    <div class="slides-grid">
+      <figure class="slide"><img src="pierce-assets/slides/slide-01.jpg" alt="Slide 1 — ラボグロウンダイヤモンド"><figcaption>01 &nbsp;·&nbsp; ラボグロウンダイヤモンド</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-02.jpg" alt="Slide 2 — POINT 1 天然と同じ成分"><figcaption>02 &nbsp;·&nbsp; POINT 1 天然と同じ成分</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-03.jpg" alt="Slide 3 — POINT 2 美しい透明感"><figcaption>03 &nbsp;·&nbsp; POINT 2 美しい透明感</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-04.jpg" alt="Slide 4 — POINT 3 サステナブル"><figcaption>04 &nbsp;·&nbsp; POINT 3 サステナブルな輝き</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-05.jpg" alt="Slide 5 — BLSR 取り扱いグレード"><figcaption>05 &nbsp;·&nbsp; BLSR 取り扱いグレード</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-06.jpg" alt="Slide 6 — Natural vs Lab Grown"><figcaption>06 &nbsp;·&nbsp; Natural vs Lab Grown</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-07.jpg" alt="Slide 7 — Color Chart"><figcaption>07 &nbsp;·&nbsp; Color Chart</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-08.jpg" alt="Slide 8 — Clarity Chart"><figcaption>08 &nbsp;·&nbsp; Clarity Chart</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-09.jpg" alt="Slide 9 — Cut Chart"><figcaption>09 &nbsp;·&nbsp; Cut Chart</figcaption></figure>
+      <figure class="slide"><img src="pierce-assets/slides/slide-10.jpg" alt="Slide 10 — Size Chart"><figcaption>10 &nbsp;·&nbsp; Size Chart</figcaption></figure>
+    </div>
+
+    <div class="archive-divider">
+      <span class="archive-divider__label">Source Photography</span>
+    </div>
+    <p class="pp-archive__lead">資料内で使用しているオリジナル素材写真。</p>
+    <div class="archive-grid">
+      <figure class="archive-tile"><img src="pierce-assets/hi-res/diamond-macro.jpg" alt="ダイヤモンド マクロ"><figcaption>Macro</figcaption></figure>
+      <figure class="archive-tile"><img src="pierce-assets/hi-res/diamond-tiny.jpg" alt="ダイヤモンド 単石サムネイル"><figcaption>Solo</figcaption></figure>
+      <figure class="archive-tile"><img src="pierce-assets/hi-res/chart-clarity-thumb.jpg" alt="クラリティチャート サムネ"><figcaption>Clarity (alt)</figcaption></figure>
+      <figure class="archive-tile"><img src="pierce-assets/hi-res/chart-cut-with-side.jpg" alt="カットチャート 横顔付"><figcaption>Cut (with side)</figcaption></figure>
+      <figure class="archive-tile archive-tile--wide"><img src="pierce-assets/hi-res/frames-on-wall.jpg" alt="ラボグロウンダイヤモンド フレーム展示"><figcaption>Frames On Wall</figcaption></figure>
+      <figure class="archive-tile archive-tile--strip"><img src="pierce-assets/hi-res/wood-floor-thick.jpg" alt="床板テクスチャ"><figcaption>Wooden Floor</figcaption></figure>
+      <figure class="archive-tile archive-tile--strip"><img src="pierce-assets/hi-res/wood-floor-thin.jpg" alt="床板テクスチャ (細)"><figcaption>Wooden Floor (slim)</figcaption></figure>
     </div>
   </section>
 
