@@ -421,23 +421,39 @@ html, body{
   .controls__btn{ padding: 10px 12px; font-size: 8px; letter-spacing: 0.25em; }
 }
 
-/* ===== 印刷時のスタイル ===== */
+/* ===== 印刷時のスタイル: スクリーンと同じ黒+金色デザインで出力 ===== */
 @media print{
+  /* 黒背景や金色グラデなどの色を強制的に出力 */
+  html, body, .poster, .poster__as-seen-cover, .poster__as-seen-front,
+  .mosaic-cell, .tv-cell, .gold-text, .poster__brand-logo{
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
   html, body{
-    background: white !important;
+    background: var(--black) !important;
+    overflow: visible !important;
+    max-width: none !important;
   }
   .viewport{
     padding: 0 !important;
-    background: none !important;
+    background: var(--black) !important;
     min-height: auto !important;
+    overflow: visible !important;
+    max-width: none !important;
+    display: block !important;
   }
   .poster{
     box-shadow: none !important;
     width: 210mm !important;
-    min-height: 297mm !important;
+    height: 297mm !important;
     margin: 0 !important;
+    transform: none !important;
     page-break-after: avoid;
   }
+  /* オーバーレイ系の擬似要素 (ノイズ・ヴィネット) は色味を消すのでoff */
+  .poster::before,
+  .poster::after{ display: none !important; }
   .controls{ display: none !important; }
 }
 </style>
