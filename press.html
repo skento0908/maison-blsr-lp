@@ -156,12 +156,12 @@ html, body{
 }
 .poster__brand-logo{
   display: block;
-  width: 34mm;
-  height: 34mm;
+  width: 30mm;
+  height: 30mm;
   object-fit: contain;
 }
 .poster__brand{
-  font-size: 26pt;
+  font-size: 24pt;
   margin: 0;
 }
 .poster__tag{
@@ -190,8 +190,8 @@ html, body{
 /* 雑誌掲載スタック (上部右側) */
 .poster__as-seen{
   position: relative;
-  width: 86mm;
-  height: 78mm;
+  width: 76mm;
+  height: 70mm;
   flex-shrink: 0;
 }
 .poster__as-seen-stack{
@@ -200,31 +200,31 @@ html, body{
 }
 .poster__as-seen-cover{
   position: absolute;
-  width: 34mm;
-  height: 46mm;
+  width: 30mm;
+  height: 41mm;
   object-fit: cover;
   object-position: center top;
   background: #fff;
-  border: 0.45mm solid rgba(184,146,63,0.45);
-  box-shadow: 0 2.5mm 7mm rgba(0,0,0,0.7);
+  border: 0.4mm solid rgba(184,146,63,0.45);
+  box-shadow: 0 2mm 6mm rgba(0,0,0,0.7);
 }
 .poster__as-seen-front{
   position: absolute;
-  width: 62mm;
-  height: 36mm;
+  width: 56mm;
+  height: 32mm;
   object-fit: cover;
   background: #fff;
-  border: 0.55mm solid var(--gold-bright);
-  box-shadow: 0 3.5mm 10mm rgba(0,0,0,0.8);
+  border: 0.5mm solid var(--gold-bright);
+  box-shadow: 0 3mm 9mm rgba(0,0,0,0.8);
 }
 /* 5枚の表紙を密に重ねた扇状に */
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  4mm; left:  4mm; transform: rotate(-14deg); z-index: 1; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  2mm; left: 12mm; transform: rotate(-7deg);  z-index: 2; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  0mm; left: 21mm; transform: rotate(0deg);   z-index: 3; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  2mm; left: 30mm; transform: rotate(7deg);   z-index: 4; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  4mm; left: 38mm; transform: rotate(14deg);  z-index: 5; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  3mm; left:  3mm; transform: rotate(-14deg); z-index: 1; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  1mm; left: 11mm; transform: rotate(-7deg);  z-index: 2; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  0mm; left: 19mm; transform: rotate(0deg);   z-index: 3; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  1mm; left: 27mm; transform: rotate(7deg);   z-index: 4; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  3mm; left: 35mm; transform: rotate(14deg);  z-index: 5; }
 /* 1番前は商品の見える広告ページ */
-.poster__as-seen-stack > .poster__as-seen-front{ top: 38mm; left: 10mm; transform: rotate(-2deg); z-index: 10; }
+.poster__as-seen-stack > .poster__as-seen-front{ top: 34mm; left:  9mm; transform: rotate(-2deg); z-index: 10; }
 
 /* ヘッダー下のディバイダー */
 .poster__divider{
