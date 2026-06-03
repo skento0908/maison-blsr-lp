@@ -72,7 +72,8 @@ html, body{
   width: 210mm;
   height: 297mm;
   background: var(--black);
-  padding: 12mm 11mm 10mm;
+  /* 上 右 下 左 — 左を厚めに取りブランド面を右寄りに */
+  padding: 12mm 11mm 10mm 16mm;
   position: relative;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0,0,0,0.75), 0 0 0 1px rgba(184,146,63,0.15);
@@ -153,15 +154,17 @@ html, body{
   align-items: center;
   text-align: center;
   gap: 4mm;
+  /* B が切れないように内側左にも余白を確保 */
+  padding-left: 4mm;
 }
 .poster__brand-logo{
   display: block;
-  width: 28mm;
-  height: 28mm;
+  width: 24mm;
+  height: 24mm;
   object-fit: contain;
 }
 .poster__brand{
-  font-size: 20pt;
+  font-size: 18pt;
   margin: 0;
 }
 .poster__tag{
@@ -187,12 +190,14 @@ html, body{
   text-transform: none;
 }
 
-/* 雑誌掲載スタック (上部右側、コンパクト) */
+/* 雑誌掲載スタック (右上にコンパクトに配置) */
 .poster__as-seen{
   position: relative;
-  width: 75mm;
-  height: 70mm;
+  width: 65mm;
+  height: 60mm;
   flex-shrink: 0;
+  /* 右側ほぼ画面端に寄せる */
+  margin-right: -2mm;
 }
 .poster__as-seen-stack{
   position: absolute;
@@ -200,31 +205,31 @@ html, body{
 }
 .poster__as-seen-cover{
   position: absolute;
-  width: 30mm;
-  height: 40mm;
+  width: 25mm;
+  height: 34mm;
   object-fit: cover;
   object-position: center top;
   background: #fff;
-  border: 0.4mm solid rgba(184,146,63,0.45);
-  box-shadow: 0 2mm 6mm rgba(0,0,0,0.65);
+  border: 0.35mm solid rgba(184,146,63,0.45);
+  box-shadow: 0 2mm 5mm rgba(0,0,0,0.65);
 }
 .poster__as-seen-front{
   position: absolute;
-  width: 55mm;
-  height: 32mm;
+  width: 47mm;
+  height: 28mm;
   object-fit: cover;
   background: #fff;
-  border: 0.5mm solid var(--gold-bright);
-  box-shadow: 0 3mm 9mm rgba(0,0,0,0.75);
+  border: 0.4mm solid var(--gold-bright);
+  box-shadow: 0 2.5mm 7mm rgba(0,0,0,0.75);
 }
 /* 5枚の表紙を密に重ねた扇状に */
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  3mm; left:  4mm; transform: rotate(-14deg); z-index: 1; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  1mm; left: 12mm; transform: rotate(-7deg);  z-index: 2; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  0mm; left: 20mm; transform: rotate(0deg);   z-index: 3; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  1mm; left: 28mm; transform: rotate(7deg);   z-index: 4; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  3mm; left: 36mm; transform: rotate(14deg);  z-index: 5; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  3mm; left:  3mm; transform: rotate(-14deg); z-index: 1; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  1mm; left: 10mm; transform: rotate(-7deg);  z-index: 2; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  0mm; left: 17mm; transform: rotate(0deg);   z-index: 3; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  1mm; left: 24mm; transform: rotate(7deg);   z-index: 4; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  3mm; left: 31mm; transform: rotate(14deg);  z-index: 5; }
 /* 1番前は商品の見える広告ページ */
-.poster__as-seen-stack > .poster__as-seen-front{ top: 34mm; left: 10mm; transform: rotate(-2deg); z-index: 10; }
+.poster__as-seen-stack > .poster__as-seen-front{ top: 30mm; left:  9mm; transform: rotate(-2deg); z-index: 10; }
 
 /* ヘッダー下のディバイダー */
 .poster__divider{
