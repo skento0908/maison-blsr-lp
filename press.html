@@ -413,12 +413,19 @@ html, body{
   border-color: var(--gold);
 }
 
-/* ===== モバイル: ポスター本体は触らず、ビューポート余白とコントロールだけ縮小 ===== */
-/* デスクトップと同じ A4 レイアウトを transform: scale() で画面幅にフィット (JS側で処理) */
-@media (max-width: 820px){
+/* ===== モバイル: 最初の描画から CSS calc() で transform: scale を適用 ===== */
+/* 794px = 210mm @ 96dpi。viewportに対する比率で縮小し、レイアウト幅も負marginで打ち消す */
+@media (max-width: 800px){
   .viewport{ padding: 24px 8px; }
   .controls{ top: 10px; right: 10px; }
   .controls__btn{ padding: 10px 12px; font-size: 8px; letter-spacing: 0.25em; }
+  .poster{
+    transform-origin: top left;
+    transform: scale(calc((100vw - 16px) / 1px / 794));
+    margin-right: calc((100vw - 16px) - 794px);
+    /* 1.4143 = 297mm / 210mm — A4縦横比で高さ方向の余分レイアウトもキャンセル */
+    margin-bottom: calc(((100vw - 16px) - 794px) * 1.4143);
+  }
 }
 
 /* ===== 印刷時のスタイル: スクリーンと同じ黒+金色デザインで出力 ===== */
@@ -579,15 +586,20 @@ html, body{
   const viewport = document.querySelector('.viewport');
   function fit(){
     if (window.matchMedia('print').matches) return;
+    // モバイル (<=800px) は CSS @media が calc() で縮尺を担当。JSはinlineを除去するだけ
+    if (window.innerWidth <= 800) {
+      poster.style.transform = '';
+      poster.style.marginBottom = '';
+      poster.style.marginRight = '';
+      return;
+    }
     poster.style.transform = '';
     poster.style.marginBottom = '';
     poster.style.marginRight = '';
-    // viewport要素とwindow両方の幅で小さい方を採用 (確実な収まり)
     const availWidth = Math.min(viewport.clientWidth, window.innerWidth) - 16;
     const posterWidth = poster.offsetWidth;
-    if (availWidth < posterWidth) {
+    if (availWidth < posterWidth && posterWidth > 0) {
       const scale = availWidth / posterWidth;
-      // top leftを起点に縮めて、右と下の余分なレイアウト領域をマイナスマージンで打ち消す
       poster.style.transformOrigin = 'top left';
       poster.style.transform = 'scale(' + scale + ')';
       const posterHeight = poster.offsetHeight;
