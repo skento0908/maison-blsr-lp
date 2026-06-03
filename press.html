@@ -136,7 +136,7 @@ html, body{
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 4mm;
-  gap: 8mm;
+  gap: 14mm;
 }
 
 .poster__brand-block{
@@ -156,7 +156,7 @@ html, body{
   object-fit: contain;
 }
 .poster__brand{
-  font-size: 34pt;
+  font-size: 28pt;
   margin: 0;
 }
 .poster__tag{
@@ -185,7 +185,7 @@ html, body{
 /* 雑誌掲載スタック (上部右側、本体の半分くらい使う) */
 .poster__as-seen{
   position: relative;
-  width: 80mm;
+  width: 92mm;
   height: 86mm;
   flex-shrink: 0;
 }
@@ -212,14 +212,14 @@ html, body{
   border: 0.6mm solid var(--gold-bright);
   box-shadow: 0 4mm 12mm rgba(0,0,0,0.8);
 }
-/* 5枚の表紙を密に重ねた扇状に */
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  4mm; left:  0mm; transform: rotate(-14deg); z-index: 1; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  2mm; left:  9mm; transform: rotate(-7deg);  z-index: 2; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  0mm; left: 19mm; transform: rotate(0deg);   z-index: 3; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  2mm; left: 29mm; transform: rotate(7deg);   z-index: 4; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  4mm; left: 38mm; transform: rotate(14deg);  z-index: 5; }
+/* 5枚の表紙を密に重ねた扇状に (左隣のブランドブロックに干渉しないよう右にシフト) */
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  4mm; left:  8mm; transform: rotate(-14deg); z-index: 1; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  2mm; left: 17mm; transform: rotate(-7deg);  z-index: 2; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  0mm; left: 27mm; transform: rotate(0deg);   z-index: 3; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  2mm; left: 37mm; transform: rotate(7deg);   z-index: 4; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  4mm; left: 46mm; transform: rotate(14deg);  z-index: 5; }
 /* 1番前は商品の見える広告ページ */
-.poster__as-seen-stack > .poster__as-seen-front{ top: 42mm; left:  4mm; transform: rotate(-2deg); z-index: 10; }
+.poster__as-seen-stack > .poster__as-seen-front{ top: 42mm; left: 12mm; transform: rotate(-2deg); z-index: 10; }
 
 /* ヘッダー下のディバイダー */
 .poster__divider{
