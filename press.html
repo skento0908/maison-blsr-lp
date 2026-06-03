@@ -185,8 +185,8 @@ html, body{
 /* 雑誌掲載スタック (上部右側、本体の半分くらい使う) */
 .poster__as-seen{
   position: relative;
-  width: 100mm;
-  height: 78mm;
+  width: 80mm;
+  height: 86mm;
   flex-shrink: 0;
 }
 .poster__as-seen-stack{
@@ -195,31 +195,31 @@ html, body{
 }
 .poster__as-seen-cover{
   position: absolute;
-  width: 30mm;
-  height: 41mm;
+  width: 38mm;
+  height: 51mm;
   object-fit: cover;
   object-position: center top;
   background: #fff;
   border: 0.5mm solid rgba(184,146,63,0.45);
-  box-shadow: 0 2mm 5mm rgba(0,0,0,0.65);
+  box-shadow: 0 3mm 8mm rgba(0,0,0,0.7);
 }
 .poster__as-seen-front{
   position: absolute;
-  width: 62mm;
-  height: 36mm;
+  width: 68mm;
+  height: 40mm;
   object-fit: cover;
   background: #fff;
-  border: 0.5mm solid var(--gold-bright);
-  box-shadow: 0 3mm 9mm rgba(0,0,0,0.75);
+  border: 0.6mm solid var(--gold-bright);
+  box-shadow: 0 4mm 12mm rgba(0,0,0,0.8);
 }
-/* 5枚の表紙を扇状に配置 */
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  0mm; left:  0mm; transform: rotate(-12deg); z-index: 1; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  4mm; left: 14mm; transform: rotate(-6deg);  z-index: 2; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  5mm; left: 31mm; transform: rotate(-1deg);  z-index: 3; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  4mm; left: 48mm; transform: rotate(4deg);   z-index: 4; }
-.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  0mm; left: 64mm; transform: rotate(10deg);  z-index: 5; }
+/* 5枚の表紙を密に重ねた扇状に */
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1){ top:  4mm; left:  0mm; transform: rotate(-14deg); z-index: 1; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2){ top:  2mm; left:  9mm; transform: rotate(-7deg);  z-index: 2; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3){ top:  0mm; left: 19mm; transform: rotate(0deg);   z-index: 3; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4){ top:  2mm; left: 29mm; transform: rotate(7deg);   z-index: 4; }
+.poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){ top:  4mm; left: 38mm; transform: rotate(14deg);  z-index: 5; }
 /* 1番前は商品の見える広告ページ */
-.poster__as-seen-stack > .poster__as-seen-front{ top: 41mm; left: 19mm; transform: rotate(-3deg); z-index: 6; }
+.poster__as-seen-stack > .poster__as-seen-front{ top: 42mm; left:  4mm; transform: rotate(-2deg); z-index: 10; }
 
 /* ヘッダー下のディバイダー */
 .poster__divider{
