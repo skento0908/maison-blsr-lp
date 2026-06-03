@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新生 MAISON BLSR ピアス — プレスリリース</title>
-<meta name="description" content="MAISON BLSR ラボグロウンダイヤモンドピアス プレスリリース">
+<title>世界基準の輝きを、耳元に。 — MAISON BLSR</title>
+<meta name="description" content="合計0.5ct ラボグロウンダイヤモンドピアス。FカラーUP / VSクラスUP / Excellent Cut / DPS簡易鑑定カード付き。MAISON BLSR プレスリリース。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,7 @@
   --black: #080a0d;
   --black-soft: #11141a;
   --black-mid: #1a1d24;
+  --black-deep: #04050a;
 
   --gold: #b8923f;
   --gold-bright: #d4b56a;
@@ -34,6 +35,8 @@
     var(--gold-champagne) 72%,
     var(--gold-deep) 100%
   );
+
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -63,9 +66,10 @@ body::before{
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  background-size: 200% 200%;
 }
 
-/* ===== Brand Stack: MAISON / BLSR 規範 (LP共通) ===== */
+/* Brand Stack (LP規範) */
 .brand-stack{
   display: flex;
   flex-direction: column;
@@ -89,7 +93,6 @@ body::before{
   text-indent: 0.7em;
   display: block;
 }
-/* 1列版 (文中で使用、字間のみ統一) */
 .brand-inline{
   font-family: var(--serif);
   font-weight: 400;
@@ -125,81 +128,57 @@ body::before{
 
 /* ===== ペラ本体 ===== */
 .sheet{
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 40px 60px;
-  position: relative;
+  padding: 100px 40px 80px;
 }
 
-/* 画像プレースホルダー共通 */
-.placeholder{
-  background: linear-gradient(135deg, rgba(184,146,63,0.06) 0%, rgba(184,146,63,0.02) 100%);
-  border: 1.5px dashed rgba(184,146,63,0.45);
+/* ===== HERO (特大) ===== */
+.hero{
+  text-align: center;
+  margin-bottom: 100px;
+}
+.hero__brand{
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
-  color: var(--gold);
+  gap: 16px;
 }
-.placeholder__icon{
-  font-size: 32px;
-  margin-bottom: 12px;
-  opacity: 0.6;
+.hero__brand-logo{
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
-.placeholder__label{
-  font-family: var(--serif-jp);
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  color: var(--gold-bright);
-  margin-bottom: 8px;
-}
-.placeholder__hint{
+.hero__brand-stack{ font-size: 24px; }
+.hero__eyebrow{
   font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.7;
-  line-height: 1.6;
-}
-.placeholder__file{
-  margin-top: 12px;
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  color: var(--gold-champagne);
-  opacity: 0.5;
-  padding: 4px 10px;
-  border: 1px solid rgba(184,146,63,0.3);
-}
-
-/* ===== HERO ===== */
-.hero{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 80px;
+  opacity: 0.85;
+  margin-bottom: 28px;
+  display: inline-flex;
   align-items: center;
+  gap: 18px;
 }
-.hero__copy{ padding: 20px 0; }
-.hero__lead{
-  font-family: var(--serif-jp);
-  font-weight: 300;
-  font-size: 18px;
-  letter-spacing: 0.18em;
-  color: var(--gold-champagne);
-  opacity: 0.9;
-  margin-bottom: 16px;
+.hero__eyebrow::before,
+.hero__eyebrow::after{
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
 }
 .hero__title{
   font-family: var(--serif-jp);
   font-weight: 500;
-  font-size: clamp(40px, 5vw, 60px);
-  line-height: 1.18;
-  letter-spacing: 0.05em;
-  margin-bottom: 32px;
+  font-size: clamp(40px, 7.5vw, 96px);
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
 }
 .hero__title-accent{
   background: var(--gold-gradient);
@@ -208,508 +187,454 @@ body::before{
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
-.hero__body{
-  font-family: var(--serif-jp);
-  font-weight: 300;
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  line-height: 2;
-  color: #ffffff;
-  opacity: 0.85;
-  margin-bottom: 32px;
-}
-.hero__badge{
-  display: inline-block;
+.hero__product-line{
   font-family: var(--serif-jp);
   font-weight: 400;
-  font-size: 13px;
+  font-size: clamp(20px, 2.5vw, 32px);
   letter-spacing: 0.15em;
+  color: var(--gold-champagne);
+  margin-bottom: 56px;
+}
+.hero__product-line-em{
   color: var(--gold-bright);
-  line-height: 1.9;
-  padding: 16px 24px;
-  border-top: 1px solid rgba(184,146,63,0.4);
-  border-bottom: 1px solid rgba(184,146,63,0.4);
+  font-weight: 500;
 }
-
 .hero__visual{
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: stretch;
-}
-.hero__product{
+  max-width: 760px;
+  margin: 0 auto 56px;
   aspect-ratio: 4 / 3;
-  min-height: 260px;
   overflow: hidden;
-  border: 1px solid rgba(184,146,63,0.25);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(184,146,63,0.3);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
 }
-.hero__product img{
+.hero__visual img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.hero__cert{
-  background: #fff;
-  padding: 6px;
-  border: 1px solid rgba(184,146,63,0.3);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
-  align-self: flex-end;
-  width: 100%;
-  max-width: 360px;
+
+/* ===== SUBTITLE (大表示) ===== */
+.subtitle{
+  text-align: center;
+  margin-bottom: 100px;
+  padding: 40px 32px;
+  border-top: 1px solid rgba(184,146,63,0.4);
+  border-bottom: 1px solid rgba(184,146,63,0.4);
 }
-.hero__cert img{
+.subtitle__row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 56px;
+  margin-bottom: 18px;
+}
+.subtitle__item{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 30px);
+  letter-spacing: 0.1em;
+  color: var(--gold-bright);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.subtitle__item::before{
+  content: "◇";
+  color: var(--gold);
+  font-size: 0.8em;
+}
+.subtitle__note{
+  font-family: var(--serif-jp);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--gold-champagne);
+  opacity: 0.6;
+  margin-top: 14px;
+}
+
+/* ===== セクション共通 ===== */
+.section{ margin-bottom: 100px; }
+.section__head{
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section__eyebrow{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+.section__eyebrow::before,
+.section__eyebrow::after{
+  content: "";
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+.section__title{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: clamp(28px, 4.5vw, 56px);
+  letter-spacing: 0.12em;
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+.section__title-accent{
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.section__lead{
+  font-family: var(--serif-jp);
+  font-size: clamp(15px, 1.5vw, 18px);
+  letter-spacing: 0.12em;
+  color: var(--gold-champagne);
+  opacity: 0.8;
+  line-height: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ===== グレードハイライト ===== */
+.grades{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+.grade-card{
+  padding: 36px 20px;
+  text-align: center;
+  border: 1px solid rgba(184,146,63,0.4);
+  background: linear-gradient(180deg, rgba(184,146,63,0.05) 0%, rgba(184,146,63,0.02) 100%);
+}
+.grade-card__icon{
+  font-size: 36px;
+  color: var(--gold-bright);
+  margin-bottom: 14px;
+}
+.grade-card__label{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--gold-bright);
+  margin-bottom: 8px;
+}
+.grade-card__sub{
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.75;
+}
+
+/* ===== PP画像表示 ===== */
+.pp-frame{
+  margin: 0 auto;
+  max-width: 1100px;
+  border: 1px solid rgba(184,146,63,0.3);
+  background: rgba(184,146,63,0.03);
+  padding: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+}
+.pp-frame img{
   width: 100%;
   height: auto;
   display: block;
 }
-.hero__cert-caption{
-  text-align: center;
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 14px;
-  opacity: 0.85;
-}
-
-/* ===== FEATURES ===== */
-.features{
+.pp-grid{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-  padding: 32px 0;
-  margin-bottom: 70px;
-  border-top: 1px solid rgba(184,146,63,0.35);
-  border-bottom: 1px solid rgba(184,146,63,0.35);
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.feature{
-  text-align: center;
-  padding: 0 8px;
+.pp-grid .pp-frame{ margin: 0; }
+
+/* ===== ポイントカード ===== */
+.points{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 60px;
 }
-.feature__icon{
-  font-size: 30px;
-  color: var(--gold-bright);
-  margin-bottom: 12px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.point{
+  padding: 36px 28px;
+  border: 1px solid rgba(184,146,63,0.25);
+  background: rgba(184,146,63,0.03);
 }
-.feature__icon-bar{
-  display: inline-block;
-  width: 30px;
-  height: 14px;
-  border-radius: 2px;
-  background: linear-gradient(135deg, #8a6d2e 0%, #b8923f 25%, #e8d4a0 50%, #d4b56a 75%, #8a6d2e 100%);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
+.point__num{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 14px;
 }
-.feature__title-jp{
+.point__title{
   font-family: var(--serif-jp);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 21px;
   letter-spacing: 0.08em;
   color: var(--gold-bright);
-  margin-bottom: 4px;
-  line-height: 1.3;
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
-.feature__title-en{
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 9px;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold);
+.point__body{
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: 13.5px;
+  letter-spacing: 0.05em;
+  line-height: 1.95;
+  color: #ffffff;
+  opacity: 0.82;
+}
+
+/* ===== DPS鑑定 ===== */
+.cert-wrap{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cert-img{
+  border: 1px solid rgba(184,146,63,0.3);
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.cert-img img{ width: 100%; height: auto; display: block; }
+.cert-body__title{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 32px);
+  letter-spacing: 0.1em;
+  color: var(--gold-bright);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+.cert-body__text{
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: 14.5px;
+  line-height: 2.0;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+.cert-body__note{
+  font-family: var(--serif-jp);
+  font-size: 11.5px;
+  letter-spacing: 0.15em;
+  color: var(--gold-champagne);
+  opacity: 0.65;
+  padding-top: 14px;
+  border-top: 1px solid rgba(184,146,63,0.25);
+}
+
+/* ===== K18 ===== */
+.material{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.material__icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.material__bar{
+  display: inline-block;
+  width: 220px;
+  height: 80px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #8a6d2e 0%, #b8923f 25%, #e8d4a0 50%, #d4b56a 75%, #8a6d2e 100%);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.55), inset 0 2px 0 rgba(255,255,255,0.35);
+  position: relative;
+}
+.material__bar::after{
+  content: "K18";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 38px;
+  letter-spacing: 0.1em;
+  color: rgba(50, 35, 15, 0.6);
+}
+.material__title{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 36px);
+  letter-spacing: 0.12em;
+  color: var(--gold-bright);
+  margin-bottom: 20px;
+}
+.material__text{
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: 14.5px;
+  line-height: 2.0;
+  letter-spacing: 0.06em;
+  color: #ffffff;
   opacity: 0.85;
 }
 
-/* ===== GRADE TABLE ===== */
-.grade{ margin-bottom: 70px; }
-.grade__title{
+/* ===== BOX & ショッパー ===== */
+.package{
   text-align: center;
-  font-family: var(--serif-jp);
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: 0.15em;
-  color: var(--gold-bright);
-  margin-bottom: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.grade__title::before,
-.grade__title::after{
-  content: "—";
-  margin: 0 16px;
-  color: var(--gold);
-  opacity: 0.5;
-}
-.grade__frame{
-  border: 1px solid rgba(184,146,63,0.4);
-  background: rgba(184,146,63,0.02);
-}
-.grade__row{
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  border-bottom: 1px solid rgba(184,146,63,0.18);
-}
-.grade__row:last-child{ border-bottom: none; }
-
-.grade__label{
-  padding: 18px 18px;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-style: italic;
-  font-size: 22px;
-  letter-spacing: 0.04em;
-  color: var(--gold-bright);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: rgba(184,146,63,0.06);
-  border-right: 1px solid rgba(184,146,63,0.2);
-}
-.grade__label-sub{
-  font-family: var(--serif-jp);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: #ffffff;
-  opacity: 0.6;
-  font-style: normal;
-  margin-top: 4px;
-}
-
-.grade__cells{
-  display: flex;
-  padding: 16px 10px;
-  gap: 6px;
-  align-items: stretch;
-}
-.grade__cell{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 4px;
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  color: var(--gold-champagne);
-  border: 1px solid rgba(184,146,63,0.18);
-  text-align: center;
-  line-height: 1.4;
-  position: relative;
-  background: rgba(0,0,0,0.25);
-}
-.grade__cell.is-marked{
-  background: linear-gradient(180deg, rgba(184,146,63,0.12) 0%, rgba(212,181,106,0.22) 100%);
-  border: 1.5px solid var(--gold);
-  box-shadow: 0 0 6px rgba(184,146,63,0.3);
-  color: var(--gold-bright);
-  font-weight: 500;
-}
-.grade__cell-tag{
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  margin-top: -1px;
-  font-family: var(--serif-jp);
-  font-weight: 500;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  color: var(--gold-bright);
-  background: var(--black);
-  padding: 3px 8px;
-  border: 1px solid var(--gold);
-  white-space: nowrap;
-}
-
-/* Carat cell content */
-.cell-carat-icon{
-  color: var(--gold-bright);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.cell-carat-ct{
-  font-family: var(--serif);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--gold-champagne);
-  letter-spacing: 0.02em;
-}
-.cell-carat-mm{
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: #ffffff;
-  opacity: 0.75;
-  margin-top: 2px;
-}
-.is-marked .cell-carat-ct{ color: var(--gold-bright); }
-
-/* Cut row */
-.grade__cells--cut .grade__cell{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 13px;
-  padding: 16px 4px;
-  letter-spacing: 0.04em;
-}
-
-/* Color row */
-.grade__cells--color{
-  flex-wrap: wrap;
-  padding-bottom: 30px;
-}
-.grade__cells--color .grade__cell{
-  font-family: var(--serif);
-  font-size: 16px;
-  padding: 12px 4px;
-  min-width: 30px;
-}
-.color-group-label{
-  position: absolute;
-  bottom: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--serif-jp);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: #ffffff;
-  opacity: 0.65;
-  white-space: nowrap;
-}
-
-/* Clarity row */
-.grade__cells--clarity{
-  flex-wrap: wrap;
-  padding-bottom: 36px;
-  padding-top: 24px; /* VS UP のタグ用の余白 */
-}
-.grade__cells--clarity .grade__cell{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 13px;
-  padding: 12px 4px;
-  min-width: 50px;
-}
-.grade__cell-note{
-  position: absolute;
-  bottom: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--serif-jp);
-  font-size: 8.5px;
-  color: #ffffff;
-  opacity: 0.65;
-  white-space: nowrap;
-}
-.grade__clarity-group{
-  position: relative;
-  flex: 4;
-  display: flex;
-  gap: 6px;
-  padding: 12px 8px;
-  border: 1.5px solid var(--gold);
-  background: linear-gradient(180deg, rgba(184,146,63,0.10) 0%, rgba(212,181,106,0.18) 100%);
-}
-.grade__clarity-group .grade__cell{
-  background: transparent;
+.package__img{
+  margin: 0 auto 32px;
   border: 1px solid rgba(184,146,63,0.3);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+  max-width: 800px;
 }
-.grade__clarity-group-tag{
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  color: var(--gold-bright);
-  background: var(--black);
-  padding: 3px 10px;
-  border: 1px solid var(--gold);
-}
-.grade__clarity-group-note{
-  position: absolute;
-  bottom: -22px;
-  left: 50%;
-  transform: translateX(-50%);
+.package__img img{ width: 100%; height: auto; display: block; }
+.package__text{
   font-family: var(--serif-jp);
-  font-size: 10.5px;
-  color: var(--gold-bright);
-  text-align: center;
-  white-space: nowrap;
-  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  color: var(--gold-champagne);
+  line-height: 2;
 }
 
-/* SI/I群: 共通キャプションを共有するプレーン版 (枠線・背景なし) */
-.grade__clarity-group--plain{
-  border: none;
-  background: transparent;
-  padding: 0;
-  flex: 2;
-}
-.grade__clarity-group--plain .grade__cell{
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(184,146,63,0.18);
-}
-.grade__clarity-group--plain .grade__clarity-group-note{
-  color: #ffffff;
-  opacity: 0.75;
-  font-weight: 300;
-}
-
-/* ===== REBIRTH ===== */
+/* ===== 復活ストーリー ===== */
 .rebirth{
   display: grid;
-  grid-template-columns: 200px 1fr 280px;
-  gap: 36px;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
   align-items: center;
-  padding: 50px 24px;
+  padding: 64px 32px;
   border-top: 1px solid rgba(184,146,63,0.35);
   border-bottom: 1px solid rgba(184,146,63,0.35);
-  margin-bottom: 70px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .rebirth__brand{ text-align: center; }
 .rebirth__monogram{
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   display: block;
-  margin: 0 auto 18px;
+  margin: 0 auto 20px;
   object-fit: contain;
 }
-/* MAISON / BLSR brand-stack 規範をそのまま使用 (LP共通) */
-/* 親で font-size を決定 → BLSR=1em, MAISON=0.34em の比率で連動 */
-.rebirth__brand-stack{
-  font-size: 32px;
-}
+.rebirth__brand-stack{ font-size: 30px; margin-bottom: 16px; }
 .rebirth__tagline{
   font-family: var(--serif);
   font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  margin-top: 14px;
+  font-size: 16px;
+  letter-spacing: 0.25em;
   color: var(--gold-bright);
 }
 .rebirth__body{
   font-family: var(--serif-jp);
   font-weight: 300;
-  font-size: 14px;
-  letter-spacing: 0.05em;
+  font-size: 16px;
+  letter-spacing: 0.06em;
   line-height: 2.1;
   color: #ffffff;
   opacity: 0.92;
 }
 .rebirth__highlight{
+  display: block;
   font-family: var(--serif-jp);
   font-weight: 500;
-  font-size: 19px;
+  font-size: 22px;
   color: var(--gold-bright);
-  display: block;
-  margin: 6px 0;
-  letter-spacing: 0.06em;
+  margin: 8px 0;
+  letter-spacing: 0.08em;
 }
 .rebirth__highlight-2{ color: var(--gold); }
-.rebirth__visual{
-  aspect-ratio: 4 / 3;
-  min-height: 200px;
-  overflow: hidden;
-  border: 1px solid rgba(184,146,63,0.25);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-}
-.rebirth__visual img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
-/* ===== CELEBRITY ===== */
-.celebrity{ margin-bottom: 50px; }
-.celebrity__title{
+/* ===== セレブリティ ===== */
+.celeb{ margin-bottom: 80px; }
+.celeb__title{
+  text-align: center;
   font-family: var(--serif-jp);
   font-weight: 400;
-  font-size: 17px;
-  letter-spacing: 0.12em;
-  text-align: center;
-  margin-bottom: 28px;
+  font-size: clamp(18px, 2vw, 24px);
+  letter-spacing: 0.15em;
   color: var(--gold-bright);
-  line-height: 1.7;
+  margin-bottom: 40px;
+  line-height: 1.8;
 }
-.celebrity__title-em{
-  /* color/weightのみ。font-family・letter-spacingは brand-inline 規範に従う */
+.celeb__title-em{
+  font-family: var(--serif);
   color: var(--gold);
   font-weight: 500;
+  letter-spacing: 0.25em;
 }
-.celebrity__grid{
+.celeb__grid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 28px;
-  align-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.celeb-card{
+.celeb__card{
   background: #fff;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid rgba(184,146,63,0.35);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-  display: flex;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.55);
 }
-.celeb-card img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.celebrity__copy{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-}
-.celebrity__copy-line{
-  font-family: var(--serif-jp);
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.15em;
-  color: var(--gold-champagne);
-  line-height: 2.0;
-}
-.celebrity__copy-em{
-  color: var(--gold-bright);
-  font-weight: 500;
-}
+.celeb__card img{ width: 100%; height: auto; display: block; }
 
-/* ===== TAGLINE ===== */
+/* ===== タグライン ===== */
 .tagline{
   text-align: center;
-  padding-top: 40px;
+  padding: 64px 32px;
   border-top: 1px solid rgba(184,146,63,0.35);
 }
 .tagline__text{
   font-family: var(--serif-jp);
-  font-weight: 400;
-  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 44px);
   letter-spacing: 0.45em;
   text-indent: 0.45em;
 }
 
 /* ===== レスポンシブ ===== */
 @media (max-width: 900px){
-  .sheet{ padding: 60px 24px 50px; }
-  .hero{ grid-template-columns: 1fr; gap: 30px; }
-  .hero__cert{ max-width: 280px; margin: 0 auto; }
-  .features{ grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 24px 0; }
-  .rebirth{ grid-template-columns: 1fr; gap: 30px; text-align: center; padding: 36px 16px; }
-  .celebrity__grid{ grid-template-columns: 1fr; gap: 20px; }
-  .grade__row{ grid-template-columns: 80px 1fr; }
-  .grade__label{ font-size: 16px; padding: 12px 8px; }
-  .grade__cells{ padding: 8px 4px; gap: 3px; }
-  .grade__cells--color{ flex-wrap: wrap; }
-  .grade__cell{ font-size: 10px; padding: 6px 2px; }
+  .sheet{ padding: 72px 20px 60px; }
+  .hero{ margin-bottom: 70px; }
+  .subtitle{ margin-bottom: 70px; padding: 32px 20px; }
+  .subtitle__row{ gap: 18px 36px; }
+  .section{ margin-bottom: 70px; }
+  .grades{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .pp-grid{ grid-template-columns: 1fr; gap: 20px; }
+  .points{ grid-template-columns: 1fr; gap: 18px; }
+  .cert-wrap, .material, .rebirth{ grid-template-columns: 1fr; gap: 32px; padding: 40px 20px; }
+  .celeb__grid{ grid-template-columns: 1fr; gap: 22px; }
+  .hero__brand-logo{ width: 60px; height: 60px; }
+  .hero__brand-stack{ font-size: 20px; }
 }
 </style>
 </head>
@@ -722,250 +647,283 @@ body::before{
 
 <article class="sheet">
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO (特大) ===== -->
   <section class="hero">
-    <div class="hero__copy">
-      <p class="hero__lead">私たちのピアスは、</p>
-      <h1 class="hero__title">
-        <span class="hero__title-accent">世界基準</span>の<br>
-        最高品質。
-      </h1>
-      <p class="hero__body">
-        厳選されたラボグロウンダイヤモンドを、<br>
-        DPS鑑定機関の確かな証明でお届けします。<br>
-        本物の輝きと、安心を、すべての方へ。
-      </p>
-      <div class="hero__badge">
-        DPSの簡易鑑定カード付きで<br>
-        品質・価値を保証。
-      </div>
-    </div>
-
-    <div class="hero__visual">
-      <div class="hero__product">
-        <img src="pierce-assets/hero-product.jpg?v=2" alt="ピンクオクタゴンボックスに収められたラボグロウンダイヤモンドピアス" loading="eager" decoding="sync">
-      </div>
-
-      <div class="hero__cert">
-        <img src="pierce-assets/dps-cert.jpg?v=2" alt="DPS Gem Identification Report">
-        <div class="hero__cert-caption">— DPS Gem Identification Report —</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features">
-    <div class="feature">
-      <div class="feature__icon">◇</div>
-      <div class="feature__title-jp">Fカラー up</div>
-      <div class="feature__title-en">Color</div>
-    </div>
-    <div class="feature">
-      <div class="feature__icon">◈</div>
-      <div class="feature__title-jp">VSクラス up</div>
-      <div class="feature__title-en">Clarity</div>
-    </div>
-    <div class="feature">
-      <div class="feature__icon">✦</div>
-      <div class="feature__title-jp">ラウンド<br>ブリリアント</div>
-      <div class="feature__title-en">Brilliant Cut</div>
-    </div>
-    <div class="feature">
-      <div class="feature__icon"><span class="feature__icon-bar"></span></div>
-      <div class="feature__title-jp">K18</div>
-      <div class="feature__title-en">Gold</div>
-    </div>
-    <div class="feature">
-      <div class="feature__icon">❖</div>
-      <div class="feature__title-jp">専用BOX・<br>ショッパー付き</div>
-      <div class="feature__title-en">Packaging</div>
-    </div>
-  </section>
-
-  <!-- ===== GRADE TABLE ===== -->
-  <section class="grade">
-    <h2 class="grade__title">今回のピアスの品質グレード</h2>
-
-    <div class="grade__frame">
-
-      <!-- Carat -->
-      <div class="grade__row">
-        <div class="grade__label">
-          Carat
-          <span class="grade__label-sub">Excellentの直径</span>
-        </div>
-        <div class="grade__cells">
-          <div class="grade__cell">
-            <div class="cell-carat-icon" style="font-size:14px;">◇</div>
-            <div class="cell-carat-ct">0.1ct</div>
-            <div class="cell-carat-mm">3.01mm</div>
-          </div>
-          <div class="grade__cell">
-            <div class="cell-carat-icon" style="font-size:17px;">◇</div>
-            <div class="cell-carat-ct">0.2ct</div>
-            <div class="cell-carat-mm">3.81mm</div>
-          </div>
-          <div class="grade__cell is-marked">
-            <div class="grade__cell-tag">今回のピアス &nbsp;·&nbsp; 2石合計 0.5ct</div>
-            <div class="cell-carat-icon" style="font-size:19px;">◇</div>
-            <div class="cell-carat-ct">0.25ct &times; 2</div>
-            <div class="cell-carat-mm">4.10mm</div>
-          </div>
-          <div class="grade__cell">
-            <div class="cell-carat-icon" style="font-size:20px;">◇</div>
-            <div class="cell-carat-ct">0.3ct</div>
-            <div class="cell-carat-mm">4.36mm</div>
-          </div>
-          <div class="grade__cell">
-            <div class="cell-carat-icon" style="font-size:24px;">◇</div>
-            <div class="cell-carat-ct">0.5ct</div>
-            <div class="cell-carat-mm">5.17mm</div>
-          </div>
-          <div class="grade__cell">
-            <div class="cell-carat-icon" style="font-size:27px;">◇</div>
-            <div class="cell-carat-ct">0.7ct</div>
-            <div class="cell-carat-mm">5.79mm</div>
-          </div>
-          <div class="grade__cell">
-            <div class="cell-carat-icon" style="font-size:30px;">◇</div>
-            <div class="cell-carat-ct">1.0ct</div>
-            <div class="cell-carat-mm">6.50mm</div>
-          </div>
-          <div class="grade__cell">
-            <div class="cell-carat-icon" style="font-size:36px;">◇</div>
-            <div class="cell-carat-ct">2.0ct</div>
-            <div class="cell-carat-mm">8.20mm</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Color -->
-      <div class="grade__row">
-        <div class="grade__label">Color</div>
-        <div class="grade__cells grade__cells--color">
-          <div class="grade__cell">D</div>
-          <div class="grade__cell">E</div>
-          <div class="grade__cell is-marked">
-            F
-            <span class="color-group-label">Colorless（無色）</span>
-          </div>
-          <div class="grade__cell">G</div>
-          <div class="grade__cell">H</div>
-          <div class="grade__cell">I</div>
-          <div class="grade__cell">
-            J
-            <span class="color-group-label">Near Colorless（ほぼ無色）</span>
-          </div>
-          <div class="grade__cell">K</div>
-          <div class="grade__cell">L</div>
-          <div class="grade__cell">
-            M
-            <span class="color-group-label">Faint Yellow</span>
-          </div>
-          <div class="grade__cell">N</div>
-          <div class="grade__cell">O</div>
-          <div class="grade__cell">P</div>
-          <div class="grade__cell">Q</div>
-          <div class="grade__cell">R</div>
-          <div class="grade__cell">
-            S
-            <span class="color-group-label">Very Light Yellow</span>
-          </div>
-          <div class="grade__cell">T</div>
-          <div class="grade__cell">U</div>
-          <div class="grade__cell">V</div>
-          <div class="grade__cell">W</div>
-          <div class="grade__cell">X</div>
-          <div class="grade__cell">Y</div>
-          <div class="grade__cell">
-            Z
-            <span class="color-group-label">Light Yellow</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Clarity -->
-      <div class="grade__row">
-        <div class="grade__label">Clarity</div>
-        <div class="grade__cells grade__cells--clarity">
-          <div class="grade__cell">
-            FL
-            <span class="grade__cell-note">無欠陥</span>
-          </div>
-          <div class="grade__cell">
-            IF
-            <span class="grade__cell-note">内部に無欠陥</span>
-          </div>
-          <div class="grade__clarity-group">
-            <div class="grade__clarity-group-tag">VS UP</div>
-            <div class="grade__cell">VVS1</div>
-            <div class="grade__cell">VVS2</div>
-            <div class="grade__cell">VS1</div>
-            <div class="grade__cell">VS2</div>
-            <span class="grade__clarity-group-note">VVS1・VVS2 と VS UP のランクはほぼ変わらない高品質です</span>
-          </div>
-          <div class="grade__clarity-group grade__clarity-group--plain">
-            <div class="grade__cell">SI1</div>
-            <div class="grade__cell">SI2</div>
-            <span class="grade__clarity-group-note">10倍ルーペで見て、傷が見える</span>
-          </div>
-          <div class="grade__clarity-group grade__clarity-group--plain">
-            <div class="grade__cell">I1</div>
-            <div class="grade__cell">I2</div>
-            <div class="grade__cell">I3</div>
-            <span class="grade__clarity-group-note">肉眼で見て、傷が見える</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== REBIRTH ===== -->
-  <section class="rebirth">
-    <div class="rebirth__brand">
-      <img class="rebirth__monogram" src="pierce-assets/br-logo.png" alt="MAISON BLSR モノグラム">
-      <div class="rebirth__brand-stack brand-stack gold-text">
+    <div class="hero__brand">
+      <img class="hero__brand-logo" src="pierce-assets/br-logo.png" alt="MAISON BLSR モノグラム">
+      <div class="hero__brand-stack brand-stack gold-text">
         <span class="brand-stack__maison">MAISON</span>
         <span class="brand-stack__blsr">BLSR</span>
       </div>
-      <div class="rebirth__tagline">Hidden In Brilliance.</div>
     </div>
 
-    <div class="rebirth__body">
-      2010年代、多くの人々に愛されてきた<span class="brand-inline">BLSR</span>が、<br>
-      その想いと品質を受け継ぎ、
-      <span class="rebirth__highlight">7年の時を経て</span>
-      <span class="rebirth__highlight rebirth__highlight-2">新生 <span class="brand-inline">MAISON&nbsp;BLSR</span> として</span>
-      生まれ変わります。<br>
-      変わらない想いと、進化した品質で、<br>
-      新たなラグジュアリーの時代へ。
-    </div>
+    <div class="hero__eyebrow">Press Release</div>
 
-    <div class="rebirth__visual">
-      <img src="pierce-assets/rebirth-product.jpg" alt="MAISON BLSR 専用ピンクボックス・ショッパーバッグ・ジュエリーボックス" loading="eager" decoding="sync">
+    <h1 class="hero__title">
+      <span class="hero__title-accent">世界基準</span>の輝きを、<br>
+      耳元に。
+    </h1>
+
+    <p class="hero__product-line">
+      合計 <span class="hero__product-line-em">0.5ct</span> &nbsp;·&nbsp; ラボグロウンダイヤモンドピアス
+    </p>
+
+    <div class="hero__visual">
+      <img src="pierce-assets/hero-product.jpg" alt="MAISON BLSR ラボグロウンダイヤモンドピアス">
     </div>
   </section>
 
-  <!-- ===== CELEBRITY ===== -->
-  <section class="celebrity">
-    <h2 class="celebrity__title">
-      世界中のセレブリティに愛されてきた、<br>
-      <span class="celebrity__title-em brand-inline">BLSR</span> のジュエリー。
-    </h2>
-    <div class="celebrity__grid">
-      <div class="celeb-card">
-        <img src="pierce-assets/celebrity-jennifer-lopez.jpg" alt="Jennifer Lopez wearing Side Cross Pendant" loading="eager" decoding="sync">
+  <!-- ===== SUBTITLE (大) ===== -->
+  <section class="subtitle">
+    <div class="subtitle__row">
+      <div class="subtitle__item">FカラーUP</div>
+      <div class="subtitle__item">VSクラスUP</div>
+      <div class="subtitle__item">Excellent Cut</div>
+      <div class="subtitle__item">DPS簡易鑑定カード付き</div>
+    </div>
+    <p class="subtitle__note">※ 本リリースに掲載の鑑別カードはイメージ画像です。</p>
+  </section>
+
+  <!-- ===== SECTION 1: 0.5ctピアスの迫力 ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">Total 0.5ct</div>
+      <h2 class="section__title">
+        <span class="section__title-accent">2石合計 0.5ct</span> の<br>
+        圧倒的な輝き
+      </h2>
+      <p class="section__lead">
+        左右の耳に、それぞれ <span class="brand-inline">0.25ct</span> の <span class="brand-inline">VS</span> クラス UP・<span class="brand-inline">F</span> カラー UP ラウンドブリリアントカット。
+        ラボグロウンならではの圧倒的な透明度と輝きで、ご自身の存在感を引き立てます。
+      </p>
+    </div>
+    <div class="pp-frame">
+      <img src="pierce-assets/pp/page-05.jpg" alt="MAISON BLSR 取り扱いグレード一覧">
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: グレードハイライト ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">High Grade</div>
+      <h2 class="section__title">
+        全てが、<span class="section__title-accent">高品質グレード</span>。
+      </h2>
+      <p class="section__lead">
+        4 つの C（Carat / Cut / Color / Clarity）すべてで、<br>
+        宝飾品として上位の評価を受けるグレードを選定。
+      </p>
+    </div>
+    <div class="grades">
+      <div class="grade-card">
+        <div class="grade-card__icon">◇</div>
+        <div class="grade-card__label">0.3ct UP</div>
+        <div class="grade-card__sub">Carat</div>
       </div>
-      <div class="celeb-card">
-        <img src="pierce-assets/celebrity-eva-longoria.jpg" alt="Eva Longoria Parker delicate hoop necklace" loading="eager" decoding="sync">
+      <div class="grade-card">
+        <div class="grade-card__icon">✦</div>
+        <div class="grade-card__label">EX — VG</div>
+        <div class="grade-card__sub">Cut</div>
       </div>
-      <div class="celebrity__copy">
-        <p class="celebrity__copy-line">
-          その輝きは、<br>
-          時を超えて<br>
-          <span class="celebrity__copy-em">受け継がれます。</span>
+      <div class="grade-card">
+        <div class="grade-card__icon">◈</div>
+        <div class="grade-card__label">FカラーUP</div>
+        <div class="grade-card__sub">Color</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-card__icon">❖</div>
+        <div class="grade-card__label">VSクラスUP</div>
+        <div class="grade-card__sub">Clarity</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: ラボグロウンダイヤモンドの魅力 ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">Why Lab Grown</div>
+      <h2 class="section__title">
+        ラボグロウンダイヤモンドの<br>
+        <span class="section__title-accent">3 つの魅力</span>
+      </h2>
+      <p class="section__lead">
+        天然と寸分違わぬ品質、より純粋な輝き、そしてサステナブル。<br>
+        新時代のラグジュアリーが、ここから始まります。
+      </p>
+    </div>
+
+    <div class="points">
+      <div class="point">
+        <div class="point__num">POINT &nbsp;·&nbsp; 1</div>
+        <h3 class="point__title">天然ダイヤモンドと<br>全く同じ成分</h3>
+        <p class="point__body">
+          ラボグロウンダイヤモンドは、天然ダイヤモンドと同じ炭素結晶構造を持つ、本物のダイヤモンドです。キュービックジルコニアやモアサナイトとは違い、硬度・輝き・美しさまで天然ダイヤモンドと同等の性質を持ちます。
         </p>
+      </div>
+      <div class="point">
+        <div class="point__num">POINT &nbsp;·&nbsp; 2</div>
+        <h3 class="point__title">澄み渡るような<br>美しい透明感</h3>
+        <p class="point__body">
+          ラボグロウンダイヤモンドには、不純物が少なく、透明感のある美しい輝きを持つものが多く存在します。光を受けた瞬間の、クリアな煌めきが魅力。それは、現代の技術だからこそ生み出せる美しさです。
+        </p>
+      </div>
+      <div class="point">
+        <div class="point__num">POINT &nbsp;·&nbsp; 3</div>
+        <h3 class="point__title">地球と共に生きる<br>サステナブルな輝き</h3>
+        <p class="point__body">
+          未来を考えることは、美しさを諦めることではありません。ラボグロウンダイヤモンドは、新しい技術によって生まれた、次世代のダイヤモンド。環境負荷を抑えながら、本物の輝きをまとうという、新しい選択肢です。
+        </p>
+      </div>
+    </div>
+
+    <div class="pp-grid" style="margin-top: 56px;">
+      <div class="pp-frame"><img src="pierce-assets/pp/page-02.jpg" alt="POINT 1 — 天然ダイヤモンドと全く同じ成分"></div>
+      <div class="pp-frame"><img src="pierce-assets/pp/page-03.jpg" alt="POINT 2 — 澄み渡るような美しい透明感"></div>
+    </div>
+    <div style="margin-top: 28px;">
+      <div class="pp-frame"><img src="pierce-assets/pp/page-04.jpg" alt="POINT 3 — 地球と共に生きるサステナブルな輝き"></div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: 天然 vs ラボグロウン ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">Natural vs Lab Grown</div>
+      <h2 class="section__title">
+        同価格で<br>
+        <span class="section__title-accent">比較すると</span>。
+      </h2>
+      <p class="section__lead">
+        同じ予算で、より高いグレードを。<br>
+        ラボグロウンダイヤモンドが選ばれる理由が、ここにあります。
+      </p>
+    </div>
+    <div class="pp-frame">
+      <img src="pierce-assets/pp/page-06.jpg" alt="NATURAL DIAMOND vs LAB GROWN DIAMOND 比較">
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: 各種チャート ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">Reference Charts</div>
+      <h2 class="section__title">
+        全てのグレード基準を、<br>
+        <span class="section__title-accent">明確に</span>。
+      </h2>
+    </div>
+    <div class="pp-grid">
+      <div class="pp-frame"><img src="pierce-assets/pp/page-07.jpg" alt="Color Chart D-Z"></div>
+      <div class="pp-frame"><img src="pierce-assets/pp/page-08.jpg" alt="Clarity Chart FL — I"></div>
+      <div class="pp-frame"><img src="pierce-assets/pp/page-09.jpg" alt="Cut Chart Excellent — Poor"></div>
+      <div class="pp-frame"><img src="pierce-assets/pp/page-10.jpg" alt="Size Chart"></div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: DPS簡易鑑定書 ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">Certification</div>
+      <h2 class="section__title">
+        DPS 鑑定機関による<br>
+        <span class="section__title-accent">確かな証明</span>
+      </h2>
+    </div>
+    <div class="cert-wrap">
+      <div class="cert-img">
+        <img src="pierce-assets/dps-cert.jpg?v=2" alt="DPS Gem Identification Report">
+      </div>
+      <div class="cert-body">
+        <h3 class="cert-body__title">DPS 簡易鑑定カード付き</h3>
+        <p class="cert-body__text">
+          全てのピアスに、Diamond Pro Service（DPS）による Gem Identification Report が付属します。Lab Grown Diamond / 0.25ct 0.25ct up / ラウンドブリリアントカット / F VS up — Made in Japan。第三者機関の評価で、品質と価値を保証いたします。
+        </p>
+        <p class="cert-body__note">※ 本リリースに掲載の鑑定書はイメージ画像です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 7: K18イエローゴールド ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">Material</div>
+      <h2 class="section__title">
+        地金は、宝飾品素材の<br>
+        <span class="section__title-accent">18K イエローゴールド</span>。
+      </h2>
+    </div>
+    <div class="material">
+      <div class="material__icon">
+        <span class="material__bar"></span>
+      </div>
+      <div>
+        <h3 class="material__title">K18 Yellow Gold</h3>
+        <p class="material__text">
+          ジュエリーの主役にふさわしい、純度 75% の 18 金イエローゴールドを採用。日常使いに耐えうる強度を保ちながら、肌に馴染む温かみのある色味で、ダイヤモンドの輝きをより一層引き立てます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 8: 専用BOX & ショッパー ===== -->
+  <section class="section">
+    <div class="section__head">
+      <div class="section__eyebrow">Packaging</div>
+      <h2 class="section__title">
+        贈る瞬間まで、<br>
+        <span class="section__title-accent">特別な体験を</span>。
+      </h2>
+      <p class="section__lead">
+        <span class="brand-inline">MAISON&nbsp;BLSR</span> オリジナルの専用 BOX とショッパーバッグでお届けします。
+      </p>
+    </div>
+    <div class="package">
+      <div class="package__img">
+        <img src="pierce-assets/rebirth-product.jpg" alt="MAISON BLSR 専用ピンクボックス・ショッパーバッグ・ジュエリーボックス">
+      </div>
+      <p class="package__text">
+        八角形のサテンピンクボックス、マットブラックのジュエリーボックス、<br>
+        そしてゴールドのブランドマークが入った専用ショッパーバッグ。<br>
+        受け取る瞬間から、メゾンの世界観を味わっていただけます。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 9: MAISON BLSR の復活 ===== -->
+  <section class="section">
+    <div class="rebirth">
+      <div class="rebirth__brand">
+        <img class="rebirth__monogram" src="pierce-assets/br-logo.png" alt="MAISON BLSR モノグラム">
+        <div class="rebirth__brand-stack brand-stack gold-text">
+          <span class="brand-stack__maison">MAISON</span>
+          <span class="brand-stack__blsr">BLSR</span>
+        </div>
+        <div class="rebirth__tagline">Hidden In Brilliance.</div>
+      </div>
+      <div class="rebirth__body">
+        2010 年代、多くの人々に愛されてきた <span class="brand-inline">BLSR</span> が、
+        その想いと品質を受け継ぎ、
+        <span class="rebirth__highlight">7 年の時を経て</span>
+        <span class="rebirth__highlight rebirth__highlight-2">新生 <span class="brand-inline">MAISON&nbsp;BLSR</span> として</span>
+        生まれ変わります。<br>
+        変わらない想いと、進化した品質で、<br>
+        新たなラグジュアリーの時代へ。
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 10: 世界中のセレブリティ ===== -->
+  <section class="section celeb">
+    <h2 class="celeb__title">
+      世界中のセレブリティに愛されてきた、<br>
+      <span class="celeb__title-em brand-inline">BLSR</span> のジュエリー。
+    </h2>
+    <div class="celeb__grid">
+      <div class="celeb__card">
+        <img src="pierce-assets/celebrity-jennifer-lopez.jpg" alt="Jennifer Lopez wearing Side Cross Pendant">
+      </div>
+      <div class="celeb__card">
+        <img src="pierce-assets/celebrity-eva-longoria.jpg" alt="Eva Longoria Parker delicate hoop necklace">
       </div>
     </div>
   </section>
