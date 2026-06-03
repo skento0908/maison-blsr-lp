@@ -343,6 +343,101 @@ body::before{
   opacity: 0.75;
 }
 
+/* ===== スライド出典サムネイル列 (図1-6) ===== */
+.source-strip{
+  max-width: 1100px;
+  margin: 0 auto 80px;
+  padding: 28px 24px;
+  border: 1px solid rgba(184,146,63,0.3);
+  background: linear-gradient(180deg, rgba(184,146,63,0.04) 0%, rgba(184,146,63,0.01) 100%);
+}
+.source-strip__header{ text-align: center; margin-bottom: 22px; }
+.source-strip__eyebrow{
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+.source-strip__lead{
+  font-family: var(--serif-jp);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--gold-champagne);
+  opacity: 0.85;
+}
+.source-strip__row{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+.src-thumb{
+  margin: 0;
+  background: #fff;
+  border: 1px solid rgba(184,146,63,0.25);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+}
+.src-thumb img{
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+}
+.src-thumb figcaption{
+  font-family: var(--sans);
+  font-size: 8.5px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+  text-align: center;
+  padding: 0 4px 4px;
+}
+
+/* ===== Slide 5 反映: 取扱グレード一覧 ===== */
+.grade-overview{
+  max-width: 900px;
+  margin: 64px auto 0;
+  text-align: center;
+}
+.grade-overview__head{
+  margin-bottom: 28px;
+}
+.grade-overview__eyebrow{
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+.grade-overview__title{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 28px);
+  letter-spacing: 0.12em;
+  color: var(--gold-bright);
+}
+.grade-overview__img{
+  background: #fff;
+  border: 1px solid rgba(184,146,63,0.35);
+  padding: 18px;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.55);
+}
+.grade-overview__img img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ===== 単独素材画像表示 ===== */
 .pp-frame{
   margin: 0 auto;
@@ -833,10 +928,8 @@ body::before{
   .celeb__grid{ grid-template-columns: 1fr; gap: 22px; }
   .hero__brand-logo{ width: 60px; height: 60px; }
   .hero__brand-stack{ font-size: 20px; }
-  .slides-grid{ grid-template-columns: 1fr; gap: 20px; }
-  .archive-grid{ grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .archive-tile--wide{ grid-column: span 2; }
-  .archive-tile--strip{ grid-column: span 2; }
+  .source-strip__row{ grid-template-columns: repeat(3, 1fr); }
+  .src-thumb img{ height: 80px; }
 }
 </style>
 </head>
@@ -879,6 +972,22 @@ body::before{
       <img src="pierce-assets/hi-res/lab-grown-pair-hero.jpg" alt="MAISON BLSR 合計0.5ct ラボグロウンダイヤモンドピアス">
     </div>
   </section>
+
+  <!-- ===== スライド出典サムネイル (図1-6) ===== -->
+  <div class="source-strip">
+    <div class="source-strip__header">
+      <span class="source-strip__eyebrow">Source · Slide 1 — 4</span>
+      <p class="source-strip__lead">本リリースは <span class="brand-inline">MAISON&nbsp;BLSR</span> PP 資料に準拠しています。</p>
+    </div>
+    <div class="source-strip__row">
+      <figure class="src-thumb"><img src="pierce-assets/zu/01-lab-vs-natural.png" alt="Slide 1 Lab×Natural"><figcaption>Slide 1 · Lab×Natural</figcaption></figure>
+      <figure class="src-thumb"><img src="pierce-assets/zu/02-pair-diamonds.png" alt="Slide 1 ペア"><figcaption>Slide 1 · Pair</figcaption></figure>
+      <figure class="src-thumb"><img src="pierce-assets/zu/03-igi-report.jpg" alt="Slide 2 IGI"><figcaption>Slide 2 · IGI</figcaption></figure>
+      <figure class="src-thumb"><img src="pierce-assets/zu/04-top-side-large.jpg" alt="Slide 3 Top + Side"><figcaption>Slide 3 · Top/Side</figcaption></figure>
+      <figure class="src-thumb"><img src="pierce-assets/zu/05-on-leaves.jpg" alt="Slide 4 サステナブル"><figcaption>Slide 4 · Leaves</figcaption></figure>
+      <figure class="src-thumb"><img src="pierce-assets/zu/06-top-side-small.jpg" alt="Slide 5 LAB GROWN"><figcaption>Slide 5 · LG</figcaption></figure>
+    </div>
+  </div>
 
   <!-- ===== SUBTITLE (大) ===== -->
   <section class="subtitle">
@@ -947,6 +1056,19 @@ body::before{
         <div class="grade-card__sub">Clarity</div>
       </div>
     </div>
+
+    <!-- Slide 5 反映: BLSR 取り扱いグレード一覧ビジュアル -->
+    <div class="grade-overview">
+      <div class="grade-overview__head">
+        <span class="grade-overview__eyebrow">Slide 5 — Official Material</span>
+        <h3 class="grade-overview__title">
+          <span class="brand-inline">MAISON&nbsp;BLSR</span> 取り扱いグレード
+        </h3>
+      </div>
+      <div class="grade-overview__img">
+        <img src="pierce-assets/zu/07-grade-overview.png" alt="MAISON BLSR 取り扱いグレード一覧 — カラット 0.3CTUP / カット EX〜VG / カラー FカラーUP / クラリティ VSクラスUP">
+      </div>
+    </div>
   </section>
 
   <!-- ===== SECTION 3: ラボグロウンダイヤモンドの魅力 ===== -->
@@ -1012,14 +1134,14 @@ body::before{
     </div>
     <div class="compare-grid">
       <figure class="compare">
-        <div class="compare__img"><img src="pierce-assets/hi-res/natural-with-inclusions.jpg" alt="同価格帯の天然ダイヤモンド (K カラー / I3 / Poor 例)"></div>
+        <div class="compare__img"><img src="pierce-assets/zu/11-natural-i3.jpg" alt="同価格帯の天然ダイヤモンド (K カラー / I3 / Poor 例)"></div>
         <figcaption class="compare__caption">
           <span class="compare__label">Natural Diamond</span>
           <span class="compare__grade">Kカラー &nbsp;·&nbsp; I3 &nbsp;·&nbsp; Poor</span>
         </figcaption>
       </figure>
       <figure class="compare">
-        <div class="compare__img"><img src="pierce-assets/hi-res/diamond-top-side.jpg" alt="同価格帯のラボグロウンダイヤモンド (F / VS1 / Excellent)"></div>
+        <div class="compare__img"><img src="pierce-assets/zu/12-lab-vs1-ex.png" alt="同価格帯のラボグロウンダイヤモンド (F / VS1 / Excellent)"></div>
         <figcaption class="compare__caption">
           <span class="compare__label compare__label--gold">Lab Grown Diamond</span>
           <span class="compare__grade">Fカラー &nbsp;·&nbsp; VS1 &nbsp;·&nbsp; Excellent</span>
@@ -1045,28 +1167,28 @@ body::before{
     </div>
     <div class="chart-list">
       <figure class="chart">
-        <figcaption class="chart__title">Color &nbsp;<span class="chart__title-jp">— カラー</span></figcaption>
-        <div class="chart__img"><img src="pierce-assets/hi-res/chart-color.jpg" alt="Color Chart D-Z"></div>
+        <figcaption class="chart__title">Color &nbsp;<span class="chart__title-jp">— カラー (Slide 7)</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/zu/13-chart-color.jpg" alt="Color Chart D-Z"></div>
       </figure>
       <figure class="chart">
-        <figcaption class="chart__title">Clarity &nbsp;<span class="chart__title-jp">— クラリティ</span></figcaption>
-        <div class="chart__img"><img src="pierce-assets/hi-res/chart-clarity.jpg" alt="Clarity Chart FL — I"></div>
+        <figcaption class="chart__title">Clarity &nbsp;<span class="chart__title-jp">— クラリティ (Slide 8)</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/zu/14-chart-clarity.png" alt="Clarity Chart FL — I"></div>
         <div class="chart__subimg">
           <img src="pierce-assets/hi-res/chart-clarity-thumb.jpg" alt="Clarity Chart — BLSR取扱グレード抜粋">
           <span class="chart__subimg-label">BLSR 取り扱いグレード抜粋</span>
         </div>
       </figure>
       <figure class="chart">
-        <figcaption class="chart__title">Cut &nbsp;<span class="chart__title-jp">— カット</span></figcaption>
-        <div class="chart__img"><img src="pierce-assets/hi-res/chart-cut.jpg" alt="Cut Chart Excellent — Poor"></div>
+        <figcaption class="chart__title">Cut &nbsp;<span class="chart__title-jp">— カット (Slide 9)</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/zu/15-chart-cut.png" alt="Cut Chart Excellent — Poor"></div>
         <div class="chart__subimg">
           <img src="pierce-assets/hi-res/chart-cut-with-side.jpg" alt="Cut Chart — 横顔フェーズ図">
           <span class="chart__subimg-label">5 段階 — Side Profile</span>
         </div>
       </figure>
       <figure class="chart">
-        <figcaption class="chart__title">Carat &nbsp;<span class="chart__title-jp">— カラット (実寸目安)</span></figcaption>
-        <div class="chart__img"><img src="pierce-assets/hi-res/chart-size.jpg" alt="Size Chart 0.01ct - 1.0ct"></div>
+        <figcaption class="chart__title">Carat &nbsp;<span class="chart__title-jp">— カラット 実寸目安 (Slide 10)</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/zu/16-chart-size.jpg" alt="Size Chart 0.01ct - 1.0ct"></div>
       </figure>
     </div>
   </section>
