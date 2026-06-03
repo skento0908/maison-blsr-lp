@@ -13,3 +13,8 @@ BLSR　TV番組.pdf
 # PDF生成用の縮小画像 (再生成可能、コミット不要)
 press-images-print/
 _press_print.html
+
+# .pptx から抽出した原素材 (pierce-assets/hi-res/ に最適化済み)
+pptx-extract/
+LAB GROWN DIAMONDの魅力 PP*.pptx
+LAB GROWN DIAMONDの魅力 PP*.pdf
