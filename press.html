@@ -414,8 +414,9 @@ html, body{
 }
 
 /* ===== モバイル: 最初の描画から CSS calc() で transform: scale を適用 ===== */
+/* "screen and" を指定 → 印刷時にはこのルールは発火しない (印刷は @media print 側で扱う) */
 /* 794px = 210mm @ 96dpi。viewportに対する比率で縮小し、レイアウト幅も負marginで打ち消す */
-@media (max-width: 800px){
+@media screen and (max-width: 800px){
   .viewport{ padding: 24px 8px; }
   .controls{ top: 10px; right: 10px; }
   .controls__btn{ padding: 10px 12px; font-size: 8px; letter-spacing: 0.25em; }
@@ -456,7 +457,9 @@ html, body{
     height: 297mm !important;
     margin: 0 !important;
     transform: none !important;
+    transform-origin: initial !important;
     page-break-after: avoid;
+    page-break-inside: avoid;
   }
   /* オーバーレイ系の擬似要素 (ノイズ・ヴィネット) は色味を消すのでoff */
   .poster::before,
