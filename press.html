@@ -408,132 +408,12 @@ html, body{
   border-color: var(--gold);
 }
 
-/* ===== レスポンシブ (モバイル: 縦に積む流動レイアウトに切替) ===== */
+/* ===== モバイル: ポスター本体は触らず、ビューポート余白とコントロールだけ縮小 ===== */
+/* デスクトップと同じ A4 レイアウトを transform: scale() で画面幅にフィット (JS側で処理) */
 @media (max-width: 820px){
-  .viewport{ padding: 24px 12px; align-items: stretch; }
+  .viewport{ padding: 24px 8px; }
   .controls{ top: 10px; right: 10px; }
   .controls__btn{ padding: 10px 12px; font-size: 8px; letter-spacing: 0.25em; }
-
-  /* A4寸法を解除して流動に */
-  .poster{
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: 28px 16px 24px;
-    overflow: visible;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  }
-
-  /* ヘッダーを縦積み */
-  .poster__header{
-    flex-direction: column;
-    gap: 28px;
-    margin-bottom: 28px;
-  }
-  .poster__brand-block{
-    width: 100%;
-    gap: 10px;
-  }
-  .poster__brand-logo{
-    width: 110px;
-    height: 110px;
-  }
-  .poster__brand{
-    font-size: 30pt;
-  }
-  .poster__tag{
-    font-size: 10pt;
-    letter-spacing: 0.35em;
-  }
-  .poster__tag-sub{
-    font-size: 11pt;
-  }
-
-  /* 雑誌スタックを扇配置→グリッドに */
-  .poster__as-seen{
-    width: 100%;
-    height: auto;
-  }
-  .poster__as-seen-stack{
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding: 8px 0 0;
-  }
-  .poster__as-seen-stack > .poster__as-seen-cover,
-  .poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(1),
-  .poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(2),
-  .poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(3),
-  .poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(4),
-  .poster__as-seen-stack > .poster__as-seen-cover:nth-of-type(5){
-    position: static;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    transform: none;
-    margin: 0;
-  }
-  .poster__as-seen-stack > .poster__as-seen-front{
-    position: static;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    transform: none;
-    margin: 0;
-    grid-column: 1 / -1;
-  }
-
-  /* 著名人モザイクを 4列 に縮小 */
-  .poster__mosaic{
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-  .mosaic-cell--placeholder .ph-name{ font-size: 10px; }
-  .mosaic-cell--placeholder .ph-note{ font-size: 7px; letter-spacing: 0.1em; }
-
-  /* TV 帯を 4列x3行 に */
-  .poster__tv{
-    margin-top: 22px;
-    padding-top: 18px;
-  }
-  .poster__tv-label{
-    font-size: 9px;
-    letter-spacing: 0.4em;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .poster__tv-label::before,
-  .poster__tv-label::after{
-    width: 24px;
-  }
-  .poster__tv-grid{
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-
-  /* フッターは可読サイズへ */
-  .poster__footer{
-    padding-top: 22px;
-  }
-  .poster__footer-copy{
-    font-size: 12pt;
-    line-height: 1.8;
-    margin-bottom: 18px;
-  }
-  .poster__footer-meta{
-    flex-direction: column;
-    gap: 10px;
-    font-size: 9px;
-    letter-spacing: 0.35em;
-  }
-  .poster__footer-meta::before,
-  .poster__footer-meta::after{ display: none; }
-  .poster__footer-tagline{
-    font-size: 11pt;
-    letter-spacing: 0.25em;
-    margin-top: 14px;
-  }
 }
 
 /* ===== 印刷時のスタイル ===== */
@@ -671,8 +551,8 @@ html, body{
 </div>
 
 <script>
-// デスクトップ中間幅で A4 が画面より広い場合のみ transform scale でフィット。
-// スマホ (<=820px) はネイティブの流動レイアウト (CSS @media) に任せる。
+// A4寸法ポスターを画面幅に合わせて transform: scale() で縮小。
+// デスクトップでもスマホでも同じレイアウトのまま、収まる大きさで表示。
 (function(){
   const poster = document.querySelector('.poster');
   const viewport = document.querySelector('.viewport');
@@ -680,9 +560,7 @@ html, body{
     if (window.matchMedia('print').matches) return;
     poster.style.transform = '';
     poster.style.marginBottom = '';
-    // モバイルブレークポイント以下では CSS が流動レイアウトを担当
-    if (window.innerWidth <= 820) return;
-    const availWidth = viewport.clientWidth - 24;
+    const availWidth = viewport.clientWidth - 16;
     const posterWidth = poster.offsetWidth;
     if (availWidth < posterWidth) {
       const scale = availWidth / posterWidth;
