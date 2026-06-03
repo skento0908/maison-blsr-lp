@@ -715,101 +715,90 @@ body::before{
 }
 .celeb__card img{ width: 100%; height: auto; display: block; }
 
-/* ===== 元PP資料アーカイブ ===== */
-.pp-archive{ margin-top: 30px; }
-.pp-archive__lead{
-  text-align: center;
-  font-family: var(--serif-jp);
-  font-size: 14px;
-  letter-spacing: 0.15em;
-  color: var(--gold-champagne);
-  opacity: 0.75;
-  margin: 24px 0 36px;
+/* ===== 画像インテグレーション (ペラ資料用追加配置) ===== */
+
+/* 導入バナー (frames-on-wall) — hero前 */
+.intro-banner{
+  max-width: 1100px;
+  margin: 0 auto 70px;
+  border: 1px solid rgba(184,146,63,0.25);
+  background: #000;
+  padding: 6px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+  overflow: hidden;
 }
-.slides-grid{
+.intro-banner img{
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
+/* サブタイトル右端のスモールダイヤモンド装飾 */
+.subtitle__icon{
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  border: 1px solid rgba(184,146,63,0.4);
+}
+.subtitle__icon img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* 0.5ct ペアの右側に diamond-macro 単石 */
+.duo-visual{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1.4fr 1fr;
   gap: 28px;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: stretch;
 }
-.slide{
-  margin: 0;
-  border: 1px solid rgba(184,146,63,0.35);
+.duo-visual .pp-frame{ margin: 0; }
+.duo-visual .pp-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* チャート補助サムネ */
+.chart__subimg{
   background: #fff;
-  padding: 6px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.slide img{ width: 100%; height: auto; display: block; }
-.slide figcaption{
-  font-family: var(--sans);
-  font-size: 10.5px;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.62);
-  padding: 6px 14px 12px;
-  text-align: left;
-}
-
-.archive-divider{
-  text-align: center;
-  margin: 80px auto 22px;
-  max-width: 720px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-.archive-divider::before,
-.archive-divider::after{
-  content:"";
-  flex: 1;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-}
-.archive-divider__label{
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.6em;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.85;
-}
-
-.archive-grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.archive-tile{
-  margin: 0;
   border: 1px solid rgba(184,146,63,0.25);
-  background: var(--black-mid);
-  padding: 6px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  padding: 10px;
+  margin-top: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
-.archive-tile img{ width: 100%; height: auto; display: block; }
-.archive-tile figcaption{
+.chart__subimg img{ width: 100%; height: auto; display: block; }
+.chart__subimg-label{
+  display: block;
+  text-align: center;
   font-family: var(--sans);
   font-size: 9.5px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.7;
-  padding: 4px 8px 8px;
-  text-align: center;
+  color: rgba(0,0,0,0.6);
+  padding-top: 8px;
 }
-.archive-tile--wide{ grid-column: span 2; }
-.archive-tile--strip{ grid-column: span 4; }
-.archive-tile--strip img{ object-fit: cover; height: 60px; }
+
+/* セクション間の細い床テクスチャ帯 */
+.floor-divider{
+  max-width: 1200px;
+  margin: 80px auto;
+  border: 1px solid rgba(184,146,63,0.2);
+  overflow: hidden;
+  opacity: 0.85;
+}
+.floor-divider img{
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+  display: block;
+}
 
 /* ===== タグライン ===== */
 .tagline{
@@ -860,6 +849,11 @@ body::before{
 
 <article class="sheet">
 
+  <!-- ===== 導入バナー (PP資料原本の世界観) ===== -->
+  <div class="intro-banner">
+    <img src="pierce-assets/hi-res/frames-on-wall.jpg" alt="LAB GROWN DIAMOND — プレス展示モチーフ">
+  </div>
+
   <!-- ===== HERO (特大) ===== -->
   <section class="hero">
     <div class="hero__brand">
@@ -888,6 +882,9 @@ body::before{
 
   <!-- ===== SUBTITLE (大) ===== -->
   <section class="subtitle">
+    <span class="subtitle__icon">
+      <img src="pierce-assets/hi-res/diamond-tiny.jpg" alt="">
+    </span>
     <div class="subtitle__row">
       <div class="subtitle__item">FカラーUP</div>
       <div class="subtitle__item">VSクラスUP</div>
@@ -910,8 +907,9 @@ body::before{
         ラボグロウンならではの圧倒的な透明度と輝きで、ご自身の存在感を引き立てます。
       </p>
     </div>
-    <div class="pp-frame">
-      <img src="pierce-assets/hi-res/lab-grown-pair-hero.jpg" alt="2石セットのラボグロウンダイヤモンド">
+    <div class="duo-visual">
+      <div class="pp-frame"><img src="pierce-assets/hi-res/lab-grown-pair-hero.jpg" alt="2石セットのラボグロウンダイヤモンド"></div>
+      <div class="pp-frame"><img src="pierce-assets/hi-res/diamond-macro.jpg" alt="ラボグロウンダイヤモンド マクロ"></div>
     </div>
   </section>
 
@@ -1033,6 +1031,9 @@ body::before{
     </p>
   </section>
 
+  <!-- ===== Floor Divider (細) ===== -->
+  <div class="floor-divider"><img src="pierce-assets/hi-res/wood-floor-thin.jpg" alt=""></div>
+
   <!-- ===== SECTION 5: 各種チャート ===== -->
   <section class="section">
     <div class="section__head">
@@ -1050,10 +1051,18 @@ body::before{
       <figure class="chart">
         <figcaption class="chart__title">Clarity &nbsp;<span class="chart__title-jp">— クラリティ</span></figcaption>
         <div class="chart__img"><img src="pierce-assets/hi-res/chart-clarity.jpg" alt="Clarity Chart FL — I"></div>
+        <div class="chart__subimg">
+          <img src="pierce-assets/hi-res/chart-clarity-thumb.jpg" alt="Clarity Chart — BLSR取扱グレード抜粋">
+          <span class="chart__subimg-label">BLSR 取り扱いグレード抜粋</span>
+        </div>
       </figure>
       <figure class="chart">
         <figcaption class="chart__title">Cut &nbsp;<span class="chart__title-jp">— カット</span></figcaption>
         <div class="chart__img"><img src="pierce-assets/hi-res/chart-cut.jpg" alt="Cut Chart Excellent — Poor"></div>
+        <div class="chart__subimg">
+          <img src="pierce-assets/hi-res/chart-cut-with-side.jpg" alt="Cut Chart — 横顔フェーズ図">
+          <span class="chart__subimg-label">5 段階 — Side Profile</span>
+        </div>
       </figure>
       <figure class="chart">
         <figcaption class="chart__title">Carat &nbsp;<span class="chart__title-jp">— カラット (実寸目安)</span></figcaption>
@@ -1134,6 +1143,9 @@ body::before{
     </div>
   </section>
 
+  <!-- ===== Floor Divider (太) ===== -->
+  <div class="floor-divider"><img src="pierce-assets/hi-res/wood-floor-thick.jpg" alt=""></div>
+
   <!-- ===== SECTION 9: MAISON BLSR の復活 ===== -->
   <section class="section">
     <div class="rebirth">
@@ -1170,46 +1182,6 @@ body::before{
       <div class="celeb__card">
         <img src="pierce-assets/celebrity-eva-longoria.jpg" alt="Eva Longoria Parker delicate hoop necklace">
       </div>
-    </div>
-  </section>
-
-  <!-- ===== SECTION 11: 元PP資料アーカイブ ===== -->
-  <section class="section pp-archive">
-    <div class="section__head">
-      <div class="section__eyebrow">Reference · Source Material</div>
-      <h2 class="section__title">
-        プレス資料<br>
-        <span class="section__title-accent">「LAB GROWN DIAMOND の魅力」</span>
-      </h2>
-      <p class="section__lead">
-        本リリースの根拠となる、<span class="brand-inline">MAISON&nbsp;BLSR</span> オリジナル PP 資料を全 10 スライド掲載いたします。
-      </p>
-    </div>
-    <div class="slides-grid">
-      <figure class="slide"><img src="pierce-assets/slides/slide-01.jpg" alt="Slide 1 — ラボグロウンダイヤモンド"><figcaption>01 &nbsp;·&nbsp; ラボグロウンダイヤモンド</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-02.jpg" alt="Slide 2 — POINT 1 天然と同じ成分"><figcaption>02 &nbsp;·&nbsp; POINT 1 天然と同じ成分</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-03.jpg" alt="Slide 3 — POINT 2 美しい透明感"><figcaption>03 &nbsp;·&nbsp; POINT 2 美しい透明感</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-04.jpg" alt="Slide 4 — POINT 3 サステナブル"><figcaption>04 &nbsp;·&nbsp; POINT 3 サステナブルな輝き</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-05.jpg" alt="Slide 5 — BLSR 取り扱いグレード"><figcaption>05 &nbsp;·&nbsp; BLSR 取り扱いグレード</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-06.jpg" alt="Slide 6 — Natural vs Lab Grown"><figcaption>06 &nbsp;·&nbsp; Natural vs Lab Grown</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-07.jpg" alt="Slide 7 — Color Chart"><figcaption>07 &nbsp;·&nbsp; Color Chart</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-08.jpg" alt="Slide 8 — Clarity Chart"><figcaption>08 &nbsp;·&nbsp; Clarity Chart</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-09.jpg" alt="Slide 9 — Cut Chart"><figcaption>09 &nbsp;·&nbsp; Cut Chart</figcaption></figure>
-      <figure class="slide"><img src="pierce-assets/slides/slide-10.jpg" alt="Slide 10 — Size Chart"><figcaption>10 &nbsp;·&nbsp; Size Chart</figcaption></figure>
-    </div>
-
-    <div class="archive-divider">
-      <span class="archive-divider__label">Source Photography</span>
-    </div>
-    <p class="pp-archive__lead">資料内で使用しているオリジナル素材写真。</p>
-    <div class="archive-grid">
-      <figure class="archive-tile"><img src="pierce-assets/hi-res/diamond-macro.jpg" alt="ダイヤモンド マクロ"><figcaption>Macro</figcaption></figure>
-      <figure class="archive-tile"><img src="pierce-assets/hi-res/diamond-tiny.jpg" alt="ダイヤモンド 単石サムネイル"><figcaption>Solo</figcaption></figure>
-      <figure class="archive-tile"><img src="pierce-assets/hi-res/chart-clarity-thumb.jpg" alt="クラリティチャート サムネ"><figcaption>Clarity (alt)</figcaption></figure>
-      <figure class="archive-tile"><img src="pierce-assets/hi-res/chart-cut-with-side.jpg" alt="カットチャート 横顔付"><figcaption>Cut (with side)</figcaption></figure>
-      <figure class="archive-tile archive-tile--wide"><img src="pierce-assets/hi-res/frames-on-wall.jpg" alt="ラボグロウンダイヤモンド フレーム展示"><figcaption>Frames On Wall</figcaption></figure>
-      <figure class="archive-tile archive-tile--strip"><img src="pierce-assets/hi-res/wood-floor-thick.jpg" alt="床板テクスチャ"><figcaption>Wooden Floor</figcaption></figure>
-      <figure class="archive-tile archive-tile--strip"><img src="pierce-assets/hi-res/wood-floor-thin.jpg" alt="床板テクスチャ (細)"><figcaption>Wooden Floor (slim)</figcaption></figure>
     </div>
   </section>
 
