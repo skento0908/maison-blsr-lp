@@ -341,12 +341,12 @@ body::before{
   opacity: 0.75;
 }
 
-/* ===== PP画像表示 ===== */
+/* ===== 単独素材画像表示 ===== */
 .pp-frame{
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 900px;
   border: 1px solid rgba(184,146,63,0.3);
-  background: rgba(184,146,63,0.03);
+  background: var(--black-mid);
   padding: 8px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.55);
 }
@@ -359,10 +359,105 @@ body::before{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 .pp-grid .pp-frame{ margin: 0; }
+
+/* 天然 vs ラボグロウン比較 */
+.compare-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  max-width: 1000px;
+  margin: 0 auto 28px;
+}
+.compare{
+  text-align: center;
+  margin: 0;
+}
+.compare__img{
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(184,146,63,0.3);
+  background: #000;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+}
+.compare__img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.compare__caption{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.compare__label{
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+}
+.compare__label--gold{ color: var(--gold-bright); opacity: 1; }
+.compare__grade{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  letter-spacing: 0.1em;
+  color: var(--gold-champagne);
+}
+.compare__note{
+  text-align: center;
+  font-family: var(--serif-jp);
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: var(--gold-bright);
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+/* チャートリスト */
+.chart-list{
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.chart{
+  margin: 0;
+}
+.chart__title{
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 32px);
+  letter-spacing: 0.12em;
+  color: var(--gold-bright);
+  margin-bottom: 18px;
+}
+.chart__title-jp{
+  font-family: var(--serif-jp);
+  font-style: normal;
+  font-size: 0.55em;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  opacity: 0.85;
+}
+.chart__img{
+  background: #fff;
+  border: 1px solid rgba(184,146,63,0.3);
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.chart__img img{ width: 100%; height: auto; display: block; }
 
 /* ===== ポイントカード ===== */
 .points{
@@ -630,6 +725,9 @@ body::before{
   .section{ margin-bottom: 70px; }
   .grades{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .pp-grid{ grid-template-columns: 1fr; gap: 20px; }
+  .compare-grid{ grid-template-columns: 1fr; gap: 20px; }
+  .chart-list{ gap: 36px; }
+  .chart__img{ padding: 12px; }
   .points{ grid-template-columns: 1fr; gap: 18px; }
   .cert-wrap, .material, .rebirth{ grid-template-columns: 1fr; gap: 32px; padding: 40px 20px; }
   .celeb__grid{ grid-template-columns: 1fr; gap: 22px; }
@@ -698,7 +796,7 @@ body::before{
       </p>
     </div>
     <div class="pp-frame">
-      <img src="pierce-assets/pp/page-05.jpg" alt="MAISON BLSR 取り扱いグレード一覧">
+      <img src="pierce-assets/pdf-img/lab-grown-pair-hero.jpg" alt="2石セットのラボグロウンダイヤモンド">
     </div>
   </section>
 
@@ -777,11 +875,8 @@ body::before{
     </div>
 
     <div class="pp-grid" style="margin-top: 56px;">
-      <div class="pp-frame"><img src="pierce-assets/pp/page-02.jpg" alt="POINT 1 — 天然ダイヤモンドと全く同じ成分"></div>
-      <div class="pp-frame"><img src="pierce-assets/pp/page-03.jpg" alt="POINT 2 — 澄み渡るような美しい透明感"></div>
-    </div>
-    <div style="margin-top: 28px;">
-      <div class="pp-frame"><img src="pierce-assets/pp/page-04.jpg" alt="POINT 3 — 地球と共に生きるサステナブルな輝き"></div>
+      <div class="pp-frame"><img src="pierce-assets/pdf-img/diamond-igi-report.jpg" alt="天然ダイヤモンドと同じ成分 — IGI Laboratory Grown Diamond Report"></div>
+      <div class="pp-frame"><img src="pierce-assets/pdf-img/diamond-top-side.jpg" alt="澄み渡るような美しい透明感"></div>
     </div>
   </section>
 
@@ -798,9 +893,25 @@ body::before{
         ラボグロウンダイヤモンドが選ばれる理由が、ここにあります。
       </p>
     </div>
-    <div class="pp-frame">
-      <img src="pierce-assets/pp/page-06.jpg" alt="NATURAL DIAMOND vs LAB GROWN DIAMOND 比較">
+    <div class="compare-grid">
+      <figure class="compare">
+        <div class="compare__img"><img src="pierce-assets/pdf-img/natural-with-inclusions.jpg" alt="同価格帯の天然ダイヤモンド (K カラー / I3 / Poor 例)"></div>
+        <figcaption class="compare__caption">
+          <span class="compare__label">Natural Diamond</span>
+          <span class="compare__grade">Kカラー &nbsp;·&nbsp; I3 &nbsp;·&nbsp; Poor</span>
+        </figcaption>
+      </figure>
+      <figure class="compare">
+        <div class="compare__img"><img src="pierce-assets/pdf-img/diamond-top-side.jpg" alt="同価格帯のラボグロウンダイヤモンド (F / VS1 / Excellent)"></div>
+        <figcaption class="compare__caption">
+          <span class="compare__label compare__label--gold">Lab Grown Diamond</span>
+          <span class="compare__grade">Fカラー &nbsp;·&nbsp; VS1 &nbsp;·&nbsp; Excellent</span>
+        </figcaption>
+      </figure>
     </div>
+    <p class="compare__note">
+      同じご予算でも、選ぶグレードに大きな差が生まれます。
+    </p>
   </section>
 
   <!-- ===== SECTION 5: 各種チャート ===== -->
@@ -812,11 +923,23 @@ body::before{
         <span class="section__title-accent">明確に</span>。
       </h2>
     </div>
-    <div class="pp-grid">
-      <div class="pp-frame"><img src="pierce-assets/pp/page-07.jpg" alt="Color Chart D-Z"></div>
-      <div class="pp-frame"><img src="pierce-assets/pp/page-08.jpg" alt="Clarity Chart FL — I"></div>
-      <div class="pp-frame"><img src="pierce-assets/pp/page-09.jpg" alt="Cut Chart Excellent — Poor"></div>
-      <div class="pp-frame"><img src="pierce-assets/pp/page-10.jpg" alt="Size Chart"></div>
+    <div class="chart-list">
+      <figure class="chart">
+        <figcaption class="chart__title">Color &nbsp;<span class="chart__title-jp">— カラー</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/pdf-img/chart-color.jpg" alt="Color Chart D-Z"></div>
+      </figure>
+      <figure class="chart">
+        <figcaption class="chart__title">Clarity &nbsp;<span class="chart__title-jp">— クラリティ</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/pdf-img/chart-clarity.jpg" alt="Clarity Chart FL — I"></div>
+      </figure>
+      <figure class="chart">
+        <figcaption class="chart__title">Cut &nbsp;<span class="chart__title-jp">— カット</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/pdf-img/chart-cut.jpg" alt="Cut Chart Excellent — Poor"></div>
+      </figure>
+      <figure class="chart">
+        <figcaption class="chart__title">Carat &nbsp;<span class="chart__title-jp">— カラット (実寸目安)</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/pdf-img/chart-size.jpg" alt="Size Chart 0.01ct - 1.0ct"></div>
+      </figure>
     </div>
   </section>
 
