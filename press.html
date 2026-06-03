@@ -565,23 +565,35 @@ html, body{
     if (window.matchMedia('print').matches) return;
     poster.style.transform = '';
     poster.style.marginBottom = '';
-    const availWidth = viewport.clientWidth - 16;
+    poster.style.marginRight = '';
+    // viewport要素とwindow両方の幅で小さい方を採用 (確実な収まり)
+    const availWidth = Math.min(viewport.clientWidth, window.innerWidth) - 16;
     const posterWidth = poster.offsetWidth;
     if (availWidth < posterWidth) {
       const scale = availWidth / posterWidth;
-      poster.style.transformOrigin = 'top center';
+      // top leftを起点に縮めて、右と下の余分なレイアウト領域をマイナスマージンで打ち消す
+      poster.style.transformOrigin = 'top left';
       poster.style.transform = 'scale(' + scale + ')';
-      // 縮小後の隙間を埋める
       const posterHeight = poster.offsetHeight;
+      poster.style.marginRight = -(posterWidth * (1 - scale)) + 'px';
       poster.style.marginBottom = -(posterHeight * (1 - scale)) + 'px';
     }
   }
+  // 早期実行 (DOM構築直後 / load / resize / orientation)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fit);
+  } else {
+    fit();
+  }
   window.addEventListener('resize', fit);
   window.addEventListener('load', fit);
-  // 印刷前後でリセット
-  window.addEventListener('beforeprint', function(){ poster.style.transform = ''; poster.style.marginBottom = ''; });
+  window.addEventListener('orientationchange', fit);
+  window.addEventListener('beforeprint', function(){
+    poster.style.transform = '';
+    poster.style.marginBottom = '';
+    poster.style.marginRight = '';
+  });
   window.addEventListener('afterprint', fit);
-  fit();
 })();
 </script>
 
