@@ -50,6 +50,9 @@ html, body{
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* スマホで A4 寸法のレイアウトが横スクロール起こさないように */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* スクリーン用ビューポート (ポスターを中央に) */
@@ -60,6 +63,8 @@ html, body{
   align-items: flex-start;
   padding: 40px 16px;
   background: radial-gradient(ellipse at center, #15110a 0%, var(--black) 70%);
+  overflow: hidden;
+  max-width: 100vw;
 }
 
 /* ポスター本体: A4縦サイズ */
