@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>世界基準の輝きを、耳元に。 — MAISON BLSR</title>
-<meta name="description" content="合計0.5ct ラボグロウンダイヤモンドピアス。FカラーUP / VSクラスUP / Excellent Cut / DPS簡易鑑定カード付き。MAISON BLSR プレスリリース。">
+<meta name="description" content="合計0.5ct ラボグロウンダイヤモンドピアス。FカラーUP / VSクラスUP / DPS簡易鑑定カード付き。MAISON BLSR プレスリリース。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -311,9 +311,12 @@ body::before{
 /* ===== グレードハイライト ===== */
 .grades{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .grade-card{
   padding: 36px 20px;
@@ -485,6 +488,16 @@ body::before{
   width: 100%;
   height: auto;
   display: block;
+}
+.grade-overview__note{
+  font-family: var(--serif-jp);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  color: var(--gold-champagne);
+  opacity: 0.75;
+  margin-top: 16px;
+  text-align: center;
+  line-height: 1.8;
 }
 
 /* ===== 単独素材画像表示 ===== */
@@ -1007,7 +1020,6 @@ body::before{
     <div class="subtitle__row">
       <div class="subtitle__item">FカラーUP</div>
       <div class="subtitle__item">VSクラスUP</div>
-      <div class="subtitle__item">Excellent Cut</div>
       <div class="subtitle__item">DPS簡易鑑定カード付き</div>
     </div>
     <p class="subtitle__note">※ 本リリースに掲載の鑑別カードはイメージ画像です。</p>
@@ -1045,7 +1057,7 @@ body::before{
         全てが、<span class="section__title-accent">高品質グレード</span>。
       </h2>
       <p class="section__lead">
-        4 つの C（Carat / Cut / Color / Clarity）すべてで、<br>
+        Carat / Color / Clarity すべてで、<br>
         宝飾品として上位の評価を受けるグレードを選定。
       </p>
     </div>
@@ -1054,11 +1066,6 @@ body::before{
         <div class="grade-card__icon">◇</div>
         <div class="grade-card__label">0.3ct UP</div>
         <div class="grade-card__sub">Carat</div>
-      </div>
-      <div class="grade-card">
-        <div class="grade-card__icon">✦</div>
-        <div class="grade-card__label">EX — VG</div>
-        <div class="grade-card__sub">Cut</div>
       </div>
       <div class="grade-card">
         <div class="grade-card__icon">◈</div>
@@ -1081,8 +1088,11 @@ body::before{
         </h3>
       </div>
       <div class="grade-overview__img">
-        <img src="pierce-assets/zu/07-grade-overview.png" alt="MAISON BLSR 取り扱いグレード一覧 — カラット 0.3CTUP / カット EX〜VG / カラー FカラーUP / クラリティ VSクラスUP">
+        <img src="pierce-assets/zu/07-grade-overview.png" alt="MAISON BLSR 取り扱いグレード一覧 — カラット 0.3CTUP / カラー FカラーUP / クラリティ VSクラスUP">
       </div>
+      <p class="grade-overview__note">
+        ※ 本リリースで取り扱うピアスは <span class="brand-inline">DPS 簡易鑑定カード</span> 付属です。同カードにはカットグレードの記載はございません。
+      </p>
     </div>
   </section>
 
@@ -1160,10 +1170,10 @@ body::before{
         </figcaption>
       </figure>
       <figure class="compare">
-        <div class="compare__img"><img src="pierce-assets/zu/12-lab-vs1-ex.png" alt="同価格帯のラボグロウンダイヤモンド (F / VS1 / Excellent)"></div>
+        <div class="compare__img"><img src="pierce-assets/zu/12-lab-vs1-ex.png" alt="同価格帯のラボグロウンダイヤモンド (F / VS1)"></div>
         <figcaption class="compare__caption">
           <span class="compare__label compare__label--gold">Lab Grown Diamond</span>
-          <span class="compare__grade">Fカラー &nbsp;·&nbsp; VS1 &nbsp;·&nbsp; Excellent</span>
+          <span class="compare__grade">Fカラー &nbsp;·&nbsp; VS1</span>
         </figcaption>
       </figure>
     </div>
