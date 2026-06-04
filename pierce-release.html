@@ -391,8 +391,10 @@ body::before{
   color: var(--gold-champagne);
 }
 .special-note__badge{
-  display: inline-block;
+  display: block;
+  width: fit-content;
   padding: 4px 14px;
+  margin: 0 auto 16px;
   background: var(--gold-gradient);
   color: var(--black);
   font-family: var(--sans);
@@ -400,8 +402,6 @@ body::before{
   font-weight: 500;
   letter-spacing: 0.4em;
   text-indent: 0.4em;
-  margin-right: 10px;
-  vertical-align: middle;
 }
 .special-note__em{
   font-weight: 600;
@@ -1034,7 +1034,6 @@ body::before{
       </p>
       <p class="special-note">
         <span class="special-note__badge">SPECIAL</span>
-        通常 <span class="special-note__em">0.3ct UP</span> のところ、<br>
         今回は特別に <span class="special-note__em">0.25ct × 2</span>（合計 0.5ct）をご用意しました。
       </p>
     </div>
