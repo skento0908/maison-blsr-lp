@@ -446,6 +446,16 @@ body::before{
   opacity: 0.75;
   margin-top: 6px;
 }
+.chart__range--note{
+  border-left-color: rgba(212,181,106,0.4);
+  background: rgba(184,146,63,0.04);
+  font-size: 12.5px;
+  line-height: 1.85;
+  letter-spacing: 0.08em;
+  color: var(--gold-champagne);
+  opacity: 0.85;
+  text-align: left;
+}
 
 /* ===== Slide 5 反映: 取扱グレード一覧 ===== */
 .grade-overview{
@@ -586,6 +596,39 @@ body::before{
   color: var(--gold-bright);
   opacity: 0.85;
   margin-top: 8px;
+}
+
+/* ===== 副見出し (比較セクション内の「すべてのグレード基準を明確に」) ===== */
+.sub-heading{
+  text-align: center;
+  margin: 60px auto 40px;
+  max-width: 900px;
+}
+.sub-heading__eyebrow{
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+.sub-heading__title{
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 38px);
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  color: var(--gold-champagne);
+}
+.sub-heading__em{
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 600;
 }
 
 /* チャートリスト */
@@ -1148,6 +1191,7 @@ body::before{
         ラボグロウンダイヤモンドが選ばれる理由が、ここにあります。
       </p>
     </div>
+    <!-- 1. 統合比較画像 -->
     <div class="compare-hero">
       <img src="pierce-assets/hi-res/lab-vs-natural-square.jpg" alt="Lab-grown Diamond × Natural Diamond">
     </div>
@@ -1155,6 +1199,22 @@ body::before{
       プロが見ても、<span class="big-quote__em">見分けがつかない</span>。<br>
       まったく同じだから。
     </p>
+
+    <!-- 2. 「同じプライスで品質が違う」 -->
+    <p class="big-quote big-quote--alt">
+      同じプライスで、<br>
+      <span class="big-quote__em">こんなにも品質が違う</span>‼️
+    </p>
+
+    <!-- 3. 副見出し「すべてのグレード基準を明確に」 -->
+    <div class="sub-heading">
+      <span class="sub-heading__eyebrow">All Grade Criteria</span>
+      <h3 class="sub-heading__title">
+        すべてのグレード基準を、<span class="sub-heading__em">明確に</span>。
+      </h3>
+    </div>
+
+    <!-- 4. ラボとナチュラル それぞれの正方形画像 -->
     <div class="compare-grid">
       <figure class="compare">
         <div class="compare__img"><img src="pierce-assets/zu/11-natural-i3.jpg" alt="同価格帯の天然ダイヤモンド (K カラー / I3 / Poor 例)"></div>
@@ -1171,27 +1231,16 @@ body::before{
         </figcaption>
       </figure>
     </div>
-    <p class="big-quote big-quote--alt">
-      同じプライスで、<br>
-      <span class="big-quote__em">こんなにも品質が違う</span>‼️
-    </p>
   </section>
 
   <!-- ===== Floor Divider (細) ===== -->
   <div class="floor-divider"><img src="pierce-assets/hi-res/wood-floor-thin.jpg" alt=""></div>
 
-  <!-- ===== SECTION 5: 各種チャート ===== -->
+  <!-- ===== SECTION 5: 各種チャート (Color / Clarity / Cut / Carat) ===== -->
   <section class="section">
-    <div class="section__head">
-      <div class="section__eyebrow">Reference Charts</div>
-      <h2 class="section__title">
-        全てのグレード基準を、<br>
-        <span class="section__title-accent">明確に</span>。
-      </h2>
-    </div>
     <div class="chart-list">
       <figure class="chart">
-        <figcaption class="chart__title">Color &nbsp;<span class="chart__title-jp">— カラー (Slide 7)</span></figcaption>
+        <figcaption class="chart__title">Color &nbsp;<span class="chart__title-jp">— カラー</span></figcaption>
         <div class="chart__img"><img src="pierce-assets/zu/13-chart-color.jpg" alt="Color Chart D-Z"></div>
         <p class="chart__range">
           <span class="chart__range-label">BLSR 取扱範囲</span>
@@ -1200,12 +1249,8 @@ body::before{
         </p>
       </figure>
       <figure class="chart">
-        <figcaption class="chart__title">Clarity &nbsp;<span class="chart__title-jp">— クラリティ (Slide 8)</span></figcaption>
+        <figcaption class="chart__title">Clarity &nbsp;<span class="chart__title-jp">— クラリティ</span></figcaption>
         <div class="chart__img"><img src="pierce-assets/zu/14-chart-clarity.png" alt="Clarity Chart FL — I"></div>
-        <div class="chart__subimg">
-          <img src="pierce-assets/hi-res/chart-clarity-thumb.jpg" alt="Clarity Chart — BLSR取扱グレード抜粋">
-          <span class="chart__subimg-label">BLSR 取り扱いグレード抜粋</span>
-        </div>
         <p class="chart__range">
           <span class="chart__range-label">BLSR 取扱範囲</span>
           <span class="chart__range-em">FL — VS2</span>
@@ -1213,7 +1258,14 @@ body::before{
         </p>
       </figure>
       <figure class="chart">
-        <figcaption class="chart__title">Carat &nbsp;<span class="chart__title-jp">— カラット 実寸目安 (Slide 10)</span></figcaption>
+        <figcaption class="chart__title">Cut &nbsp;<span class="chart__title-jp">— カット</span></figcaption>
+        <div class="chart__img"><img src="pierce-assets/zu/15-chart-cut.png" alt="Cut Chart Excellent — Poor"></div>
+        <p class="chart__range chart__range--note">
+          ※ 本リリースに付属の <span class="brand-inline">DPS 簡易鑑定カード</span> にはカットグレードの記載はございません。参考情報としてのチャート掲載です。
+        </p>
+      </figure>
+      <figure class="chart">
+        <figcaption class="chart__title">Carat &nbsp;<span class="chart__title-jp">— カラット 実寸目安</span></figcaption>
         <div class="chart__img"><img src="pierce-assets/zu/16-chart-size.jpg" alt="Size Chart 0.01ct - 1.0ct"></div>
       </figure>
     </div>
