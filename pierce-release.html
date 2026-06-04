@@ -404,6 +404,8 @@ body::before{
 }
 .pp-grid--three{ grid-template-columns: repeat(3, 1fr); }
 .pp-grid .pp-frame{ margin: 0; }
+.pp-grid--three .pp-frame{ aspect-ratio: 1 / 1; overflow: hidden; padding: 8px; }
+.pp-grid--three .pp-frame img{ width: 100%; height: 100%; object-fit: cover; }
 
 /* 天然 vs ラボグロウン比較 */
 .compare-hero{
