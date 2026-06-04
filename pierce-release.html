@@ -343,63 +343,6 @@ body::before{
   opacity: 0.75;
 }
 
-/* ===== スライド出典サムネイル列 (図1-6) ===== */
-.source-strip{
-  max-width: 1100px;
-  margin: 0 auto 80px;
-  padding: 28px 24px;
-  border: 1px solid rgba(184,146,63,0.3);
-  background: linear-gradient(180deg, rgba(184,146,63,0.04) 0%, rgba(184,146,63,0.01) 100%);
-}
-.source-strip__header{ text-align: center; margin-bottom: 22px; }
-.source-strip__eyebrow{
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.55em;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.85;
-  margin-bottom: 10px;
-}
-.source-strip__lead{
-  font-family: var(--serif-jp);
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  color: var(--gold-champagne);
-  opacity: 0.85;
-}
-.source-strip__row{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-}
-.src-thumb{
-  margin: 0;
-  background: #fff;
-  border: 1px solid rgba(184,146,63,0.25);
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
-}
-.src-thumb img{
-  width: 100%;
-  height: 110px;
-  object-fit: cover;
-  display: block;
-}
-.src-thumb figcaption{
-  font-family: var(--sans);
-  font-size: 8.5px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.55);
-  text-align: center;
-  padding: 0 4px 4px;
-}
-
 /* ===== Slide 5 反映: 取扱グレード一覧 ===== */
 .grade-overview{
   max-width: 900px;
@@ -910,8 +853,6 @@ body::before{
   .celeb__grid{ grid-template-columns: 1fr; gap: 22px; }
   .hero__brand-logo{ width: 60px; height: 60px; }
   .hero__brand-stack{ font-size: 20px; }
-  .source-strip__row{ grid-template-columns: repeat(3, 1fr); }
-  .src-thumb img{ height: 80px; }
 }
 </style>
 </head>
@@ -949,22 +890,6 @@ body::before{
       <img src="pierce-assets/hi-res/lab-grown-pair-hero.jpg" alt="MAISON BLSR 合計0.5ct ラボグロウンダイヤモンドピアス">
     </div>
   </section>
-
-  <!-- ===== スライド出典サムネイル (図1-6) ===== -->
-  <div class="source-strip">
-    <div class="source-strip__header">
-      <span class="source-strip__eyebrow">Source · Slide 1 — 4</span>
-      <p class="source-strip__lead">本リリースは <span class="brand-inline">MAISON&nbsp;BLSR</span> PP 資料に準拠しています。</p>
-    </div>
-    <div class="source-strip__row">
-      <figure class="src-thumb"><img src="pierce-assets/zu/01-lab-vs-natural.png" alt="Slide 1 Lab×Natural"><figcaption>Slide 1 · Lab×Natural</figcaption></figure>
-      <figure class="src-thumb"><img src="pierce-assets/zu/02-pair-diamonds.png" alt="Slide 1 ペア"><figcaption>Slide 1 · Pair</figcaption></figure>
-      <figure class="src-thumb"><img src="pierce-assets/zu/03-igi-report.jpg" alt="Slide 2 IGI"><figcaption>Slide 2 · IGI</figcaption></figure>
-      <figure class="src-thumb"><img src="pierce-assets/zu/04-top-side-large.jpg" alt="Slide 3 Top + Side"><figcaption>Slide 3 · Top/Side</figcaption></figure>
-      <figure class="src-thumb"><img src="pierce-assets/zu/05-on-leaves.jpg" alt="Slide 4 サステナブル"><figcaption>Slide 4 · Leaves</figcaption></figure>
-      <figure class="src-thumb"><img src="pierce-assets/zu/06-top-side-small.jpg" alt="Slide 5 LAB GROWN"><figcaption>Slide 5 · LG</figcaption></figure>
-    </div>
-  </div>
 
   <!-- ===== SUBTITLE (大) ===== -->
   <section class="subtitle">
