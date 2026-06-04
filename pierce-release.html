@@ -343,6 +343,112 @@ body::before{
   opacity: 0.75;
 }
 
+/* ===== 大きめキャッチコピー (Lab×Natural / Compare) ===== */
+.big-quote{
+  text-align: center;
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: clamp(24px, 3.6vw, 46px);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  color: var(--gold-bright);
+  max-width: 920px;
+  margin: 32px auto 0;
+  padding: 28px 24px;
+}
+.big-quote--alt{
+  margin-top: 40px;
+  border-top: 1px solid rgba(184,146,63,0.4);
+  border-bottom: 1px solid rgba(184,146,63,0.4);
+  padding: 36px 24px;
+}
+.big-quote__em{
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 600;
+  font-size: 1.15em;
+}
+
+/* ===== 0.25ct 特別仕様の注釈 ===== */
+.special-note{
+  margin: 32px auto 0;
+  max-width: 760px;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, rgba(212,181,106,0.10) 0%, rgba(184,146,63,0.03) 100%);
+  border: 1px solid rgba(212,181,106,0.45);
+  border-radius: 4px;
+  text-align: center;
+  font-family: var(--serif-jp);
+  font-size: clamp(15px, 1.6vw, 19px);
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+  color: var(--gold-champagne);
+}
+.special-note__badge{
+  display: inline-block;
+  padding: 4px 14px;
+  background: var(--gold-gradient);
+  color: var(--black);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.special-note__em{
+  font-weight: 600;
+  color: var(--gold-bright);
+  letter-spacing: 0.04em;
+}
+.special-note__heart{
+  color: #d4a5b3;
+  font-size: 1.2em;
+}
+
+/* ===== チャートに BLSR 取扱範囲を強調表示 ===== */
+.chart__range{
+  margin-top: 18px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, rgba(212,181,106,0.10) 0%, rgba(184,146,63,0.03) 100%);
+  border: 1px solid rgba(212,181,106,0.5);
+  border-left: 4px solid var(--gold-bright);
+  text-align: center;
+  font-family: var(--serif-jp);
+}
+.chart__range-label{
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-right: 14px;
+  vertical-align: middle;
+}
+.chart__range-em{
+  display: inline-block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(22px, 2.5vw, 32px);
+  letter-spacing: 0.06em;
+  color: var(--gold-bright);
+  vertical-align: middle;
+}
+.chart__range-sub{
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--gold-champagne);
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
 /* ===== Slide 5 反映: 取扱グレード一覧 ===== */
 .grade-overview{
   max-width: 900px;
@@ -919,6 +1025,11 @@ body::before{
         左右の耳に、それぞれ <span class="brand-inline">0.25ct</span> の <span class="brand-inline">VS</span> クラス UP・<span class="brand-inline">F</span> カラー UP ラウンドブリリアントカット。
         ラボグロウンならではの圧倒的な透明度と輝きで、ご自身の存在感を引き立てます。
       </p>
+      <p class="special-note">
+        <span class="special-note__badge">SPECIAL</span>
+        通常 <span class="special-note__em">0.3ct UP</span> のところ、<br>
+        今回は特別に <span class="special-note__em">0.25ct × 2</span>（合計 0.5ct）をご用意しました <span class="special-note__heart">♡</span>
+      </p>
     </div>
     <div class="duo-visual">
       <div class="pp-frame"><img src="pierce-assets/hi-res/lab-grown-pair-hero.jpg" alt="2石セットのラボグロウンダイヤモンド"></div>
@@ -1036,6 +1147,10 @@ body::before{
     <div class="compare-hero">
       <img src="pierce-assets/hi-res/lab-vs-natural-square.jpg" alt="Lab-grown Diamond × Natural Diamond">
     </div>
+    <p class="big-quote">
+      プロが見ても、<span class="big-quote__em">見分けがつかない</span>。<br>
+      まったく同じだから。
+    </p>
     <div class="compare-grid">
       <figure class="compare">
         <div class="compare__img"><img src="pierce-assets/zu/11-natural-i3.jpg" alt="同価格帯の天然ダイヤモンド (K カラー / I3 / Poor 例)"></div>
@@ -1052,8 +1167,9 @@ body::before{
         </figcaption>
       </figure>
     </div>
-    <p class="compare__note">
-      同じご予算でも、選ぶグレードに大きな差が生まれます。
+    <p class="big-quote big-quote--alt">
+      同じプライスで、<br>
+      <span class="big-quote__em">こんなにも品質が違う</span>‼️
     </p>
   </section>
 
@@ -1073,6 +1189,11 @@ body::before{
       <figure class="chart">
         <figcaption class="chart__title">Color &nbsp;<span class="chart__title-jp">— カラー (Slide 7)</span></figcaption>
         <div class="chart__img"><img src="pierce-assets/zu/13-chart-color.jpg" alt="Color Chart D-Z"></div>
+        <p class="chart__range">
+          <span class="chart__range-label">BLSR 取扱範囲</span>
+          <span class="chart__range-em">D — F</span>
+          <span class="chart__range-sub">最上位 Colorless グループ のみセレクション</span>
+        </p>
       </figure>
       <figure class="chart">
         <figcaption class="chart__title">Clarity &nbsp;<span class="chart__title-jp">— クラリティ (Slide 8)</span></figcaption>
@@ -1081,6 +1202,11 @@ body::before{
           <img src="pierce-assets/hi-res/chart-clarity-thumb.jpg" alt="Clarity Chart — BLSR取扱グレード抜粋">
           <span class="chart__subimg-label">BLSR 取り扱いグレード抜粋</span>
         </div>
+        <p class="chart__range">
+          <span class="chart__range-label">BLSR 取扱範囲</span>
+          <span class="chart__range-em">FL — VS2</span>
+          <span class="chart__range-sub">肉眼では識別できない上位インクルージョン範囲</span>
+        </p>
       </figure>
       <figure class="chart">
         <figcaption class="chart__title">Carat &nbsp;<span class="chart__title-jp">— カラット 実寸目安 (Slide 10)</span></figcaption>
